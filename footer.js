@@ -1,4 +1,179 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  /* ===== ESTILOS DO FOOTER ===== */
+  const style = document.createElement("style");
+  style.textContent = `
+    footer {
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .footer-divider-img img {
+      width: 100%;
+      display: block;
+    }
+
+    .footer-cloud {
+      min-height: 64px;
+      background-color: #b99fbb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 20px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .social-btn {
+      all: unset;
+      cursor: pointer;
+      position: relative;
+      border-radius: 100em;
+      background-color: rgba(60, 20, 80, 0.75);
+      box-shadow:
+        -0.15em -0.15em 0.15em -0.075em rgba(5, 5, 5, 0.25),
+        0.0375em 0.0375em 0.0675em 0 rgba(5, 5, 5, 0.1);
+      text-decoration: none;
+      display: inline-block;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+
+    .social-btn::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      width: calc(100% + 0.3em);
+      height: calc(100% + 0.3em);
+      top: -0.15em;
+      left: -0.15em;
+      border-radius: inherit;
+      background: linear-gradient(
+        -135deg,
+        rgba(5, 5, 5, 0.5),
+        transparent 20%,
+        transparent 100%
+      );
+      filter: blur(0.0125em);
+      opacity: 0.25;
+      mix-blend-mode: multiply;
+    }
+
+    .btn-outer {
+      position: relative;
+      z-index: 1;
+      border-radius: inherit;
+      transition: box-shadow 300ms ease;
+      will-change: box-shadow;
+      box-shadow:
+        0 0.05em 0.05em -0.01em rgba(5, 5, 5, 1),
+        0 0.01em 0.01em -0.01em rgba(5, 5, 5, 0.5),
+        0.15em 0.3em 0.1em -0.01em rgba(5, 5, 5, 0.25);
+    }
+
+    .social-btn:hover .btn-outer {
+      box-shadow:
+        0 0 0 0 rgba(5, 5, 5, 1),
+        0 0 0 0 rgba(5, 5, 5, 0.5),
+        0 0 0 0 rgba(5, 5, 5, 0.25);
+    }
+
+    .btn-inner {
+      position: relative;
+      z-index: 1;
+      border-radius: inherit;
+      padding: 0.45em 1em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background-image: linear-gradient(
+        135deg,
+        rgba(210, 185, 230, 1),
+        rgba(175, 140, 200, 1)
+      );
+      transition:
+        box-shadow 300ms ease,
+        clip-path 250ms ease,
+        transform 250ms ease;
+      will-change: box-shadow, clip-path, transform;
+      overflow: clip;
+      clip-path: inset(0 0 0 0 round 100em);
+      box-shadow:
+        0 0 0 0 inset rgba(5, 5, 5, 0.1),
+        -0.05em -0.05em 0.05em 0 inset rgba(5, 5, 5, 0.25),
+        0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.25),
+        0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 1),
+        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+        -0.075em -0.25em 0.25em 0.1em inset rgba(5, 5, 5, 0.25);
+    }
+
+    .social-btn:hover .btn-inner {
+      clip-path: inset(
+        clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px)
+        clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 100em
+      );
+      box-shadow:
+        0.1em 0.15em 0.05em 0 inset rgba(5, 5, 5, 0.75),
+        -0.025em -0.03em 0.05em 0.025em inset rgba(5, 5, 5, 0.5),
+        0.25em 0.25em 0.2em 0 inset rgba(5, 5, 5, 0.5),
+        0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.15),
+        0 0 0 0 inset rgba(255, 255, 255, 1),
+        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+        -0.075em -0.12em 0.2em 0.1em inset rgba(5, 5, 5, 0.25);
+    }
+
+    .social-btn:active .btn-inner {
+      transform: scale(0.975);
+    }
+
+    .btn-inner svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      color: #2e1040;
+      position: relative;
+      z-index: 4;
+    }
+
+    .btn-inner span {
+      position: relative;
+      z-index: 4;
+      font-family: 'Georgia', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: rgba(0, 0, 0, 0);
+      background-image: linear-gradient(
+        135deg,
+        rgba(46, 16, 64, 1),
+        rgba(90, 40, 110, 1)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      transition: transform 250ms ease;
+      display: block;
+      will-change: transform;
+      user-select: none;
+    }
+
+    .social-btn:hover .btn-inner span {
+      transform: scale(0.975);
+    }
+
+    @media (max-width: 600px) {
+      .footer-socials {
+        gap: 8px;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  /* ===== HTML DO FOOTER ===== */
   const footer = document.createElement("footer");
   footer.innerHTML = `
     <div class="footer-divider-img">
@@ -28,4 +203,5 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   `;
   document.body.appendChild(footer);
+
 });
