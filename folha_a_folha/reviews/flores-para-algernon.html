@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    TEMPLATE DE REVIEW — folha a folha
+    Cada <div class="pagina"> é uma folha do livro.
+    O JS lê esses blocos e mostra um por vez com animação de virar página.
+    Você decide onde cada página termina — por assunto, tamanho, clima.
+    Dentro de cada .pagina você tem liberdade total: texto, imagens, frases, etc.
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Special+Elite&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0e8d5;
+      font-family: 'EB Garamond', Georgia, serif;
+      color: #2a1f0f;
+      font-size: 0.9rem;
+      line-height: 1.82;
+    }
+
+    /* cada pagina e um bloco — o JS controla qual aparece */
+    .pagina {
+      padding: 1.8rem 1.6rem 2.5rem;
+      min-height: 100%;
+      display: none; /* JS mostra a pagina correta */
+    }
+    .pagina.ativa {
+      display: block;
+    }
+
+    /* data do review */
+    .data {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      color: #c8b99a;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    /* label de secao */
+    .label {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #c8b99a;
+      margin-bottom: 0.45rem;
+      border-bottom: 1px solid rgba(200,185,154,0.4);
+      padding-bottom: 0.3rem;
+      display: block;
+    }
+
+    /* paragrafo padrao */
+    .pagina p { margin-bottom: 0.9rem; }
+
+    /* frase destacada */
+    .frase {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      color: #3a2a1a;
+      text-align: center;
+      padding: 1rem 1.2rem;
+      border-top: 1px solid #c8b99a;
+      border-bottom: 1px solid #c8b99a;
+      margin: 1.4rem 0;
+      line-height: 1.6;
+    }
+
+    /* anotacao lateral */
+    .margem {
+      border-left: 2px solid rgba(200,185,154,0.5);
+      padding-left: 0.8rem;
+      font-size: 0.82rem;
+      color: #7a6a5a;
+      margin: 0.8rem 0;
+    }
+
+    /* imagem */
+    .pagina img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      margin: 1rem 0;
+      border-radius: 1px;
+      opacity: 0.9;
+    }
+
+    /* texto riscado */
+    .riscado { text-decoration: line-through; opacity: 0.5; }
+
+    /* numero de pagina */
+    .num-pagina {
+      position: absolute;
+      bottom: 0.8rem;
+      width: 100%;
+      left: 0;
+      text-align: center;
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 0.68rem;
+      color: #c8b99a;
+      letter-spacing: 0.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGINA 1 -->
+  <div class="pagina ativa">
+    <span class="data">dd.mm.aaaa</span>
+    <span class="label">impressao inicial</span>
+    <p>Escreva aqui sua primeira impressao do livro.</p>
+    <p>Pode ter mais de um paragrafo.</p>
+    <span class="num-pagina">1</span>
+  </div>
+
+  <!-- PAGINA 2 -->
+  <div class="pagina">
+    <span class="label">lendo</span>
+    <p>Como foi a experiencia de leitura?</p>
+    <p class="margem">Uma anotacao lateral aqui.</p>
+    <p>Mais texto aqui.</p>
+    <span class="num-pagina">2</span>
+  </div>
+
+  <!-- PAGINA 3 -->
+  <div class="pagina">
+    <span class="label">pensamentos</span>
+    <p>Reflexoes livres sobre o livro.</p>
+    <p class="frase">"Uma frase do livro que ficou."</p>
+    <span class="num-pagina">3</span>
+  </div>
+
+  <!--
+    ADICIONE MAIS PAGINAS CONFORME PRECISAR:
+
+    <div class="pagina">
+      <img src="https://..." alt="">
+      <p>Legenda ou texto.</p>
+      <span class="num-pagina">4</span>
+    </div>
+  -->
+
+</body>
+</html>

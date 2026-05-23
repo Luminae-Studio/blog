@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Sobrevivência criativa ou colapso emocional</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Magali Ayelen">
+<link rel="shortcut icon" href="/imagens/favicon.PNG">
+<link rel="stylesheet" href="/style.css">
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Georgia', serif;
+    background: url("/imagens/fundo-index.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ===== HEADER MOBILE — oculto no desktop ===== */
+  .header-mobile {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  /* ===== LOGO STICKY — desktop ===== */
+  .home-logo {
+    position: fixed;
+    top: 18px;
+    left: 50px;
+    z-index: 100;
+    transition: transform 0.35s ease;
+  }
+  .home-logo img {
+    width: 200px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(40,10,70,0.45));
+  }
+  .home-logo:hover { transform: scale(1.05) translateY(-3px); }
+  .home-logo:hover img { filter: drop-shadow(0 8px 20px rgba(80,20,120,0.55)); }
+
+  /* ===== MAIN ===== */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 60px 20px 48px 20px;
+  }
+
+  /* ===== CARD PAPEL — lilás claro visível mas suave ===== */
+  .papel {
+    position: relative;
+    background-color: #ede0f5;          /* lilás claro suave */
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 27px,
+        rgba(140,100,180,0.13) 27px,
+        rgba(140,100,180,0.13) 28px
+      );
+    border-radius: 6px;
+    box-shadow:
+      0 2px 6px rgba(60,20,80,0.10),
+      0 8px 30px rgba(60,20,80,0.18),
+      0 20px 60px rgba(40,10,60,0.22),
+      inset 0 0 40px rgba(255,255,255,0.20);
+    width: 100%;
+    max-width: 680px;
+    padding: 48px 52px 52px 56px;
+  }
+
+  /* Lombada lateral esquerda */
+  .papel::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 8px; height: 100%;
+    background: linear-gradient(to right, rgba(130,80,180,0.28), transparent);
+    border-radius: 6px 0 0 6px;
+  }
+
+  /* ===== CABEÇALHO DO POST ===== */
+ .post-cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+  /* Caixinha de data */
+  .post-data-box {
+    flex-shrink: 0;
+    background-color: #7a4fa0;
+    color: #fff;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    padding: 5px 16px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(80,30,120,0.28);
+    text-align: center;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+  .post-data-box .mes-ano {
+    font-size: 0.82rem;
+    opacity: 0.95;
+  }
+
+  /* Título do post */
+  .post-titulo {
+    font-size: clamp(2rem);
+    font-weight: 600;
+    color: #2e1040;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    align-self: center;
+    text-align: center;
+  }
+
+  /* ===== CORPO DO POST ===== */
+  .post-corpo {
+    color: #2e1040;
+    font-size: 0.97rem;
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+
+  /* Parágrafo */
+  .post-corpo p {
+    margin-bottom: 1.2em;
+  }
+
+  /* Lista com marcadores (•) */
+  .post-corpo ul {
+    list-style: none;
+    margin: 0 0 1.2em 0;
+    padding: 0;
+  }
+  .post-corpo ul li {
+    padding-left: 1.4em;
+    position: relative;
+    margin-bottom: 0.4em;
+  }
+  .post-corpo ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #9b6bc0;
+  }
+
+  /* Lista numerada */
+  .post-corpo ol {
+    padding-left: 1.6em;
+    margin-bottom: 1.2em;
+  }
+  .post-corpo ol li {
+    margin-bottom: 0.4em;
+  }
+
+  /* Citação em destaque */
+  .post-corpo blockquote {
+    border-left: 3px solid #9b6bc0;
+    margin: 1.4em 0;
+    padding: 10px 20px;
+    background-color: rgba(155,107,192,0.08);
+    border-radius: 0 6px 6px 0;
+    color: #4a2060;
+    font-style: italic;
+  }
+
+  /* Texto em negrito */
+  /* uso: <strong>palavra</strong> */
+
+  /* Texto em itálico */
+  /* uso: <em>palavra</em> */
+
+  /* ===== DIVISÓRIA DE NUVENS (menor) ===== */
+  .post-divisoria {
+    width: 100%;
+    margin: 8px 0 28px 0;
+    overflow: hidden;
+    opacity: 0.75;
+  }
+  .post-divisoria img {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  /* ===== RODAPÉ DO POST (tags + mood) — SEM itálico ===== */
+  .post-rodape {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .post-rodape-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* Caixinha de label (Tags / Mood) */
+  .post-label {
+    flex-shrink: 0;
+    background-color: #7a4fa0;
+    color: #fff;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    box-shadow: 0 2px 6px rgba(80,30,120,0.25);
+    white-space: nowrap;
+    font-style: normal;
+  }
+
+  /* Texto das tags / mood */
+  .post-rodape-item span.conteudo {
+    color: #3d1a50;
+    font-size: 0.9rem;
+    font-style: normal;
+  }
+
+
+  /* ===== MOBILE (≤ 600px) ===== */
+  @media (max-width: 600px) {
+
+    .home-logo { display: none; }
+
+    .header-mobile {
+      display: block;
+    }
+
+    .header-mobile-bar {
+      height: 50px;
+      background-color: #b99fbb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-mobile-bar a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #2e1040;
+      font-family: 'Georgia', serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .header-mobile-bar img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .header-mobile-divider img {
+      width: 100%;
+      display: block;
+      transform: scaleY(-1);
+    }
+
+    main {
+      padding: 20px 14px 32px 14px;
+    }
+
+    .papel {
+      padding: 32px 22px 36px 26px;
+    }
+
+    .post-cabecalho {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .post-data-box {
+      align-self: flex-start;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       HEADER MOBILE (visível só em telas ≤ 600px)
+       ═══════════════════════════════════════════════ -->
+  <header class="header-mobile">
+    <div class="header-mobile-bar">
+      <a href="../../index.html" title="Home">
+        <img src="/imagens/favicon.PNG" alt="Home">
+        Home
+      </a>
+    </div>
+    <div class="header-mobile-divider">
+      <img src="https://64.media.tumblr.com/3f968d458084d2b7077c7934760124b2/f50c2545301372c0-a8/s540x810/3f709c4853b9fb3d04617c83eba46e45b2ff8019.gif" alt="">
+    </div>
+  </header>
+
+  <!-- LOGO STICKY — desktop -->
+  <a href="../../index.html" class="home-logo" title="Home">
+    <img src="https://64.media.tumblr.com/28d9847370da54c4689e3f01c521939a/44e28fec3bca1733-b4/s2048x3072/7860d550ab898931cae29983c6e4a5937a786889.gifv" alt="Início">
+  </a>
+
+  <main>
+    <div class="papel">
+
+      <!-- ═══════════════════════════════════════════
+           CABEÇALHO DO POST
+           ═══════════════════════════════════════════
+
+      -->
+      <div class="post-cabecalho">
+        <div class="post-data-box">
+          <span class="mes-ano">Ago 2025</span>
+        </div>
+        <h1 class="post-titulo" style="font-size: 1.7rem;" >Sobrevivência criativa ou colapso emocional</h1>
+      </div>
+
+      <div class="post-corpo">
+
+        <p>A nova temporada não começa com fogos de artifício, e sim com mãos sujas de terra — plantando amizades novas, grama a grama Os laços antigos ainda doem em silêncio, como cicatriz que coça em dia de chuva. Mas, pela primeira vez em meses, há espaço para brotar algo novo. <br> Tateando o chão como quem reaprende a confiar nos próprios pés. </p>
+
+        <p>Enquanto o mundo exige velocidade, escolho desaselerar. O caos interno ainda vive ali, firme, dividindo o aluguel emocional com a ansiedade. Dormir aos domingos virou meta — e conquista.</p>
+        
+        <p> <em> E então, quase sem aviso, a espiritualidade bate à porta. </em> <br> Não como um trovão. Mas como uma rosa. Delicada, viva, silenciosa. Um convite para olhar pra dentro sem se julgar, para conversar com algo maior — seja o universo, seja ela mesma. As perguntas são muitas. As respostas ainda não chegaram. Mas há paz em perguntar. E isso já é um tipo de fé. No meio de tudo isso, existe um conforto constante: os braços que acolhem ao final da noite. O amor não resolveu tudo, mas oferece um espaço seguro. E às vezes, só isso basta pra seguir. </p>
+        
+        <p> <em>  "Ainda é bagunçado, sim. Mas agora tem flores no meio da bagunça com o eco da menina de 13 anos." </em> Responsabilidades no trabalho ocupam cada minuto, silenciosas, mas vorazes. Horas se estendem, dias se confundem, e o cansaço se torna rotina. Sorir por fora, mas por dentro carrega uma pergunta que não a solta: <em> "O que eu realmente quero com a minha vida?" </em> </p>
+        
+        <p> Essa voz não é nova. É um eco antigo. <br> Aos 7, aos 13, aos 15, aos 20, ela sempre esteve lá. Um grito abafado que volta agora, mais forte, como se o tempo exigisse resposta. Mas responder não é simples. A rotina prende. A preguiça anestesia. A morte por dentro parece, às vezes, mais fácil que o esforço de mudar. Ainda assim, algo insiste em não deixá-la apagar. </p>
+        
+        <p> No meio do cansaço, a leitura voltou. Uma carícia na alma. Cada página lida é um respiro, cada história externa é um espelho que reflete a sua. Os dedos coçam, inquietos, pedindo para escrever, para transformar caos em palavras, dor em narrativa, confusão em arte. </p>
+        
+        <p> <strong>Trabalho</strong> Mais trabalho. Ela observa como o cansaço consome, mas também sente uma força nova: a vontade de ser melhor. Inscreveu-se em cursos, projetos, ideias que talvez virem realidade. E, entre a exaustão e o medo, acendeu-se uma chama discreta: a confiança que parecia perdida começa a dar sinais de retorno.</p>
+        
+        <p> E então, como em roteiro cuidadosamente escrito, aparece uma personagem inesperada: a tiktoker que ela sempre seguiu, agora não só na tela, como presença que inspira. Um incentivo, um empurrão. Um chamado: </p>
+
+
+        <blockquote>
+        "Comece. Publique. Crie."
+        </blockquote>
+        
+        <p> Sem respostas ainda. Mas pela primeira vez em muito tempo, a pergunta não doi, <em> empolga </em>  mas os dias avanzam e nós sabemos... que as coisas de este seriado são basntantes privisiveis </p>
+        
+        <p> Um olhar cansado, perdida em pensamentos que nunca cessam. Tentando organizar a própria mente como quem deseja gavetas internas, caixinhas onde pudesse guardar cada dor, cada frustração, cada lembrança. Mas não existem gavetas. Só um emaranhado que pesa. </p>
+        
+        <p> O Sentimento de não se sentier valorizada, nem vista, nem ouvida. Lutar em silencio contra um inimigo invisível que esmaga todos os dias, como se o mundo tivesse decidido que deveria carregar sozinha o que não pode ser dito em voz alta. "Tudo vai estar bem", repito a mim mesma. Um mantra que soa vazio, como um eco que volta distorcido, palavras que já não acredito, mas que insiste em dizer porque — se parar — talvez não reste nada. </p>
+        
+        <p> Cansanço de explicar mil vezes, de marcar mais um milhão. De ter a língua transformada em ruído, como se não fosse clara o suficiente. Cansou de sentir que me tratam como idiota. De ouvir opiniões sobre o corpo, o cabelo, o jeito de existir. <em> "Eu tento incomodar o mínimo possível. Mas ainda assim sinto que só atrapalho" </em> </p>
+        
+        <p> E nesse desabafo sem público, surge o maior medo: não sentir mais nada. Não raiva, não tristeza. Apenas vazio. O nada crescendo, ocupando o espaço onde antes havia dor. Uma anestesia que assusta mais do que qualquer lágrima. </p>
+
+      </div>
+
+      <div class="post-divisoria">
+        <img src="https://64.media.tumblr.com/3f968d458084d2b7077c7934760124b2/f50c2545301372c0-a8/s540x810/3f709c4853b9fb3d04617c83eba46e45b2ff8019.gif" alt="">
+      </div>
+
+      <div class="post-rodape">
+
+        <div class="post-rodape-item">
+          <span class="post-label">Tags</span>
+          <span class="conteudo">escrita · sobrevivencia · notas</span>
+        </div>
+
+        <div class="post-rodape-item">
+          <span class="post-label">Mood</span>
+          <span class="conteudo"> 💫 ️ Depress </span>
+        </div>
+
+      </div>
+
+    </div><!-- fim .papel -->
+  </main>
+
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER — igual em todas as páginas
+       ═══════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-divider-img">
+      <img src="https://64.media.tumblr.com/3f968d458084d2b7077c7934760124b2/f50c2545301372c0-a8/s540x810/3f709c4853b9fb3d04617c83eba46e45b2ff8019.gif" alt="">
+    </div>
+    <div class="footer-cloud">
+      <div class="footer-socials">
+
+        <!-- Tumblr -->
+        <a href="https://www.tumblr.com/blog/i-am--fat-blog" class="social-btn" target="_blank">
+          <div class="btn-outer">
+            <div class="btn-inner">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.304 1.406z"/></svg>
+              <span>Tumblr</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Wattpad -->
+        <a href="https://www.wattpad.com/user/Im_Aye55" class="social-btn" target="_blank">
+          <div class="btn-outer">
+            <div class="btn-inner">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4l2.6 9.6L8.9 7h2.2l2.3 6.6L15.6 4H20l-5 16-2.7-7.8L9.9 20 5 4z"/></svg>
+              <span>Wattpad</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/ayelen.borges/" class="social-btn" target="_blank">
+          <div class="btn-outer">
+            <div class="btn-inner">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span>Instagram</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

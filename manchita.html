@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Manchita — O Som dos Livros</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Magali Ayelen">
+<link rel="shortcut icon" href="/blog/imagens/favicon.PNG">
+<link rel="stylesheet" href="/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --papel-bege:    #f5efdf;
+    --papel-creme:   #fdf6e3;
+    --papel-amarelo: #f7e9a0;
+    --papel-rosa:    #fce4ec;
+    --papel-lilas:   #ede0f5;
+    --sombra:        rgba(60,20,80,0.18);
+    --roxo:          #7a4fa0;
+    --roxo-escuro:   #2e1040;
+    --hand:          'Kalam', cursive;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  img { max-width: 100%; display: block; }
+  a { text-decoration: none; color: inherit; }
+
+  body {
+    font-family: var(--hand);
+    color: var(--roxo-escuro);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background:
+      url("/blog/imagens/manchita/fundo.gif")
+      repeat center top;
+    background-size: 100% auto;
+  }
+
+  .header-mobile {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .home-logo {
+    position: fixed;
+    top: 18px;
+    left: 50px;
+    z-index: 100;
+    transition: transform 0.35s ease;
+  }
+  .home-logo img {
+    width: 200px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(40,10,70,0.45));
+  }
+  .home-logo:hover { transform: scale(1.05) translateY(-3px); }
+
+  .scrapbook {
+    flex: 1;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 80px 24px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  /* ===== PAPEL ===== */
+  .papel {
+    font-family: var(--hand);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #3a2010;
+    padding: 28px 32px;
+    border-radius: 3px;
+    position: relative;
+    box-shadow:
+      2px 3px 8px rgba(0,0,0,0.15),
+      4px 6px 20px rgba(0,0,0,0.10);
+  }
+
+  .papel-bege   { background-color: var(--papel-bege); }
+  .papel-creme  { background-color: var(--papel-creme); }
+  .papel-amarelo{ background-color: var(--papel-amarelo); }
+  .papel-rosa   { background-color: var(--papel-rosa); }
+  .papel-lilas  { background-color: var(--papel-lilas); }
+
+  .papel-linhas {
+    background-image: repeating-linear-gradient(
+      transparent, transparent 27px,
+      rgba(100,60,160,0.12) 27px, rgba(100,60,160,0.12) 28px
+    );
+  }
+
+  .papel::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 60px; height: 22px;
+    background: rgba(200,170,230,0.55);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  }
+
+  .papel.fita-esq::before { left: 20%; transform: translateX(-50%) rotate(3deg); }
+  .papel.fita-dir::before { left: 80%; transform: translateX(-50%) rotate(-3deg); }
+  .papel.sem-fita::before { display: none; }
+
+  .rot-l1 { transform: rotate(-1.2deg); }
+  .rot-l2 { transform: rotate(-2deg); }
+  .rot-r1 { transform: rotate(1deg); }
+  .rot-r2 { transform: rotate(2.5deg); }
+
+  /* ===== POLAROID ===== */
+  .polaroid {
+    background: #fff;
+    padding: 10px 10px 36px;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.22), 0 1px 3px rgba(0,0,0,0.10);
+    border-radius: 2px;
+    display: inline-block;
+    max-width: 220px;
+  }
+  .polaroid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+  .polaroid .legenda {
+    font-family: var(--hand);
+    font-size: 0.78rem;
+    text-align: center;
+    color: #555;
+    margin-top: 6px;
+    padding: 0 4px;
+  }
+
+  .pol-l1 { transform: rotate(-4deg); }
+  .pol-l2 { transform: rotate(-7deg); }
+  .pol-l3 { transform: rotate(-2deg); }
+  .pol-r1 { transform: rotate(3deg); }
+  .pol-r2 { transform: rotate(6deg); }
+  .pol-r3 { transform: rotate(2deg); }
+  
+  /* ===== INSTAX ===== */
+.instax {
+  background: #fff;
+  padding: 8px 8px 8px;
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.22);
+  border-radius: 3px;
+  display: inline-block;
+  border: 2px solid #f0c0d0;
+  position: relative;
+}
+.instax img {
+  width: 160px;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+.instax-deco {
+  font-size: 0.75rem;
+  text-align: center;
+  color: #B32F4B;
+  margin-top: 4px;
+  letter-spacing: 4px;
+}
+
+  /* ===== FOTO SOLTA ===== */
+  .foto-solta {
+    border-radius: 4px;
+    box-shadow: 2px 4px 14px rgba(0,0,0,0.22);
+    object-fit: cover;
+  }
+
+  /* ===== FOTOS SOBREPOSTAS (seção 2) ===== */
+  .fotos-overlap .coracao-foto {
+    position: absolute;
+    top: -14px;
+    left: -10px;
+    width: 32px;
+    height: 32px;
+    z-index: 10;
+    overflow: visible;
+  }
+  .fotos-overlap .coracao-foto::before,
+  .fotos-overlap .coracao-foto::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 28px;
+    background: #B32F4B;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 2px 6px rgba(179,47,75,0.45);
+  }
+  .fotos-overlap .coracao-foto::before {
+    left: 8px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  .fotos-overlap .coracao-foto::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+  .fotos-overlap {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    flex-shrink: 0;
+  }
+  .fotos-overlap .foto-tras {
+    position: absolute;
+    width: 200px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 3px 5px 16px rgba(0,0,0,0.28);
+    top: 50px;
+    left: 100px;
+    transform: rotate(7deg);
+  }
+  .fotos-overlap .foto-frente {
+    position: absolute;
+    width: 200px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 4px 6px 18px rgba(0,0,0,0.32);
+    top: 0;
+    left: 0;
+    transform: rotate(-4deg);
+  }
+
+  /* ===== DECORAÇÕES ===== */
+  .deco-coracao {
+    display: inline-block;
+    color: #e91e8c;
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 4px rgba(233,30,140,0.3));
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .deco-estrela {
+    display: inline-block;
+    color: #f4c430;
+    font-size: 1.8rem;
+    filter: drop-shadow(0 2px 4px rgba(244,196,48,0.4));
+  }
+
+.burst {
+  background: var(--papel-amarelo);
+  clip-path: polygon(
+    50% 0%, 61% 25%, 78% 5%, 74% 30%,
+    98% 28%, 80% 45%, 100% 60%, 75% 58%,
+    79% 85%, 60% 68%, 50% 95%, 40% 68%,
+    21% 85%, 25% 58%, 0% 60%, 20% 45%,
+    2% 28%, 26% 30%, 22% 5%, 39% 25%
+  );
+  font-family: var(--hand);
+  font-size: 0.70rem;
+  text-align: center;
+  color: #3a2010;
+  width: 250px; height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px;
+  line-height: 1.3;
+}
+
+
+  /* ===== VARAL ===== */
+  .varal {
+    position: relative;
+    padding-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .varal::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 5%; right: 5%;
+    height: 3px;
+    background: #8B6914;
+    border-radius: 2px;
+  }
+  .pinca { position: relative; display: inline-block; }
+  .pinca::before {
+    content: '🧷';
+    position: absolute;
+    top: -18px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.3rem; z-index: 2;
+  }
+
+  .gif-pinca { position: relative; display: inline-block; text-align: center; }
+  .gif-pinca::before {
+    content: '🧷';
+    position: absolute;
+    top: -20px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem; z-index: 2;
+  }
+  .gif-pinca img {
+    border-radius: 4px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+    max-width: 180px;
+  }
+
+  /* ===== QUADRO ===== */
+  .quadro {
+    border: 8px solid #c8a96e;
+    padding: 6px;
+    background: #fff;
+    box-shadow: 3px 4px 14px rgba(0,0,0,0.22);
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .quadro img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ===== POST-IT ===== */
+  .postit {
+    background: var(--papel-amarelo);
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-family: var(--hand);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #3a2010;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
+    position: relative;
+    max-width: 240px;
+  }
+  .postit-lilas { background: var(--papel-lilas); }
+  .postit-rosa  { background: var(--papel-rosa); }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  /* ===== SEPARADOR ===== */
+  .sep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.4rem;
+    opacity: 0.6;
+    margin: 10px 0;
+  }
+
+  /* ===== LAYOUTS ===== */
+  .sec-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .sec-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .sec-3col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .sec-texto-foto {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .sec-foto-texto {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .sec-lateral {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .fotos-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .fotos-dispersas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+
+  /* ===== MOBILE ===== */
+  .fotos-s4-mob { display: none; }
+  
+  .s34-mob { display: none; }
+  
+  .s67-mob { display: none; }
+
+.s8-mob { display: none; }
+
+.s10-mob, .s11-mob { display: none; }
+.s11-desk { display: block; }
+
+.s12-mob, .s13-mob { display: none; }
+
+.s14b1-mob { display: none; }
+
+.s14b2-desk { display: block; }
+
+.s15-mob { display: none; }
+
+.s15b2-mob { display: none; }
+
+.s1617-mob { display: none; }
+
+.s18-mob { display: none; }
+
+.s19-mob { display: none; }
+
+  @media (max-width: 600px) {
+    
+.s19-desk { display: none !important; }
+.s19-mob { display: flex !important; }
+    
+    .s18-desk { display: none !important; }
+.s18-mob  { display: flex !important; }
+    
+    .s1617-desk { display: none !important; }
+.s1617-mob { display: flex !important; }
+
+.s15b2-desk { display: none !important; }
+.s15b2-mob { display: flex !important; }
+    
+    .s15-desk { display: none !important; }
+.s15-mob { display: flex !important; }
+    
+    .s14b2-desk { display: none !important; }
+    
+    #sec13 { margin-top: 0 !important; }
+    
+    .fotos-row { gap: 8px; }
+    
+    .s10-desk, .s11-desk { display: none !important; }
+.s10-mob, .s11-mob { display: flex !important; }
+    
+    .s14b1-desk { display: none !important; }
+.s14b1-mob { display: flex !important; }
+
+.sec-lateral .polaroid { max-width: 100%; }
+    
+    .fotos-dispersas { grid-template-columns: 1fr 1fr !important; }
+    
+    .s12-desk, .s13-desk { display: none !important; }
+.s12-mob { display: flex !important; }
+.s13-mob { display: flex !important; }
+    
+    .s8-desk { display: none !important; }
+.s8-mob { display: flex !important; }
+    
+    .s67-desk { display: none; }
+.s67-mob { display: flex; flex-direction: column; }
+
+    .carrossel {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-top: 16px;
+}
+.carrossel-track {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 8px;
+}
+.carrossel-track::-webkit-scrollbar { display: none; }
+.carrossel-item {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+.carrossel-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  filter: drop-shadow(3px 5px 10px rgba(0,0,0,0.28));
+}
+.carrossel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #b99fbb;
+  display: inline-block;
+}
+    
+    .s34-desk { display: none; }
+    .s34-mob { display: flex; flex-direction: column; }
+    
+    .home-logo { display: none; }
+    .header-mobile { display: block; }
+
+    .header-mobile-bar {
+      height: 50px;
+      background-color: #b99fbb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .header-mobile-bar a {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: #2e1040;
+      font-family: 'Georgia', serif; font-size: 15px;
+      font-weight: 700; letter-spacing: 0.04em;
+    }
+    .header-mobile-bar img { width: 28px; height: 28px; object-fit: contain; }
+    .header-mobile-divider img { width: 100%; display: block; transform: scaleY(-1); }
+
+    .scrapbook { padding: 20px 14px 40px; gap: 40px; }
+
+    .sec-2col,
+    .sec-3col,
+    .sec-texto-foto,
+    .sec-foto-texto,
+    .sec-lateral { grid-template-columns: 1fr; }
+
+    .fotos-dispersas { grid-template-columns: 1fr 1fr; }
+
+    .polaroid { max-width: 160px; }
+    .polaroid img { height: 130px; }
+
+    .varal { gap: 14px; }
+
+    .fotos-s4-desk { display: none !important; }
+    .fotos-s4-mob {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    /* ===== CORREÇÃO LARGURA MOBILE ===== */
+    .papel-lilas, .papel-rosa { max-width: 100% !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header-mobile">
+  <div class="header-mobile-bar">
+    <a href="index.html" title="Home">
+      <img src="/blog/imagens/favicon.PNG" alt="Home">
+      Home
+    </a>
+  </div>
+  <div class="header-mobile-divider">
+    <img src="https://64.media.tumblr.com/3f968d458084d2b7077c7934760124b2/f50c2545301372c0-a8/s540x810/3f709c4853b9fb3d04617c83eba46e45b2ff8019.gif" alt="">
+  </div>
+</header>
+
+<a href="index.html" class="home-logo" title="Home">
+  <img src="https://64.media.tumblr.com/28d9847370da54c4689e3f01c521939a/44e28fec3bca1733-b4/s2048x3072/7860d550ab898931cae29983c6e4a5937a786889.gifv" alt="Início">
+</a>
+
+<main class="scrapbook">
+
+  <!-- ══ 1 — APRESENTAÇÃO ══ -->
+  <section class="sec-center">
+    <div class="papel papel-creme papel-linhas rot-l1" style="max-width:560px; text-align:center;">
+      Bom dia, boa tarde ou boa noite.<br>
+      Hoje apresento a vocês a <strong>"Manchita"</strong> — o ser vivo que me mostrou que você pode sim viver por amor a outro. Ela não só foi a minha primeira rebeldia, mas também o amor eterno da minha vida.
+    </div>
+    <div class="sep">🐾 ✿ 🐾</div>
+  </section>
+
+  <!-- ══ 2 — PRIMEIRO ENCONTRO ══ -->
+  <section class="sec-2col">
+    <div class="sec-center">
+      <div class="fotos-overlap">
+        <img class="foto-tras" src="/blog/imagens/manchita/img1.jpg" alt="Manchita filhote">
+        <img class="foto-frente" src="/blog/imagens/manchita/img2.jpg" alt="Manchita filhote">
+        <div class="coracao-foto"></div>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-start; margin-left:40px; margin-top:70px;">
+      <div style="color:#f4c430; font-size:1rem; letter-spacing:4px;">★ ★ ★</div>
+      <div class="postit postit-lilas rot-r2">
+        Não lembro o mês, mas lembro o ano — <strong>2014</strong>.<br>
+        Foi amor à primeira vista. No seu olhar encontrei a paz que faltava na minha alma.
+      </div>
+      <span class="deco-estrela">★</span>
+    </div>
+  </section>
+
+<!-- ══ 3 + 4 — DESKTOP ══ -->
+<section class="s34-desk">
+  <div class="sec-2col" style="align-items:flex-start;">
+    <div class="papel papel-bege fita-esq rot-r1">
+      A minha mãe tinha dito que não queria pets em casa (morávamos em um apartamento), mas eu não podia te deixar.<br><br>
+      Com meus 12 anos e a certeza de que o mundo era meu, peguei essa cachorrinha e a levei para a casa do meu tio (que tinha vários cachorros). Ninguém precisava saber que ela era de fora.
+    </div>
+    <div class="sec-center">
+      <img src="/blog/imagens/manchita/vid1.gif" alt="Manchita" class="foto-solta" style="max-width:350px; border-radius:6px;">
+    </div>
+  </div>
+  <div style="display:grid; grid-template-columns:340px 1fr 320px; gap:16px; margin-top:-15px; align-items:start;">
+    <!-- col esquerda: img3 + texto eu consegui -->
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <img src="/blog/imagens/manchita/img3.jpg"
+           alt="Manchita"
+           style="width:360px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); margin-top:-25px;">
+      <div class="papel papel-rosa sem-fita rot-l2">
+        Eu consegui! E te trouxe para casa...<br>
+        Não tinha cama, mas te dei a minha (e meu urso de pelúcia favorito). Não tinha tigela, mas te dei uma das minhas panelas de brinquedo.<br><br>
+        <strong>Eu te daria o mundo inteiro, se você me pedisse.</strong>
+      </div>
+    </div>
+    <!-- col centro: img5 em cima, img4 e img8 lado a lado embaixo -->
+    <div style="display:flex; flex-direction:column; gap:16px; margin-top:180px;">
+      <img src="/blog/imagens/manchita/img5.jpg"
+           alt="Manchita"
+           style="width:280px; height:220px; object-fit:cover; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.28)); transform:rotate(-2deg); border-radius:5px;">
+      <div style="display:flex; gap:8px;">
+        <img src="/blog/imagens/manchita/img4.jpg"
+             alt="Manchita"
+             style="width:160px; height:200px; object-fit:cover; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.28)); transform:rotate(-3deg); border-radius:5px;">
+        <img src="/blog/imagens/manchita/img8.jpg"
+             alt="Manchita"
+             style="width:160px; height:200px; object-fit:cover; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.28)); transform:rotate(3deg); border-radius:5px; position:relative; z-index:2;">
+      </div>
+    </div>
+    <!-- col direita: texto eu já tinha conseguido -->
+    <div class="papel papel-lilas fita-dir rot-l1">
+      Eu já tinha conseguido a primeira parte do meu plano — te deixar a salvo com outros cachorrinhos. Agora íamos para a segunda parte... <em>"te levar para casa"</em>.<br><br>
+      Foi simples, olhando para trás. Falei para a mãe que eu merecia um cachorro por ter tirado boas notas na escola e que o tio tinha dado ela para mim... coisa que o tio confirmou (sem sequer saber que tinha feito isso).
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ 3 + 4 — O PLANO + EU CONSEGUI — MOBILE ══ -->
+<section class="s34-mob">
+  <div class="papel papel-bege fita-esq rot-r1">
+    A minha mãe tinha dito que não queria pets em casa (morávamos em um apartamento), mas eu não podia te deixar.<br><br>
+    Com meus 12 anos e a certeza de que o mundo era meu, peguei essa cachorrinha e a levei para a casa do meu tio (que tinha vários cachorros). Ninguém precisava saber que ela era de fora.
+  </div>
+  <img src="/blog/imagens/manchita/vid1.gif" alt="Manchita" style="width:100%; border-radius:6px; margin-top:16px;">
+  <div class="papel papel-lilas fita-dir rot-l1" style="margin-top:8px;">
+    Eu já tinha conseguido a primeira parte do meu plano — te deixar a salvo com outros cachorrinhos. Agora íamos para a segunda parte... <em>"te levar para casa"</em>.<br><br>
+    Foi simples, olhando para trás. Falei para a mãe que eu merecia um cachorro por ter tirado boas notas na escola e que o tio tinha dado ela para mim... coisa que o tio confirmou (sem sequer saber que tinha feito isso).
+  </div>
+  <img src="/blog/imagens/manchita/img3.jpg" alt="Manchita" style="width:160px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); margin:16px auto 0;">
+  <div class="papel papel-rosa sem-fita rot-l2" style="margin-top:16px;">
+    Eu consegui! E te trouxe para casa...<br>
+    Não tinha cama, mas te dei a minha (e meu urso de pelúcia favorito). Não tinha tigela, mas te dei uma das minhas panelas de brinquedo.<br><br>
+    <strong>Eu te daria o mundo inteiro, se você me pedisse.</strong>
+  </div>
+  <div class="carrossel">
+  <div class="carrossel-track">
+    <div class="carrossel-item">
+      <img src="/blog/imagens/manchita/img4.jpg" alt="Manchita">
+    </div>
+    <div class="carrossel-item">
+      <img src="/blog/imagens/manchita/img5.jpg" alt="Manchita">
+    </div>
+    <div class="carrossel-item">
+      <img src="/blog/imagens/manchita/img8.jpg" alt="Manchita">
+    </div>
+  </div>
+  <div class="carrossel-dots">
+    <a href="#img4" class="dot"></a>
+    <a href="#img5" class="dot"></a>
+    <a href="#img58" class="dot"></a>
+  </div>
+</div>
+</section>
+
+  <!-- ══ 5 — MINHA LUZ ══ -->
+  <section>
+    <div class="sec-lateral">
+      <div style="display:flex; flex-direction:column; gap:20px; align-items:center;">
+        <div class="polaroid pol-l2">
+          <img src="/blog/imagens/manchita/img7.jpg" alt="Manchita">
+        </div>
+        <div class="polaroid pol-r1">
+          <img src="/blog/imagens/manchita/img12.jpg" alt="Manchita">
+        </div>
+      </div>
+      <div class="papel papel-creme papel-linhas rot-r1">
+        Você iluminou meus dias. Eu tirava fotos suas cada vez que podia, te apresentei ao mundo (meus amigos), te levei para a escola e para o trabalho dos meus pais. Você foi, desde o dia que te vi... a minha luz.<br><br>
+        Tem umas coisas que nós fazíamos que mamãe não precisa saber — como eu te dando minha roupa para você se aquecer, jogando um pouco da minha comida para você comer, ou mesmo que você dormia comigo, porque eu não conseguia dormir se não sentia você nos meus pés.
+      </div>
+    </div>
+  </section>
+
+<!-- ══ 6 + 7 — DESKTOP ══ -->
+<section class="s67-desk" style="position:relative;">
+
+  <div style="display:grid; grid-template-columns:200px 1fr 220px; gap:16px; align-items:start;">
+
+    <!-- col esquerda: burst + img10 sem fundo + img20 -->
+    <div style="display:flex; flex-direction:column; gap:16px; z-index:2;">
+      <div class="burst rot-r1">
+        Nem uma oportunidade de tirar uma foto com você foi desperdiçada (tenho uma pasta no drive com 400 arquivos)
+      </div>
+      <img src="/blog/imagens/manchita/img10.jpg"
+           alt="Manchita"
+           style="width:300px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(2deg); margin-top:-93px; position:relative; z-index:-1;">
+      <img src="/blog/imagens/manchita/img20.jpg"
+           alt="Manchita"
+           style="width:250px; height:180px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); transform:rotate(-3deg);">
+    </div>
+    
+    <!-- col centro: img32 maior + texto mais embaixo -->
+    <div style="display:flex; flex-direction:column; gap:0; align-items:center; margin-top:40px;">
+      <img src="/blog/imagens/manchita/img32.jpg"
+           alt="Manchita"
+           style="width:260px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); z-index:4;">
+      <div class="postit rot-l1" style="max-width:220px; text-align:center; margin-top:-55px;">
+        &nbsp; Uma das minhas obsessões sempre foi te vestir. Comprei roupa, colar, vestidos e até chapéus. Eu queria que você se sentisse o mais confortável possível — quero que você não tenha sombra de dúvida do muito que eu te amo.
+      </div>
+    </div>
+
+<!-- col direita: img11 -->
+    <img src="/blog/imagens/manchita/img11.jpg"
+         alt="Manchita"
+         style="width:250px; height:280px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); transform:rotate(3deg); margin-top:60px;">
+
+  </div>
+
+</section>
+
+<!-- ══ 6 + 7 — MOBILE ══ -->
+<section class="s67-mob">
+  <div class="burst rot-r1" style="align-self:center; margin:0 auto 20px;">
+    Nem uma oportunidade de tirar uma foto com você foi desperdiçada (tenho uma pasta no drive com 400 arquivos)
+  </div>
+  <img src="/blog/imagens/manchita/img32.jpg"
+       alt="Manchita"
+       style="width:200px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); margin:0 auto;">
+  <div class="postit rot-l1" style="max-width:100%; text-align:center; margin-top:16px;">
+    Uma das minhas obsessões sempre foi te vestir. Comprei roupa, colar, vestidos e até chapéus. Eu queria que você se sentisse o mais confortável possível — quero que você não tenha sombra de dúvida do muito que eu te amo.
+  </div>
+  <div style="display:flex; justify-content:center; gap:16px; margin-top:16px; flex-wrap:wrap;">
+    <img src="/blog/imagens/manchita/img10.jpg"
+         alt="Manchita"
+         style="width:140px; height:160px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); transform:rotate(-3deg);">
+    <img src="/blog/imagens/manchita/img11.jpg"
+         alt="Manchita"
+         style="width:140px; height:160px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); transform:rotate(2deg);">
+    <img src="/blog/imagens/manchita/img20.jpg"
+         alt="Manchita"
+         style="width:140px; height:160px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); transform:rotate(-2deg);">
+  </div>
+</section>
+
+<!-- ══ 8 — INTERNAÇÃO ══ -->
+<section>
+  <div class="papel papel-bege papel-linhas rot-r1" style="max-width:500px; margin:0 auto;">
+    Nós fomos crescendo juntas. O dia que você foi internada foi o pior da minha vida — foram 3 dias internadas nos quais eu senti que meu coração saía do meu peito.
+  </div>
+
+  <!-- DESKTOP -->
+  <div class="s8-desk" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; align-items:center; margin-top:24px;">
+    <div style="display:flex; flex-direction:column; gap:16px; align-items:center;">
+      <img src="/blog/imagens/manchita/img9.jpg"
+           alt="Manchita"
+           style="width:300px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(-3deg); position:relative; z-index:2; margin-top:-50px;">
+      <div class="polaroid pol-l2" style="margin-top:-60px;">
+        <img src="/blog/imagens/manchita/img6.jpg" alt="Manchita">
+      </div>
+    </div>
+    <div class="postit postit-lilas rot-l1" style="text-align:center; max-width:100%; margin-top:30px;">
+      Quando você voltou para casa, soube naquele instante que um pedaço da minha alma era completamente sua.<br><br>
+      <strong>Eu reconheceria seus olhos em qualquer vida, em qualquer universo.</strong>
+    </div>
+    <div style="display:flex; justify-content:center;">
+      <div class="quadro rot-r2" style="max-width:240px;">
+        <img src="/blog/imagens/manchita/img18.jpg" alt="Manchita" style="height:260px;">
+      </div>
+    </div>
+  </div>
+
+<!-- MOBILE -->
+  <div class="s8-mob" style="margin-top:24px; display:flex; flex-direction:column; align-items:center; gap:20px;">
+    <div class="postit postit-lilas rot-l1" style="text-align:center; max-width:100%;">
+      Quando você voltou para casa, soube naquele instante que um pedaço da minha alma era completamente sua.<br><br>
+      <strong>Eu reconheceria seus olhos em qualquer vida, em qualquer universo.</strong>
+    </div>
+    <img src="/blog/imagens/manchita/img9.jpg"
+         alt="Manchita"
+         style="width:300px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(-3deg); position:relative; z-index:2; margin-bottom:-40px;">
+    <div style="display:flex; gap:16px; justify-content:center; align-items:flex-start; margin-top:-40px;">
+      <div class="polaroid pol-l2">
+        <img src="/blog/imagens/manchita/img6.jpg" alt="Manchita">
+      </div>
+      <div class="quadro rot-r2">
+        <img src="/blog/imagens/manchita/img18.jpg" alt="Manchita">
+      </div>
+    </div>
+  </div>
+
+</section>
+
+  <!-- ══ 9 — MUSA ══ -->
+  <section class="sec-center">
+    <div class="papel papel-lilas rot-l1" style="max-width:560px; text-align:center;">
+      Você sempre foi a minha Musa. Comecei com os contos curtos aos 8, continuei com eles até os 14, quando descobri os poemas e as frases. Nós também passamos pela época em que eu tentei ser uma menina Tumblr.
+    </div>
+    <div class="fotos-row">
+      <div class="polaroid pol-l2">
+        <img src="/blog/imagens/manchita/img24.jpg" alt="Manchita">
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+        <span class="deco-estrela" style="font-size:2.5rem;">★</span>
+        <div class="postit" style="max-width:160px; text-align:center;">
+          Na minha cabeça as fotos estavam arrasando!
+        </div>
+      </div>
+      <div class="polaroid pol-r2">
+        <img src="/blog/imagens/manchita/img23.jpg" alt="Manchita">
+      </div>
+    </div>
+  </section>
+
+<!-- ══ 10 — LUZ NOS ESCUROS ══ -->
+<section>
+  <!-- DESKTOP -->
+  <div class="s10-desk" style="display:grid; grid-template-columns:1fr 200px; gap:28px; align-items:start;">
+    <div class="papel papel-creme papel-linhas rot-r1">
+      Você me deu luz nos meus dias mais escuros. Lembro que quando chegava da escola, sem vontade de nada, ficava sentada na frente do sofá com as luzes apagadas — e você vinha. Sentava no meu colo e ficava deitada ali, a sua respiração misturada com a minha me fazia acalmar. Nesse momento, juntas, a vida não era tão horrível. Eu sentia que podia contra o mundo porque você estava do meu lado.<br><br>
+      Você sempre gostou de dormir no meu colo e eu sempre amei te carregar.
+    </div>
+    <div class="polaroid pol-r2" style="max-width:200px;">
+      <img src="/blog/imagens/manchita/img15.jpg" alt="Manchita">
+    </div>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="s10-mob" style="flex-direction:column; gap:20px;">
+    <div class="papel papel-creme papel-linhas rot-r1">
+      Você me deu luz nos meus dias mais escuros. Lembro que quando chegava da escola, sem vontade de nada, ficava sentada na frente do sofá com as luzes apagadas — e você vinha. Sentava no meu colo e ficava deitada ali, a sua respiração misturada com a minha me fazia acalmar. Nesse momento, juntas, a vida não era tão horrível. Eu sentia que podia contra o mundo porque você estava do meu lado.<br><br>
+      Você sempre gostou de dormir no meu colo e eu sempre amei te carregar.
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+      <div class="polaroid pol-l2"><img src="/blog/imagens/manchita/img15.jpg" alt="Manchita"></div>
+      <div class="polaroid pol-r1"><img src="/blog/imagens/manchita/img22.jpg" alt="Manchita"></div>
+      <div class="polaroid pol-l1"><img src="/blog/imagens/manchita/img17.jpg" alt="Manchita"></div>
+      <div class="polaroid pol-r2"><img src="/blog/imagens/manchita/img16.jpg" alt="Manchita"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 11 — MUDANÇA ══ -->
+<section>
+  <!-- DESKTOP -->
+  <div class="s11-desk">
+    <div class="fotos-dispersas" style="max-width:700px; margin:0 auto 28px;">
+      <div class="polaroid pol-l2"><img src="/blog/imagens/manchita/img22.jpg" alt="Manchita"></div>
+      <div class="polaroid pol-r1" style="margin-top:20px;"><img src="/blog/imagens/manchita/img16.jpg" alt="Manchita"></div>
+      <div class="polaroid pol-l1"><img src="/blog/imagens/manchita/img17.jpg" alt="Manchita"></div>
+    </div>
+    <div class="sec-lateral">
+      <div class="papel papel-bege rot-l1">
+        O tempo passou, nós mudamos de casa. Eu lembro de chegar da escola e ver você pulando a mais de uma quadra — um pontinho preto que chegava a uma altura que nunca combinava com seu tamanho.<br><br>
+        Logo saímos dessa casa, e por problemas tivemos que te deixar lá. Deixamos você nas mãos de pessoas "confiáveis" que mentiram para nós, dizendo que estavam cuidando de você.
+      </div>
+      <div class="polaroid pol-r2" style="max-width:400px;">
+        <img src="/blog/imagens/manchita/img14.jpg" alt="Manchita">
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE -->
+<div class="s11-mob" style="position:relative; padding-bottom:40px;">
+  <div class="papel papel-bege rot-l1">
+    O tempo passou, nós mudamos de casa. Eu lembro de chegar da escola e ver você pulando a mais de uma quadra — um pontinho preto que chegava a uma altura que nunca combinava com seu tamanho.<br><br>
+    Logo saímos dessa casa, e por problemas tivemos que te deixar lá. Deixamos você nas mãos de pessoas "confiáveis" que mentiram para nós, dizendo que estavam cuidando de você.
+  </div>
+  <img src="/blog/imagens/manchita/img14.jpg" alt="Manchita"
+       style="position:absolute; width:150px; height:160px; object-fit:cover; border-radius:4px; box-shadow:3px 5px 14px rgba(0,0,0,0.28); bottom:-70px; right:30px; transform:rotate(3deg); z-index:2;">
+</div>
+</section>
+
+<!-- ══ 12 — REENCONTRO ══ -->
+<section>
+  <!-- DESKTOP -->
+  <div class="s12-desk" style="display:grid; grid-template-columns:380px 360px; gap:24px; align-items:start;">
+    <div class="papel papel-lilas papel-linhas rot-r1">
+      Lembro o dia do reencontro. Quando soubemos, fomos te buscar. Não precisei procurar muito — graças a Deus, um anjo em forma de vizinho tinha estado cuidando de você. Você nunca foi muito longe. Você sabia que íamos voltar.<br><br>
+      Lembro do quanto custou fazer você tomar banho. Te levamos para casa... onde você pertencia. <strong>Sem importar o que fosse, você ficaria com a gente.</strong>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <img src="/blog/imagens/manchita/img31.jpg"
+           alt="Reencontro"
+           style="width:240px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(3deg); position:relative; z-index:2;">
+      <div style="position:relative; height:380px; width:100%; margin-top:-40px;">
+        <img src="/blog/imagens/manchita/img13.jpg"
+             alt="Reencontro"
+             style="position:absolute; width:180px; height:220px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); top:0; left:0; transform:rotate(-4deg);">
+        <img src="/blog/imagens/manchita/img19.jpg"
+             alt="Reencontro"
+             style="position:absolute; width:180px; height:220px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); top:30px; left:160px; transform:rotate(4deg);">
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="s12-mob" style="flex-direction:column; align-items:center; gap:20px; margin-top:28px;">
+    <div class="papel papel-lilas papel-linhas rot-r1">
+      Lembro o dia do reencontro. Quando soubemos, fomos te buscar. Não precisei procurar muito — graças a Deus, um anjo em forma de vizinho tinha estado cuidando de você. Você nunca foi muito longe. Você sabia que íamos voltar.<br><br>
+      Lembro do quanto custou fazer você tomar banho. Te levamos para casa... onde você pertencia. <strong>Sem importar o que fosse, você ficaria com a gente.</strong>
+    </div>
+    <img src="/blog/imagens/manchita/img31.jpg"
+         alt="Reencontro"
+         style="width:200px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(3deg);">
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <img src="/blog/imagens/manchita/img13.jpg"
+           alt="Reencontro"
+           style="width:140px; height:160px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); transform:rotate(-3deg);">
+      <img src="/blog/imagens/manchita/img19.jpg"
+           alt="Reencontro"
+           style="width:140px; height:160px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); transform:rotate(3deg);">
+    </div>
+  </div>
+</section>
+
+<!-- ══ 13 — LUGAR FAVORITO ══ -->
+<section id="sec13" style="margin-top:-110px;">
+  <div class="papel papel-rosa sem-fita rot-r1" style="max-width:520px; text-align:center; margin:0 auto 24px;">
+    Seu lugar favorito sempre foi no meu quarto — na cama ou no sofá azul da mamãe...<br>
+    mas <em>shhh</em> 🤫 nós não vamos contar para ninguém.
+  </div>
+
+  <!-- DESKTOP -->
+  <div class="s13-desk" style="display:grid; grid-template-columns:220px 1fr 200px; gap:24px; align-items:start; width:100%;">
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <div class="polaroid" style="transform:rotate(-3deg);">
+        <img src="/blog/imagens/manchita/img30.jpg" alt="Manchita">
+        <p class="legenda">as melhores pijamadas sempre foram com você</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+      <div style="position:relative; padding-top:32px; display:flex; justify-content:center; gap:20px;">
+        <svg style="position:absolute; top:0; left:0; width:100%; height:40px;" viewBox="0 0 300 40" preserveAspectRatio="none">
+          <path d="M0,10 Q75,40 150,10 Q225,40 300,10" stroke="#8B6914" stroke-width="3" fill="none"/>
+        </svg>
+        <div class="pinca"><div class="polaroid" style="transform:rotate(-4deg)"><img src="/blog/imagens/manchita/img26.jpg" alt="Manchita"></div></div>
+        <div class="pinca"><div class="polaroid" style="transform:rotate(3deg)"><img src="/blog/imagens/manchita/img25.jpg" alt="Manchita"></div></div>
+      </div>
+      <div class="polaroid" style="transform:rotate(-2deg);">
+        <img src="/blog/imagens/manchita/img29.jpg" alt="Manchita">
+      </div>
+    </div>
+    <div style="transform:rotate(3deg); display:inline-block; background:#fff; padding:8px; border:2px solid #f0c0d0; box-shadow:2px 4px 12px rgba(0,0,0,0.22); border-radius:3px; position:relative;">
+      <img src="/blog/imagens/manchita/img27.jpg" alt="Manchita"
+           style="width:160px; height:140px; object-fit:cover; display:block;">
+      <img src="/blog/imagens/manchita/img28.jpg" alt="Manchita"
+           style="width:160px; height:140px; object-fit:cover; display:block;">
+      <svg style="position:absolute; top:-14px; left:-14px; width:calc(100% + 28px); height:calc(100% + 28px); pointer-events:none;" viewBox="0 0 200 310" preserveAspectRatio="none">
+        <path d="M10,5 Q30,2 50,6 Q70,3 90,7 Q110,2 130,5 Q150,3 170,6 Q185,4 192,8" stroke="#B32F4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M192,8 Q196,30 194,60 Q197,90 193,120 Q196,150 194,180 Q197,210 193,240 Q196,270 194,300" stroke="#B32F4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M194,300 Q170,305 150,302 Q130,306 110,303 Q90,306 70,302 Q50,306 30,303 Q15,305 8,300" stroke="#B32F4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M8,300 Q4,270 6,240 Q3,210 5,180 Q3,150 6,120 Q3,90 5,60 Q3,30 8,5" stroke="#B32F4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M40,2 Q42,8 38,14" stroke="#f4c430" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M100,0 Q98,6 102,12" stroke="#B32F4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M160,3 Q158,9 162,15" stroke="#f4c430" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M196,80 Q202,82 198,88" stroke="#B32F4B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M196,180 Q202,182 198,188" stroke="#f4c430" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="s13-mob" style="flex-direction:column; align-items:center; gap:20px;">
+    <div class="varal">
+      <div class="pinca"><div class="polaroid" style="transform:rotate(-4deg)"><img src="/blog/imagens/manchita/img26.jpg" alt="Manchita"></div></div>
+      <div class="pinca"><div class="polaroid" style="transform:rotate(3deg)"><img src="/blog/imagens/manchita/img25.jpg" alt="Manchita"></div></div>
+    </div>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <div class="polaroid" style="transform:rotate(-3deg);">
+        <img src="/blog/imagens/manchita/img30.jpg" alt="Manchita">
+        <p class="legenda">as melhores pijamadas sempre foram com você</p>
+      </div>
+      <div class="polaroid" style="transform:rotate(2deg);">
+        <img src="/blog/imagens/manchita/img29.jpg" alt="Manchita">
+      </div>
+    </div>
+    <div style="display:flex; gap:12px; justify-content:center;">
+      <div class="polaroid" style="transform:rotate(-2deg);">
+        <img src="/blog/imagens/manchita/img27.jpg" alt="Manchita">
+      </div>
+      <div class="polaroid" style="transform:rotate(3deg);">
+        <img src="/blog/imagens/manchita/img28.jpg" alt="Manchita">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 14 — SOL E GRAMA ══ -->
+<section style="position:relative; z-index:10;">
+
+<!-- BLOCO 1 DESKTOP -->
+<div class="s14b1-desk" style="display:grid; grid-template-columns:220px 1fr 200px; gap:20px; align-items:start;">
+
+  <!-- esquerda: img21 + img57 sobreposta -->
+  <div style="position:relative; height:280px;">
+    <div style="position:absolute; top:0; left:0; z-index:1;">
+      <div style="position:absolute; top:-8px; left:10px; width:50px; height:16px; background:rgba(200,170,100,0.5); transform:rotate(-3deg); z-index:3; border-radius:2px;"></div>
+      <div style="position:absolute; top:-8px; right:10px; width:50px; height:16px; background:rgba(200,170,100,0.5); transform:rotate(3deg); z-index:3; border-radius:2px;"></div>
+      <div class="polaroid pol-l2">
+        <img src="/blog/imagens/manchita/img21.jpg" alt="Manchita">
+      </div>
+    </div>
+    <img src="/blog/imagens/manchita/img57.jpeg"
+         alt="Manchita"
+         style="position:absolute; width:160px; height:200px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); transform:rotate(4deg); top:110px; left:90px; z-index:2;">
+  </div>
+
+  <!-- centro: texto -->
+  <div class="papel papel-bege papel-linhas rot-l1" style="text-align:center;">
+    Até hoje não vi alguém que aproveite mais o sol e a grama como você. A natureza conecta com todos nós de uma forma diferente, mas quando o sol toca o seu rosto e você fecha os olhos desfrutando do calor — me mostra mais uma vez como lidar com a calma, aquela que sempre me faltou.
+  </div>
+
+  <!-- direita: img56 + coração -->
+  <div style="position:relative;">
+    <img src="/blog/imagens/manchita/img56.jpeg"
+         alt="Manchita"
+         style="width:190px; height:200px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); transform:rotate(2deg);">
+    <div style="position:absolute; bottom:-10px; right:-10px; width:28px; height:28px;">
+      <div style="position:absolute; width:14px; height:20px; background:#e91e8c; border-radius:14px 14px 0 0; left:7px; transform:rotate(-45deg); transform-origin:0 100%;"></div>
+      <div style="position:absolute; width:14px; height:20px; background:#e91e8c; border-radius:14px 14px 0 0; left:0; transform:rotate(45deg); transform-origin:100% 100%;"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BLOCO 1 MOBILE -->
+<div class="s14b1-mob" style="flex-direction:column; align-items:center; gap:16px;">
+  <div class="papel papel-bege papel-linhas" style="text-align:center; width:100%; box-sizing:border-box;">
+    Até hoje não vi alguém que aproveite mais o sol e a grama como você. A natureza conecta com todos nós de uma forma diferente, mas quando o sol toca o seu rosto e você fecha os olhos desfrutando do calor — me mostra mais uma vez como lidar com a calma, aquela que sempre me faltou.
+  </div>
+  <div class="carrossel">
+    <div class="carrossel-track">
+      <div class="carrossel-item">
+        <img src="/blog/imagens/manchita/img21.jpg" alt="Manchita" style="width:100%; height:320px; object-fit:cover; border-radius:6px;">
+      </div>
+      <div class="carrossel-item">
+        <img src="/blog/imagens/manchita/img57.jpeg" alt="Manchita" style="width:100%; height:320px; object-fit:cover; border-radius:6px;">
+      </div>
+      <div class="carrossel-item">
+        <img src="/blog/imagens/manchita/img56.jpeg" alt="Manchita" style="width:100%; height:320px; object-fit:cover; border-radius:6px;">
+      </div>
+    </div>
+    <div class="carrossel-dots">
+      <a class="dot"></a>
+      <a class="dot"></a>
+      <a class="dot"></a>
+    </div>
+  </div>
+
+  <!-- bloco 2 mobile -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%; margin-top:8px;">
+    <div class="postit" style="max-width:100%; font-size:0.8rem;">
+      Descobrimos seu amor pela grama com cada saída — um passeio são 2 horas... não de caminhar, e sim de esperar você cheirar cada flor, rodar por cada pedacinho de grama e latir para qualquer ser vivo que não te agrada.
+    </div>
+    <div style="position:relative; height:200px;">
+      <img src="/blog/imagens/manchita/img34.gif"
+           alt="Manchita na grama"
+           style="position:absolute; width:140px; height:160px; object-fit:cover; border-radius:5px; top:0; left:0; transform:rotate(-3deg); box-shadow:3px 5px 14px rgba(0,0,0,0.22);">
+      <img src="/blog/imagens/manchita/img39.jpeg"
+           alt="Manchita na praia"
+           style="position:absolute; width:120px; height:220px; object-fit:cover; border-radius:5px; top:130px; left:30px; transform:rotate(3deg); box-shadow:3px 5px 14px rgba(0,0,0,0.22);">
+    </div>
+  </div>
+</div>
+
+<!-- BLOCO 2 DESKTOP -->
+<div class="s14b2-desk" style="position:relative; height:400px; margin-top:48px;">
+
+  <!-- CORREÇÃO 1: bottom e left agora têm px -->
+  <div class="postit rot-l1" style="position:absolute; bottom:180px; left:30px; max-width:220px; z-index:-1;">
+    Descobrimos seu amor pela grama com cada saída — um passeio são 2 horas... não de caminhar, e sim de esperar você cheirar cada flor, rodar por cada pedacinho de grama e latir para qualquer ser vivo que não te agrada.
+  </div>
+
+  <!-- texto 2 — inferior esquerda sobreposto -->
+  <div class="postit postit-rosa rot-r1" style="position:absolute; bottom:20px; left:160px; max-width:220px; z-index:1;">
+    Óbvio que não podemos esquecer que a praia é para cavar — e depois deitar na areia quente para absorver vitamina D, longe da água mas perto o suficiente para que a brisa seja fresca.
+  </div>
+
+  <!-- img34 gif — superior direita -->
+  <img src="/blog/imagens/manchita/img34.gif"
+       alt="Manchita na grama"
+       style="position:absolute; width:220px; height:260px; object-fit:cover; border-radius:5px; top:0; right:220px; transform:rotate(-3deg); box-shadow:3px 5px 14px rgba(0,0,0,0.22); z-index:2;">
+
+  <!-- img39 — superior direita sobreposta -->
+  <img src="/blog/imagens/manchita/img39.jpeg"
+       alt="Manchita na praia"
+       style="position:absolute; width:230px; height:300px; object-fit:cover; border-radius:5px; top:60px; right:0; transform:rotate(3deg); box-shadow:3px 5px 14px rgba(0,0,0,0.22); z-index:1;">
+
+</div>
+
+</section>
+
+<!-- ══ 15 — CAIXA ══ -->
+<section style="position:relative; z-index:1;">
+
+  <!-- DESKTOP -->
+  <div class="s15-desk" style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;">
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <img src="/blog/imagens/manchita/img50.jpeg"
+           alt="Manchita"
+           style="width:300px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(-2deg);">
+      <svg width="400" height="80" viewBox="0 0 300 80" style="overflow:visible;">
+        <line x1="150" y1="0" x2="60" y2="80" stroke="#8B6914" stroke-width="2"/>
+        <line x1="150" y1="0" x2="240" y2="80" stroke="#8B6914" stroke-width="2"/>
+      </svg>
+      <div style="display:flex; gap:24px; margin-top:-20px;">
+        <div class="polaroid pol-l2"><img src="/blog/imagens/manchita/img46.jpeg" alt="Manchita"></div>
+        <div class="polaroid pol-r2"><img src="/blog/imagens/manchita/img51.jpeg" alt="Manchita"></div>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:20px; align-items:center;">
+      <img src="/blog/imagens/manchita/img54.jpeg"
+           alt="Manchita"
+           style="width:300px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(2deg);">
+      <div class="papel papel-amarelo rot-r1" style="text-align:center;">
+        Você sempre teve lugares para dormir — sofás, camas, almofadas, milhares de opções confortáveis... mas nenhuma é mais confortável do que a caixa. 📦
+      </div>
+    </div>
+  </div>
+
+<!-- BLOCO EXTRA DESKTOP -->
+<div class="s15b2-desk" style="display:grid; grid-template-columns:240px 1fr; gap:8px; align-items:center; margin-top:40px;">
+
+  <!-- esquerda: texto -->
+  <div style="display:flex; justify-content:center; align-items:center;">
+    <div class="postit rot-l1" style="max-width:220px; text-align:center;">
+      Mesmo em qualquer lugar o que sempre te acompanha é um cobertor 🧸
+    </div>
+  </div>
+
+  <!-- direita: mosaico 4 blog/imagens -->
+  <div style="position:relative; height:440px;">
+    <img src="/blog/imagens/manchita/img53.jpeg"
+         alt="Manchita"
+         style="position:absolute; width:300px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); top:0; left:0; transform:rotate(-3deg); z-index:2;">
+    <img src="/blog/imagens/manchita/img44.jpeg"
+         alt="Manchita"
+         style="position:absolute; width:220px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); top:0; right:0; transform:rotate(2deg); z-index:1;">
+    <img src="/blog/imagens/manchita/img38.jpeg"
+         alt="Manchita"
+         style="position:absolute; width:340px; height:160px; object-fit:cover; object-position:center; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); bottom:40px; left:40px; transform:rotate(-2deg);">
+    <img src="/blog/imagens/manchita/img55.jpeg"
+         alt="Manchita"
+         style="position:absolute; width:200px; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); bottom:-30px; right:0; transform:rotate(3deg); z-index:2;">
+  </div>
+
+</div>
+  <!-- MOBILE -->
+  <div class="s15-mob" style="flex-direction:column; align-items:center; gap:20px; margin-top:70px;">
+    <div class="papel papel-amarelo rot-r1" style="text-align:center; width:100%; box-sizing:border-box;">
+      Você sempre teve lugares para dormir — sofás, camas, almofadas, milhares de opções confortáveis... mas nenhuma é mais confortável do que a caixa. 📦
+    </div>
+    <div style="display:flex; gap:12px; justify-content:center; width:100%;">
+      <img src="/blog/imagens/manchita/img50.jpeg"
+           alt="Manchita"
+           style="width:48%; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(-2deg);">
+      <img src="/blog/imagens/manchita/img54.jpeg"
+           alt="Manchita"
+           style="width:48%; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(2deg);">
+    </div>
+    <div style="display:flex; gap:12px; justify-content:center;">
+      <div class="polaroid pol-l2"><img src="/blog/imagens/manchita/img46.jpeg" alt="Manchita"></div>
+      <div class="polaroid pol-r2"><img src="/blog/imagens/manchita/img51.jpeg" alt="Manchita"></div>
+    </div>
+  </div>
+
+  <!-- BLOCO EXTRA MOBILE -->
+  <div class="s15b2-mob" style="flex-direction:column; align-items:center; gap:16px; margin-top:20px;">
+    <div class="postit" style="max-width:100%; text-align:center;">
+      Mesmo em qualquer lugar o que sempre te acompanha é um cobertor 🧸
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%;">
+      <img src="/blog/imagens/manchita/img53.jpeg"
+           alt="Manchita"
+           style="width:100%; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(-2deg);">
+      <img src="/blog/imagens/manchita/img44.jpeg"
+           alt="Manchita"
+           style="width:100%; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(2deg);">
+      <img src="/blog/imagens/manchita/img38.jpeg"
+           alt="Manchita"
+           style="width:100%; height:140px; object-fit:cover; border-radius:5px; box-shadow:3px 5px 14px rgba(0,0,0,0.22); transform:rotate(-2deg);">
+      <img src="/blog/imagens/manchita/img55.jpeg"
+           alt="Manchita"
+           style="width:100%; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(3deg);">
+    </div>
+  </div>
+
+</section>
+
+<!-- ══ 16 + 17 — DESKTOP ══ -->
+<section class="s1617-desk">
+
+  <!-- linha 1: textos -->
+<div style="display:flex; gap:24px; justify-content:center; margin-bottom:24px;">
+    <div class="postit rot-l1" style="text-align:center;">
+      Além de ser uma lady 👑
+    </div>
+    <div class="postit rot-r1" style="text-align:center;">
+      Sempre foi brincalhona... do seu jeito, no seu horário kkkk
+    </div>
+  </div>
+
+<!-- mosaico desktop -->
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; max-width:500px; margin:0 auto 24px;">
+  
+  <!-- coluna esquerda -->
+  <div style="display:flex; flex-direction:column; gap:16px;">
+    <img src="/blog/imagens/manchita/img33.gif" alt="Manchita"
+         style="width:90%; border-radius:8px; transform:rotate(-2deg);">
+    <img src="/blog/imagens/manchita/img31.jpeg" alt="Manchita"
+         style="width:100%; border-radius:8px; transform:rotate(2deg);">
+  </div>
+
+  <!-- coluna direita -->
+  <div style="display:flex; flex-direction:column; gap:16px;">
+    <img src="/blog/imagens/manchita/img52.jpeg" alt="Manchita"
+         style="width:100%; border-radius:8px; transform:rotate(2deg);">
+    <img src="/blog/imagens/manchita/img35.gif" alt="Manchita"
+         style="width:100%; border-radius:8px; transform:rotate(-2deg);">
+  </div>
+
+</div>
+
+  <!-- linha 4: texto + img32 -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center; max-width:700px; margin:0 auto;">
+    <div class="papel papel-bege papel-linhas rot-l1" style="text-align:center;">
+      Cada dia com você é uma aventura — cada soneca, passeio e mais. Eu lembro das nossas noites no parque onde a ansiedade não me deixava respirar. Lembro de como meu peito acalmava ao brincar com você, ao te ver brincar.
+    </div>
+    <img src="/blog/imagens/manchita/img32.gif" alt="Manchita" class="foto-solta" style="max-width:220px; border-radius:8px;">
+  </div>
+
+</section>
+
+<!-- ══ 16 + 17 — MOBILE ══ -->
+<section class="s1617-mob" style="flex-direction:column; align-items:center; gap:16px;">
+
+  <!-- linha 1: textos lado a lado -->
+<div style="display:flex; gap:12px; justify-content:center; width:100%;">
+    <div class="postit rot-l1" style="max-width:48%; text-align:center; font-size:0.85rem;">
+      Além de ser uma lady 👑
+    </div>
+    <div class="postit rot-r1" style="max-width:48%; text-align:center; font-size:0.85rem;">
+      Sempre foi brincalhona... do seu jeito, no seu horário kkkk
+    </div>
+  </div>
+
+<!-- mosaico 2x2 mobile -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%;">
+    
+    <!-- coluna esquerda -->
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <img src="/blog/imagens/manchita/img33.gif" alt="Manchita"
+           style="width:100%; border-radius:6px; transform:rotate(-2deg);">
+      <img src="/blog/imagens/manchita/img31.jpeg" alt="Manchita"
+           style="width:100%; border-radius:6px; transform:rotate(2deg);">
+    </div>
+
+    <!-- coluna direita -->
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <img src="/blog/imagens/manchita/img52.jpeg" alt="Manchita"
+           style="width:100%; border-radius:6px; transform:rotate(2deg);">
+      <img src="/blog/imagens/manchita/img35.gif" alt="Manchita"
+           style="width:100%; border-radius:6px; transform:rotate(-2deg);">
+    </div>
+
+  </div>
+  
+  <!-- linha 4: texto + img32 -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%; align-items:center;">
+    <div class="papel papel-bege papel-linhas" style="text-align:center; font-size:0.85rem;">
+      Cada dia com você é uma aventura — cada soneca, passeio e mais. Eu lembro das nossas noites no parque onde a ansiedade não me deixava respirar. Lembro de como meu peito acalmava ao brincar com você, ao te ver brincar.
+    </div>
+    <img src="/blog/imagens/manchita/img32.gif" alt="Manchita"
+         style="width:100%; border-radius:6px; box-shadow:2px 4px 10px rgba(0,0,0,0.2);">
+  </div>
+
+</section>
+
+<!-- ══ 18 — PROTETORA ══ -->
+
+<!-- DESKTOP -->
+<section class="s18-desk" style="display:flex; flex-direction:column; gap:24px;">
+
+  <!-- bloco 1: img59 | texto protetora | img60 -->
+  <div style="display:grid; grid-template-columns:1fr 1.4fr 1fr; gap:20px; align-items:center;">
+    <img src="/blog/imagens/manchita/img59.jpeg"
+         alt="Manchita"
+         style="width:100%; filter:drop-shadow(3px 6px 14px rgba(0,0,0,0.3));">
+    <div class="papel papel-bege rot-l1">
+      Você sempre foi minha protetora. Sem você eu não estaria aqui hoje — você é esse fogo que não deixou minha luz apagar nos momentos mais escuros da minha vida. Poucos sabem o verdadeiro inferno pelo qual eu passei, e graças a você tive essa patinha amiga que não me deixou desistir.
+    </div>
+    <img src="/blog/imagens/manchita/img60.jpeg"
+         alt="Manchita"
+         class="foto-solta"
+         style="width:100%;">
+  </div>
+
+  <!-- bloco 2: texto insônia | img48 | img61 -->
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; align-items:center;">
+    <div class="papel papel-lilas papel-linhas rot-r1">
+      Em noites de insônia eu lia para você, e você adormecia aos meus pés me fazendo sentir que entendia cada palavra. Você me olha como se eu fosse a coisa mais legal do mundo. Essa sensação de ver o ídolo — eu vejo o amor nos seus olhos e é sempre um combustível para tentar ser melhor.
+    </div>
+    <img src="/blog/imagens/manchita/img48.jpeg"
+         alt="Manchita"
+         class="foto-solta"
+         style="width:80%;">
+    <img src="/blog/imagens/manchita/img61.jpeg"
+         alt="Manchita"
+         style="width:100%;
+                border-radius: 62% 38% 55% 45% / 48% 52% 48% 52%;
+                box-shadow: 3px 5px 14px rgba(0,0,0,0.28);
+                object-fit: cover;
+                transform: rotate(-3deg);">
+  </div>
+
+</section>
+
+<!-- CORREÇÃO 3: removido display:none inline, display controlado só pelo CSS -->
+<section class="s18-mob" style="flex-direction:column; align-items:center; gap:20px;">
+  <img src="/blog/imagens/manchita/img59.jpeg"
+       alt="Manchita"
+       style="width:70%; filter:drop-shadow(3px 6px 14px rgba(0,0,0,0.3));">
+  <div class="papel papel-bege rot-l1" style="width:100%;">
+    Você sempre foi minha protetora. Sem você eu não estaria aqui hoje — você é esse fogo que não deixou minha luz apagar nos momentos mais escuros da minha vida. Poucos sabem o verdadeiro inferno pelo qual eu passei, e graças a você tive essa patinha amiga que não me deixou desistir.
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%;">
+    <img src="/blog/imagens/manchita/img61.jpeg" alt="Manchita" class="foto-solta" style="width:100%;">
+    <img src="/blog/imagens/manchita/img48.jpeg" alt="Manchita" class="foto-solta" style="width:100%;">
+  </div>
+  <div class="papel papel-lilas papel-linhas rot-r1" style="width:100%;">
+    Em noites de insônia eu lia para você, e você adormecia aos meus pés me fazendo sentir que entendia cada palavra. Você me olha como se eu fosse a coisa mais legal do mundo. Essa sensação de ver o ídolo — eu vejo o amor nos seus olhos e é sempre um combustível para tentar ser melhor.
+  </div>
+  <img src="/blog/imagens/manchita/img60.jpeg"
+       alt="Manchita"
+       class="foto-solta"
+       style="width:80%;">
+</section>
+
+<!-- ══ 19 — SONHOS ══ -->
+<!-- DESKTOP -->
+<section class="s19-desk" style="margin-top:-60px; margin-bottom:-40px;">
+
+  <!-- LINHA 1: img36, img37, img43, img58 -->
+  <div style="display:flex; gap:16px; align-items:flex-end; justify-content:center; margin-bottom:0;">
+    <img src="/blog/imagens/manchita/img36.jpeg"
+         alt="Manchita" style="width:350px; border-radius:4px; filter:drop-shadow(3px 5px 12px rgba(0,0,0,0.3)); transform:rotate(-4deg);">
+    <img src="/blog/imagens/manchita/img37.jpeg"
+         alt="Manchita" style="width:150px; border-radius:4px; filter:drop-shadow(3px 5px 12px rgba(0,0,0,0.3)); transform:rotate(3deg); margin-bottom:20px; position:relative; z-index:2;">
+    <!-- estrelas -->
+    <div style="display:flex; flex-direction:column; align-items:center; gap:4px; margin-bottom:30px; color:#f4c430;">
+      <span style="font-size:1.6rem; transform:rotate(10deg); display:inline-block; filter:drop-shadow(0 2px 4px rgba(244,196,48,0.5));">★</span>
+      <span style="font-size:0.9rem; display:inline-block;">★</span>
+      <span style="font-size:1.2rem; transform:rotate(-8deg); display:inline-block;">★</span>
+    </div>
+    <img src="/blog/imagens/manchita/img43.jpeg"
+         alt="Manchita" style="width:200px; filter:drop-shadow(3px 5px 14px rgba(0,0,0,0.3)); transform:rotate(2deg);">
+    <img src="/blog/imagens/manchita/img58.jpeg"
+         alt="Manchita" style="width:200px; border-radius:4px; filter:drop-shadow(3px 5px 12px rgba(0,0,0,0.3)); transform:rotate(-3deg); margin-bottom:10px;">
+  </div>
+
+  <!-- LINHA 2: câmera + texto + img47 -->
+  <div style="display:flex; gap:20px; align-items:center; justify-content:center; margin-top:-20px;">
+
+    <!-- câmera instax com img45 -->
+    <div style="transform:rotate(-4deg); flex-shrink:0; position:relative; z-index:3;">
+      <img src="/blog/imagens/manchita/img45.jpeg"
+           alt="Manchita" style="width:180px; height:150px; object-fit:cover; border-radius:4px; box-shadow:2px 3px 8px rgba(0,0,0,0.2); margin-left:10px; margin-bottom:4px; display:block;">
+      <div style="background:#f5e6d0; border-radius:16px; border:3px solid #d4b896; width:200px; height:115px; position:relative;">
+        <div style="position:absolute; top:8px; left:9px; width:30px; height:20px; background:#c8dce8; border-radius:4px; border:2px solid #a0b8c8;"></div>
+        <div style="position:absolute; top:7px; left:50%; transform:translateX(-50%); width:52px; height:52px; border-radius:50%; background:radial-gradient(circle at 35% 35%,#6a8ca8,#2a4c68); border:4px solid #d4b896; box-shadow:inset 0 0 8px rgba(0,0,0,0.4);"></div>
+        <div style="position:absolute; top:8px; right:9px; width:13px; height:13px; border-radius:50%; background:#e8a0a0; border:2px solid #c08080;"></div>
+        <div style="position:absolute; bottom:-14px; left:13px; right:13px; height:14px; background:#e8d8c0; border:2px solid #c8b090; border-radius:0 0 6px 6px;"></div>
+      </div>
+    </div>
+
+    <!-- texto papel -->
+    <div style="background:#f5efdf; padding:20px 32px; border-radius:3px; box-shadow:2px 3px 8px rgba(0,0,0,0.15),4px 6px 20px rgba(0,0,0,0.10); transform:rotate(0.5deg); font-family:'Kalam',cursive; font-size:0.95rem; line-height:1.7; color:#3a2010; text-align:center; position:relative; width:380px; flex-shrink:0;">
+      <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%) rotate(-2deg); width:60px; height:22px; background:rgba(200,170,230,0.55); border-radius:2px;"></div>
+      Eu sonho realizando meus sonhos ao seu lado — viajando pelo mundo e você fazendo buracos nas praias de ilhas que nós vamos explorar. Uma viagem tocando as nuvens do mesmo jeito que você toca a minha alma. 🌊✈️🐾
+    </div>
+
+    <!-- img47 -->
+    <img src="/blog/imagens/manchita/img47.jpeg"
+         alt="Manchita" style="width:250px; border-radius:4px; filter:drop-shadow(3px 5px 14px rgba(0,0,0,0.3)); transform:rotate(4deg); flex-shrink:0; position:relative; z-index:2; margin-top:-40px;">
+
+  </div>
+
+  <div class="sep" style="font-size:2rem; opacity:0.8; margin-top:24px;">🐾 ♥ 🐾</div>
+</section>
+
+<!-- MOBILE -->
+<section class="s19-mob" style="flex-direction:column; align-items:center; gap:20px;">
+  <div class="papel papel-rosa sem-fita rot-r1" style="max-width:100%; text-align:center; box-sizing:border-box;">
+    Eu sonho realizando meus sonhos ao seu lado — viajando pelo mundo e você fazendo buracos nas praias de ilhas que nós vamos explorar. Uma viagem tocando as nuvens do mesmo jeito que você toca a minha alma. 🌊✈️🐾
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%;">
+    <img src="/blog/imagens/manchita/img36.jpeg" alt="Manchita"
+         style="width:100%; border-radius:6px; box-shadow:2px 4px 10px rgba(0,0,0,0.2); transform:rotate(-3deg);">
+    <img src="/blog/imagens/manchita/img43.jpeg" alt="Manchita"
+         style="width:100%; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(2deg);">
+    <img src="/blog/imagens/manchita/img45.jpeg" alt="Manchita"
+         style="width:100%; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(-2deg);">
+    <img src="/blog/imagens/manchita/img47.jpeg" alt="Manchita"
+         style="width:100%; filter:drop-shadow(3px 5px 10px rgba(0,0,0,0.3)); transform:rotate(3deg);">
+  </div>
+  <div class="sep" style="font-size:2rem; opacity:0.8;">🐾 ♥ 🐾</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-divider-img">
+    <img src="https://64.media.tumblr.com/3f968d458084d2b7077c7934760124b2/f50c2545301372c0-a8/s540x810/3f709c4853b9fb3d04617c83eba46e45b2ff8019.gif" alt="">
+  </div>
+  <div class="footer-cloud">
+    <div class="footer-socials">
+      <a href="https://www.tumblr.com/blog/i-am--fat-blog" class="social-btn" target="_blank">
+        <div class="btn-outer"><div class="btn-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.304 1.406z"/></svg>
+          <span>Tumblr</span>
+        </div></div>
+      </a>
+      <a href="https://www.wattpad.com/user/Im_Aye55" class="social-btn" target="_blank">
+        <div class="btn-outer"><div class="btn-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4l2.6 9.6L8.9 7h2.2l2.3 6.6L15.6 4H20l-5 16-2.7-7.8L9.9 20 5 4z"/></svg>
+          <span>Wattpad</span>
+        </div></div>
+      </a>
+      <a href="https://www.instagram.com/ayelen.borges/" class="social-btn" target="_blank">
+        <div class="btn-outer"><div class="btn-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <span>Instagram</span>
+        </div></div>
+      </a>    </div>
+  </div>
+</footer>
+
+<!-- Script para suportar múltiplos carrosseis -->
+<script>
+  document.querySelectorAll('.carrossel-track').forEach(track => {
+    const items = track.querySelectorAll('.carrossel-item');
+    const dots = track.parentElement.querySelectorAll('.dot');
+    let current = 0;
+
+    function irPara(index) {
+      current = index;
+      track.scrollTo({ left: track.offsetWidth * current, behavior: 'smooth' });
+      dots.forEach((d, i) => d.style.background = i === current ? '#7a4fa0' : '#b99fbb');
+    }
+
+    setInterval(() => {
+      current = (current + 1) % items.length;
+      irPara(current);
+    }, 2500);
+
+    dots.forEach((dot, i) => dot.addEventListener('click', () => irPara(i)));
+  });
+</script>
+
+</body>
+</html>

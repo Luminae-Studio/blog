@@ -1,0 +1,403 @@
+/* ============================================================
+   O Som dos Livros — style.css
+   Folha de estilos global, limpa e organizada.
+   Usada pelas páginas internas (alma.html, manchita.html, etc.)
+   ============================================================ */
+
+/* ===== 1. RESET MÍNIMO ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ===== 2. BASE DO SITE ===== */
+body {
+  font-family: 'Georgia', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2e1040;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Páginas com fundo de imagem (homepage, alma, manchita) */
+body.fundo-blog {
+  background: url("https://o-som-dos-livros.neocities.org/fundo-inicial.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* ===== 3. TIPOGRAFIA ===== */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2e1040;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2e1040;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2e1040;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* ===== 4. LOGO HOME (sticky, canto superior esquerdo) ===== */
+.home-logo {
+  position: fixed;
+  top: 18px;
+  left: 22px;
+  z-index: 100;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.home-logo img {
+  width: 72px;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(40,10,70,0.45));
+}
+
+.home-logo:hover {
+  transform: scale(1.08) translateY(-3px);
+}
+
+.home-logo:hover img {
+  filter: drop-shadow(0 8px 20px rgba(80,20,120,0.55));
+}
+
+/* ===== 5. MAIN ===== */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 40px 20px;
+}
+
+/* ===== 6. CARD PAPEL (usado em alma.html, manchita.html, etc.) ===== */
+.papel {
+  position: relative;
+  background-color: #f5f0ea;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      rgba(180,160,200,0.18) 27px,
+      rgba(180,160,200,0.18) 28px
+    );
+  border-radius: 6px;
+  box-shadow:
+    0 2px 6px rgba(60,20,80,0.10),
+    0 8px 30px rgba(60,20,80,0.18),
+    0 20px 60px rgba(40,10,60,0.22),
+    inset 0 0 40px rgba(255,255,255,0.25);
+  width: 100%;
+  max-width: 620px;
+  padding: 48px 44px 48px 52px;
+}
+
+/* Lombada lateral esquerda */
+.papel::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(150,100,180,0.25), transparent);
+  border-radius: 6px 0 0 6px;
+}
+
+.papel-titulo {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* ===== 7. LISTA DE POSTS ===== */
+.posts-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.post-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+/* Badge de data */
+.post-data {
+  flex-shrink: 0;
+  background-color: #7a4fa0;
+  color: #fff;
+  font-size: 0.72rem;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  padding: 3px 10px;
+  border-radius: 50px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(80,30,120,0.25);
+  min-width: 72px;
+  text-align: center;
+}
+
+/* Link do post */
+.post-link {
+  color: #2e1040;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.post-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 1px;
+  background: #7a4fa0;
+  transition: width 0.25s ease;
+}
+
+.post-link:hover {
+  color: #7a4fa0;
+}
+
+.post-link:hover::after {
+  width: 100%;
+}
+
+/* Item sem link ainda */
+.post-item.vazio .post-data {
+  background-color: #c5aee0;
+}
+
+/* ===== 8. FOOTER ===== */
+footer {
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer-divider-img img {
+  width: 100%;
+  display: block;
+}
+
+.footer-cloud {
+  min-height: 64px;
+  background-color: #b99fbb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== 9. BOTÕES SOCIAIS ===== */
+.social-btn {
+  all: unset;
+  cursor: pointer;
+  position: relative;
+  border-radius: 100em;
+  background-color: rgba(60, 20, 80, 0.75);
+  box-shadow:
+    -0.15em -0.15em 0.15em -0.075em rgba(5, 5, 5, 0.25),
+    0.0375em 0.0375em 0.0675em 0 rgba(5, 5, 5, 0.1);
+  text-decoration: none;
+  display: inline-block;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.social-btn::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: calc(100% + 0.3em);
+  height: calc(100% + 0.3em);
+  top: -0.15em;
+  left: -0.15em;
+  border-radius: inherit;
+  background: linear-gradient(
+    -135deg,
+    rgba(5, 5, 5, 0.5),
+    transparent 20%,
+    transparent 100%
+  );
+  filter: blur(0.0125em);
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+}
+
+.btn-outer {
+  position: relative;
+  z-index: 1;
+  border-radius: inherit;
+  transition: box-shadow 300ms ease;
+  will-change: box-shadow;
+  box-shadow:
+    0 0.05em 0.05em -0.01em rgba(5, 5, 5, 1),
+    0 0.01em 0.01em -0.01em rgba(5, 5, 5, 0.5),
+    0.15em 0.3em 0.1em -0.01em rgba(5, 5, 5, 0.25);
+}
+
+.social-btn:hover .btn-outer {
+  box-shadow:
+    0 0 0 0 rgba(5, 5, 5, 1),
+    0 0 0 0 rgba(5, 5, 5, 0.5),
+    0 0 0 0 rgba(5, 5, 5, 0.25);
+}
+
+.btn-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 0.45em 1em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-image: linear-gradient(
+    135deg,
+    rgba(210, 185, 230, 1),
+    rgba(175, 140, 200, 1)
+  );
+  transition:
+    box-shadow 300ms ease,
+    clip-path 250ms ease,
+    transform 250ms ease;
+  will-change: box-shadow, clip-path, transform;
+  overflow: clip;
+  clip-path: inset(0 0 0 0 round 100em);
+  box-shadow:
+    0 0 0 0 inset rgba(5, 5, 5, 0.1),
+    -0.05em -0.05em 0.05em 0 inset rgba(5, 5, 5, 0.25),
+    0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.25),
+    0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 1),
+    0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+    -0.075em -0.25em 0.25em 0.1em inset rgba(5, 5, 5, 0.25);
+}
+
+.social-btn:hover .btn-inner {
+  clip-path: inset(
+    clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px)
+    clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 100em
+  );
+  box-shadow:
+    0.1em 0.15em 0.05em 0 inset rgba(5, 5, 5, 0.75),
+    -0.025em -0.03em 0.05em 0.025em inset rgba(5, 5, 5, 0.5),
+    0.25em 0.25em 0.2em 0 inset rgba(5, 5, 5, 0.5),
+    0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.15),
+    0 0 0 0 inset rgba(255, 255, 255, 1),
+    0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+    -0.075em -0.12em 0.2em 0.1em inset rgba(5, 5, 5, 0.25);
+}
+
+.social-btn:active .btn-inner {
+  transform: scale(0.975);
+}
+
+.btn-inner svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: #2e1040;
+  position: relative;
+  z-index: 4;
+}
+
+.btn-inner span {
+  position: relative;
+  z-index: 4;
+  font-family: 'Georgia', serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(0, 0, 0, 0);
+  background-image: linear-gradient(
+    135deg,
+    rgba(46, 16, 64, 1),
+    rgba(90, 40, 110, 1)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: transform 250ms ease;
+  display: block;
+  will-change: transform;
+  user-select: none;
+}
+
+.social-btn:hover .btn-inner span {
+  transform: scale(0.975);
+}
+
+/* ===== 10. UTILITÁRIOS ===== */
+.hidden { display: none; }
+.text-center { text-align: center; }
+
+/* ===== 11. RESPONSIVO ===== */
+@media (max-width: 600px) {
+  .home-logo {
+    top: 12px;
+    left: 14px;
+  }
+
+  .home-logo img {
+    width: 56px;
+  }
+
+  main {
+    padding: 50px 14px 32px 14px;
+  }
+
+  .papel {
+    padding: 36px 24px 36px 28px;
+  }
+
+  .post-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .post-data {
+    align-self: flex-start;
+  }
+
+  .footer-socials {
+    gap: 8px;
+  }
+}

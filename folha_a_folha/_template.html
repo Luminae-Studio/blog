@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!--
+    TEMPLATE DE REVIEW — folha a folha
+
+    Como funciona a leitura:
+    - Abertura 1: [ficha do livro | página 1]  ← sempre assim
+    - Abertura 2: [página 2       | página 3]
+    - Abertura 3: [página 4       | página 5]
+    - e assim por diante...
+
+    Cada <div class="pagina"> é uma folha.
+    Você decide onde cada página termina.
+    Dentro de cada .pagina: liberdade total.
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Special+Elite&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0e8d5;
+      font-family: 'EB Garamond', Georgia, serif;
+      color: #2a1f0f;
+      font-size: 0.9rem;
+      line-height: 1.82;
+    }
+
+    .pagina {
+      padding: 1.8rem 1.6rem 2.5rem;
+      min-height: 100%;
+      position: relative;
+    }
+
+    .data {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      color: #c8b99a;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .label {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #c8b99a;
+      margin-bottom: 0.45rem;
+      border-bottom: 1px solid rgba(200,185,154,0.4);
+      padding-bottom: 0.3rem;
+      display: block;
+    }
+
+    .pagina p { margin-bottom: 0.9rem; }
+
+    .frase {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      color: #3a2a1a;
+      text-align: center;
+      padding: 1rem 1.2rem;
+      border-top: 1px solid #c8b99a;
+      border-bottom: 1px solid #c8b99a;
+      margin: 1.4rem 0;
+      line-height: 1.6;
+    }
+
+    .margem {
+      border-left: 2px solid rgba(200,185,154,0.5);
+      padding-left: 0.8rem;
+      font-size: 0.82rem;
+      color: #7a6a5a;
+      margin: 0.8rem 0;
+    }
+
+    .pagina img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      margin: 1rem 0;
+      border-radius: 1px;
+      opacity: 0.9;
+    }
+
+    .riscado { text-decoration: line-through; opacity: 0.5; }
+
+    .num {
+      position: absolute;
+      bottom: 0.8rem;
+      width: 100%;
+      left: 0;
+      text-align: center;
+      font-style: italic;
+      font-size: 0.68rem;
+      color: #c8b99a;
+      letter-spacing: 0.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PÁGINA 1 — aparece do lado DIREITO na abertura 1 (ao lado da ficha) -->
+  <div class="pagina">
+    <span class="data">dd.mm.aaaa</span>
+    <span class="label">impressão inicial</span>
+    <p>Escreva aqui sua primeira impressão do livro.</p>
+    <span class="num">1</span>
+  </div>
+
+  <!-- PÁGINA 2 — aparece do lado ESQUERDO na abertura 2 -->
+  <div class="pagina">
+    <span class="label">lendo</span>
+    <p>Como foi a experiência de leitura?</p>
+    <p class="margem">Uma anotação lateral aqui.</p>
+    <span class="num">2</span>
+  </div>
+
+  <!-- PÁGINA 3 — aparece do lado DIREITO na abertura 2 -->
+  <div class="pagina">
+    <span class="label">pensamentos</span>
+    <p>Reflexões livres sobre o livro.</p>
+    <span class="num">3</span>
+  </div>
+
+  <!-- PÁGINA 4 — aparece do lado ESQUERDO na abertura 3 -->
+  <div class="pagina">
+    <p class="frase">"Uma frase do livro que ficou."</p>
+    <span class="num">4</span>
+  </div>
+
+  <!--
+    ADICIONE MAIS PÁGINAS CONFORME PRECISAR.
+    Lembre: páginas ímpares (1,3,5...) ficam à DIREITA
+            páginas pares  (2,4,6...) ficam à ESQUERDA
+  -->
+
+</body>
+</html>

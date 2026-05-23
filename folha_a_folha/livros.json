@@ -1,0 +1,578 @@
+[
+  {
+    "id": "a-arte-da-guerra",
+    "titulo": "A arte da guerra",
+    "autor": "Sun Tzu",
+    "paginas": 128,
+    "idioma": "pt",
+    "cor": "#4a3728",
+    "estrelas": 4,
+    "genero": "filosofia",
+    "frase": "todo livro é uma batalha silenciosa.",
+    "anotacao": "li devagar, como quem aprende a respirar diferente.",
+    "review": {
+      "impressao": "Não esperava que um texto tão antigo pudesse me falar tão diretamente. Cheguei sem expectativa e saí pensando em tudo diferente.",
+      "experiencia": "A leitura é estranha — é curta, mas densa. Cada frase pede pausa. Eu sublinhei mais do que li, acho.\n\nTem algo de perturbador em perceber que estratégia, guerra, poder — tudo isso obedece a padrões que a gente já conhece intuitivamente, mas nunca tinha nomeado.",
+      "pensamentos": "Sun Tzu não fala só de guerra. Fala de timing. De saber quando avançar e quando desaparecer. De não desperdiçar energia com batalhas que já estão perdidas antes de começar.\n\nEu apliquei isso na minha semana inteira depois de terminar.",
+      "frase_destacada": "\"A suprema arte da guerra é derrotar o inimigo sem lutar.\""
+    }
+  },
+  {
+    "id": "a-biblioteca-de-meia-noite",
+    "titulo": "A biblioteca de meia noite",
+    "autor": "Matt Haig",
+    "paginas": 308,
+    "idioma": "pt",
+    "cor": "#2d4a3e",
+    "estrelas": 4,
+    "genero": "ficção",
+    "frase": "e se você pudesse ter vivido diferente?",
+    "anotacao": "chorei em partes que não esperava.",
+    "review": {
+      "impressao": "Peguei esse livro num momento específico da minha vida. Acho que todo mundo lê A Biblioteca de Meia Noite no momento certo, ou no momento errado — e os dois funcionam.",
+      "experiencia": "A premissa é simples e ao mesmo tempo devastadora: uma biblioteca entre a vida e a morte onde cada livro é uma vida que você poderia ter vivido.\n\nMatt Haig escreve de forma acessível mas não rasa. Tem peso nas páginas mesmo quando parece leve.",
+      "pensamentos": "O que me ficou não foi a fantasia, foi a pergunta que o livro faz sem fazer: o que você faria diferente? E mais importante — você realmente faria?\n\nTerminei sem resposta. Acho que era essa a intenção.",
+      "frase_destacada": "\"A vida não é uma história que você escreve sozinha.\""
+    }
+  },
+  {
+    "id": "a-palavra-que-resta",
+    "titulo": "A palavra que resta",
+    "autor": "Stênio Gardel",
+    "paginas": 160,
+    "idioma": "pt",
+    "cor": "#5c3d2e",
+    "estrelas": 5,
+    "genero": "ficção",
+    "frase": "amor que não tem nome ainda assim dói.",
+    "anotacao": "esse me desmontou completamente.",
+    "review": {
+      "impressao": "Li em dois dias. Não porque é curto — é curto — mas porque era impossível parar. Stênio Gardel escreve como quem costura ferida.",
+      "experiencia": "É a história de um amor que não tem espaço para existir. De um homem que aprende a ler para escrever cartas para alguém que não pode receber.\n\nA língua do livro é particular, regional, e ao mesmo tempo universal de um jeito que me pegou despreparada.",
+      "pensamentos": "Tem uma dor específica nesse livro que eu não sei nomear direito. Não é tristeza comum. É a dor de algo que existiu e foi negado.\n\nFiquei dias pensando na última cena.",
+      "frase_destacada": "\"Escrever é o único jeito que encontrei de te ter.\""
+    }
+  },
+  {
+    "id": "a-ultima-contadora-de-historias",
+    "titulo": "A última contadora de histórias",
+    "autor": "Donna Barba Higuera",
+    "paginas": 288,
+    "idioma": "pt",
+    "cor": "#6b4c3b",
+    "estrelas": 4,
+    "genero": "ficção científica",
+    "frase": "histórias sobrevivem quando tudo mais some.",
+    "anotacao": "li pensando no futuro com medo e esperança.",
+    "review": {
+      "impressao": "Um livro que mistura futuro distópico com mitologia indígena de um jeito que eu nunca tinha visto antes. Cheguei curiosa e saí impressionada.",
+      "experiencia": "A protagonista carrega histórias orais da sua cultura enquanto o mundo ao redor se desfaz. É ficção científica com coração folclórico.\n\nA escrita é visual — dá para ver cada cena como se fosse um filme.",
+      "pensamentos": "O que o livro diz sobre memória coletiva e sobre quem decide o que é preservado me ficou muito. Histórias como resistência. Como sobrevivência.\n\nNão é um livro leve, mas é necessário.",
+      "frase_destacada": "\"Enquanto uma história for contada, o que ela guarda não morre.\""
+    }
+  },
+  {
+    "id": "anatomia-del-chico-perfecto",
+    "titulo": "Anatomía del chico perfecto",
+    "autor": "Sugary Pale",
+    "paginas": 400,
+    "idioma": "es",
+    "cor": "#3d3550",
+    "estrelas": 3,
+    "genero": "romance",
+    "frase": "ninguém é perfeito, nem quem tenta parecer.",
+    "anotacao": "li rápido, senti bastante coisa.",
+    "review": {
+      "impressao": "Entrei sem expectativas grandes e saí com sentimentos misturados. É um romance que funciona no que se propõe, mas me deixou querendo mais profundidade.",
+      "experiencia": "A dinâmica entre os personagens é bem construída. Tem tensão, tem momentos que funcionam. Mas em alguns pontos senti que o livro escolheu o caminho mais seguro quando podia ter ido mais fundo.\n\nLi rápido. Às vezes isso é o suficiente.",
+      "pensamentos": "Tem algo interessante no título — a anatomia do chico perfeito acaba sendo uma desconstrução. Isso me agradou mais do que esperava.\n\nBom para uma tarde nublada.",
+      "frase_destacada": "\"Perfección es la máscara más pesada que existe.\""
+    }
+  },
+  {
+    "id": "cuentos-para-monstruos",
+    "titulo": "Cuentos para monstruos",
+    "autor": "Santiago Pedraza",
+    "paginas": null,
+    "idioma": "es",
+    "cor": "#2a2a3d",
+    "estrelas": 4,
+    "genero": "contos",
+    "frase": "monstros também precisam de histórias para dormir.",
+    "anotacao": "cada conto um pequeno susto diferente.",
+    "review": {
+      "impressao": "Contos curtos com uma atmosfera muito específica. Santiago Pedraza constrói mundos em poucas páginas com uma habilidade que me surpreendeu.",
+      "experiencia": "Cada conto tem seu próprio ritmo, seu próprio monstro. Alguns são literais, outros são metáfora pura. A mistura funciona.\n\nLi de madrugada, o que foi uma escolha questionável mas acertada.",
+      "pensamentos": "O que mais gostei foi a forma como os monstros raramente são os vilões. Tem uma inversão constante que diz algo sobre como enxergamos o que nos assusta.\n\nRecomendo para quem curte o estranho.",
+      "frase_destacada": "\"El monstruo más peligroso es el que no reconoces como tal.\""
+    }
+  },
+  {
+    "id": "desfibrilador",
+    "titulo": "Desfibrilador",
+    "autor": "Gilraen Eärfalas",
+    "paginas": 182,
+    "idioma": "es",
+    "cor": "#1a2a3a",
+    "estrelas": 5,
+    "genero": "poesia",
+    "frase": "poesia que choca o coração de volta ao ritmo.",
+    "anotacao": "reli partes três vezes seguidas.",
+    "review": {
+      "impressao": "Esse livro me pegou de surpresa de um jeito que poucos fazem. Poesia que funciona como eletricidade — você sente antes de entender.",
+      "experiencia": "Gilraen Eärfalas escreve com uma precisão cirúrgica que ao mesmo tempo parece completamente instintiva. Cada poema é um choque controlado.\n\nFiquei várias vezes parada no meio de uma página sem saber o que exatamente tinha me atingido.",
+      "pensamentos": "O título é perfeito. Desfibrilador é exatamente o que esse livro faz — traz de volta algo que estava parado dentro de você.\n\nTenho trechos anotados que releio quando preciso lembrar de sentir.",
+      "frase_destacada": "\"Cada palavra uma descarga. Cada silêncio, um batimento recuperado.\""
+    }
+  },
+  {
+    "id": "el-club-de-los-perdedores",
+    "titulo": "El club de los perdedores",
+    "autor": "Lorena Amkie",
+    "paginas": 390,
+    "idioma": "es",
+    "cor": "#3a4a2a",
+    "estrelas": 4,
+    "genero": "jovem adulto",
+    "frase": "pertencer a si mesmo já é um clube.",
+    "anotacao": "li identificada em partes que não esperava.",
+    "review": {
+      "impressao": "Um livro sobre não pertencer que paradoxalmente faz você se sentir parte de algo. Lorena Amkie tem um talento especial para criar personagens que parecem reais.",
+      "experiencia": "Os personagens são o coração do livro. Cada um carrega uma forma diferente de ser 'perdedor' — e o livro trata todos com cuidado e sem condescendência.\n\nTem momentos muito engraçados e outros que dói.",
+      "pensamentos": "O que me ficou foi a ideia de que talvez ser perdedor seja apenas não ter encontrado ainda o espaço onde você faz sentido. E que às vezes você tem que criar esse espaço.\n\nBom, muito bom.",
+      "frase_destacada": "\"Los perdedores se encuentran porque saben buscar en los lugares que nadie mira.\""
+    }
+  },
+  {
+    "id": "el-nino-de-pijama-a-rayas",
+    "titulo": "El niño de pijama a rayas",
+    "autor": "John Boyne",
+    "paginas": 224,
+    "idioma": "es",
+    "cor": "#4a4a4a",
+    "estrelas": 5,
+    "genero": "histórico",
+    "frase": "a inocência não protege ninguém.",
+    "anotacao": "fechei o livro e fiquei sentada em silêncio.",
+    "review": {
+      "impressao": "Tinha adiado esse livro por anos. Quando finalmente li, entendi por quê as pessoas ficam em silêncio depois de terminar.",
+      "experiencia": "A narração pela perspectiva de Bruno é um recurso que poderia ser manipulador mas não é. A inocência dele é real, e é exatamente isso que torna o livro insuportável de uma forma necessária.\n\nA linguagem simples amplifica o horror.",
+      "pensamentos": "Esse livro faz um trabalho importante — coloca um rosto infantil, ingênuo, próximo em algo que tendemos a processar como história distante.\n\nNão é leitura fácil. Não deveria ser.",
+      "frase_destacada": "\"Algunas cosas son demasiado grandes para que los niños las entiendan. Y también para que los adultos las expliquen.\""
+    }
+  },
+  {
+    "id": "el-psicologo-de-los-muertos",
+    "titulo": "El psicólogo de los muertos",
+    "autor": "William M. Valtos",
+    "paginas": 400,
+    "idioma": "es",
+    "cor": "#2e2e2e",
+    "estrelas": 3,
+    "genero": "thriller",
+    "frase": "os mortos guardam segredos que os vivos não querem ouvir.",
+    "anotacao": "página-virador mas com ressalvas.",
+    "review": {
+      "impressao": "Um thriller que funciona no ritmo mas vacila na profundidade. Li rápido, me entretevi, mas não ficou.",
+      "experiencia": "A premissa é original e o início é forte. O problema é que o livro não sustenta a complexidade que promete — algumas resoluções são apressadas demais.\n\nMas como entretenimento, cumpre o que oferece.",
+      "pensamentos": "Tem uma cena específica de interrogatório que achei brilhante. O livro inteiro deveria ter sido assim — mais tenso, mais psicológico, menos explicado.\n\nVale para quem curte o gênero.",
+      "frase_destacada": "\"Los muertos hablan. El problema es que nadie quiere escucharlos.\""
+    }
+  },
+  {
+    "id": "flores-para-algernon",
+    "titulo": "Flores para Algernon",
+    "autor": "Daniel Keyes",
+    "paginas": 311,
+    "idioma": "pt",
+    "cor": "#3d5c3a",
+    "estrelas": 5,
+    "genero": "ficção científica",
+    "frase": "inteligência não ensina a ser humano.",
+    "anotacao": "um dos mais importantes que já li.",
+    "review": {
+      "impressao": "Cheguei atrasada nesse clássico. Mas chegar atrasada significou ler sem spoiler nenhum, e isso foi um presente que não sabia que estava recebendo.",
+      "experiencia": "Acompanhar Charlie Gordon pela escrita é uma experiência única. Os erros gramaticais do início, a evolução, a deterioração — é uma das construções narrativas mais precisas que já encontrei.\n\nTem uma dor que vai crescendo conforme você lê e não tem como se preparar para ela.",
+      "pensamentos": "O livro levanta questões sobre o que fazemos com inteligência, sobre o que perdemos quando 'evoluímos', sobre o que o mundo faz com quem não se encaixa.\n\nFiquei pensando em Algernon por semanas.",
+      "frase_destacada": "\"Aprendi que inteligência sozinha não basta para ser feliz — ou para ser bom.\""
+    }
+  },
+  {
+    "id": "heartstopper-i",
+    "titulo": "Heartstopper I",
+    "autor": "Alice Oseman",
+    "paginas": 288,
+    "idioma": "es",
+    "cor": "#4a7a5a",
+    "estrelas": 4,
+    "genero": "graphic novel",
+    "frase": "amor que começa devagar é o que fica.",
+    "anotacao": "fofinho e necessário.",
+    "review": {
+      "impressao": "Li com um sorriso constante no rosto. Heartstopper tem uma energia que é rara — genuinamente carinhosa sem ser ingênua.",
+      "experiencia": "Alice Oseman desenha emoções de uma forma que vai direto para algum lugar mole dentro da gente. As folhinhas, os raios — os elementos gráficos viram linguagem emocional.\n\nÉ uma leitura rápida mas não é vazia.",
+      "pensamentos": "O que o livro faz de importante é mostrar amor sem drama desnecessário. É lindo porque é simples, porque é gentil.\n\nO mundo precisa de mais histórias assim.",
+      "frase_destacada": "\"No sabía que podía sentir tanto con tan poco.\""
+    }
+  },
+  {
+    "id": "hogar-de-miss-peregrine",
+    "titulo": "Hogar de miss peregrine para niños peculiares",
+    "autor": "Ransom Riggs",
+    "paginas": 352,
+    "idioma": "es",
+    "cor": "#3a3a2a",
+    "estrelas": 4,
+    "genero": "fantasia",
+    "frase": "peculiar é só uma palavra para quem não se encaixa em nenhuma outra.",
+    "anotacao": "as fotos antigas dentro do livro são perturbadoras e perfeitas.",
+    "review": {
+      "impressao": "Um livro que usa fotografias vintage reais como parte da narrativa. Isso sozinho já seria suficiente para me convencer, mas a história também entrega.",
+      "experiencia": "Ransom Riggs constrói uma atmosfera densa desde a primeira página. O mundo dos peculiares é estranho do jeito certo — inquietante mas fascinante.\n\nAs fotos antigas integradas ao texto são um recurso visual que funciona muito melhor do que eu esperava.",
+      "pensamentos": "Tem uma melancolia específica nesse livro sobre não pertencer ao seu próprio tempo. Sobre encontrar seu lugar num mundo que talvez não exista mais.\n\nQuero continuar a série.",
+      "frase_destacada": "\"Lo peculiar no es un defecto. Es una forma diferente de ver el mundo.\""
+    }
+  },
+  {
+    "id": "hush-hush",
+    "titulo": "Hush, Hush",
+    "autor": "Beca Fitzpatrick",
+    "paginas": 400,
+    "idioma": "es",
+    "cor": "#2a2a2a",
+    "estrelas": 3,
+    "genero": "romance sobrenatural",
+    "frase": "alguns anjos caem e não são os do bem.",
+    "anotacao": "li na adolescência (releitura).",
+    "review": {
+      "impressao": "Reli esse anos depois da primeira vez. É interessante ver como a perspectiva muda — o que parecia intenso antes agora levo com mais distância.",
+      "experiencia": "É um romance sobrenatural da era dos vampiros e anjos caídos, com toda a estética e problemas típicos do gênero. A atmosfera é bem construída, o ritmo funciona.\n\nAlgumas dinâmicas entre personagens envelheceram de formas questionáveis.",
+      "pensamentos": "Releio com afeto pela adolescente que eu era quando li pela primeira vez. Esse livro fez parte de uma fase de leitura importante para mim.\n\nPara o que é, funciona.",
+      "frase_destacada": "\"Ni el cielo ni el infierno — solo este momento, aquí.\""
+    }
+  },
+  {
+    "id": "jantar-secreto",
+    "titulo": "Jantar Secreto",
+    "autor": "Raphael Montes",
+    "paginas": 374,
+    "idioma": "pt",
+    "cor": "#5c2a2a",
+    "estrelas": 5,
+    "genero": "thriller",
+    "frase": "o horror mais perturbador é o que sorri para você.",
+    "anotacao": "passei mal lendo. no bom sentido.",
+    "review": {
+      "impressao": "Raphael Montes é perturbador de um jeito muito específico — ele faz você se sentir desconfortável por dentro da cabeça de alguém que não deveria fazer sentido nenhum, e de alguma forma faz.",
+      "experiencia": "A voz narrativa é o horror do livro. O protagonista é fascinante e repulsivo ao mesmo tempo, e Montes equilibra isso com uma precisão que é quase cruel.\n\nLi com o estômago apertado do início ao fim.",
+      "pensamentos": "O que fica depois de terminar não é o enredo — é a sensação. O livro deixa uma marca física, quase.\n\nNão recomendo antes de dormir. Recomendo para todo mundo.",
+      "frase_destacada": "\"O perigo nunca avisa. Ele espera ser convidado para jantar.\""
+    }
+  },
+  {
+    "id": "la-melancolica-muerte-del-nino-ostra",
+    "titulo": "La melancólica muerte del niño ostra",
+    "autor": "Tim Burton",
+    "paginas": 128,
+    "idioma": "es",
+    "cor": "#1a1a2a",
+    "estrelas": 5,
+    "genero": "poesia ilustrada",
+    "frase": "ser estranho nunca foi o problema.",
+    "anotacao": "burton em formato de livro é ainda mais burton.",
+    "review": {
+      "impressao": "Tim Burton em formato de poesia ilustrada é exatamente o que você espera e ao mesmo tempo mais do que isso. Cada personagem é uma pequena tragédia com senso de humor.",
+      "experiencia": "Os poemas são curtos, as ilustrações são o Burton clássico — olhos grandes, crianças estranhas, mundos que não fazem sentido mas fazem todo o sentido.\n\nLi em uma tarde e fiquei sorrindo com tristeza durante toda ela.",
+      "pensamentos": "Tem uma ternura estranha nesse livro pelos que não se encaixam. Burton sempre soube falar sobre isso melhor do que a maioria.\n\nReli várias vezes. Cada poema é um pequeno universo.",
+      "frase_destacada": "\"Ser raro no es un error. Es una forma de existir que el mundo aún no aprendió a leer.\""
+    }
+  },
+  {
+    "id": "la-tinta",
+    "titulo": "La Tinta",
+    "autor": "Dalas",
+    "paginas": 400,
+    "idioma": "es",
+    "cor": "#2a1a1a",
+    "estrelas": 3,
+    "genero": "thriller",
+    "frase": "palavras escritas com sangue são as mais verdadeiras.",
+    "anotacao": "esperava mais, recebi o suficiente.",
+    "review": {
+      "impressao": "Dalas (o youtuber) escreveu um thriller que é melhor do que eu esperava, mas também exatamente o que eu esperava. É complicado.",
+      "experiencia": "A premissa é sólida e o ritmo é bom. Dá para sentir a influência cinematográfica — o livro pensa muito em cenas visuais, o que às vezes funciona e às vezes torna a escrita superficial.\n\nEntretenimento competente.",
+      "pensamentos": "Li sem me arrepender, mas sem ficar impressionada. Para um primeiro romance de alguém vindo de outra mídia, é uma tentativa honesta.\n\nVale para fãs do autor.",
+      "frase_destacada": "\"La tinta no miente. Las personas sí.\""
+    }
+  },
+  {
+    "id": "matar-a-un-ruisenor",
+    "titulo": "Matar a un ruiseñor",
+    "autor": "Harper Lee",
+    "paginas": 336,
+    "idioma": "es",
+    "cor": "#4a3a2a",
+    "estrelas": 5,
+    "genero": "clássico",
+    "frase": "justiça é rara. inocência, ainda mais.",
+    "anotacao": "scout finch me ensinou coisas que eu não sabia que precisava aprender.",
+    "review": {
+      "impressao": "Um dos livros que todo mundo diz que você tem que ler, e essa é uma das raras vezes em que o consenso está completamente certo.",
+      "experiencia": "Ler pela perspectiva de Scout é uma das experiências literárias mais ricas que tive. A infância como lente para o racismo sistêmico, para a injustiça, para a complexidade humana — funciona porque Scout não entende tudo, e é exatamente isso que nos força a entender mais.\n\nAtticus Finch é um dos personagens mais bem escritos da literatura.",
+      "pensamentos": "O que me surpreendeu foi a leveza da escrita diante de temas tão pesados. Harper Lee não grita. Ela mostra. E é muito mais poderoso assim.\n\nNecessário. Atemporal. Um dos melhores.",
+      "frase_destacada": "\"Nunca se entiende de verdad a una persona hasta que se considera el asunto desde su punto de vista.\""
+    }
+  },
+  {
+    "id": "matilde-debe-morir",
+    "titulo": "Matilde debe morir",
+    "autor": "Cristian Acevedo",
+    "paginas": 144,
+    "idioma": "es",
+    "cor": "#5a2a3a",
+    "estrelas": 4,
+    "genero": "thriller",
+    "frase": "alguns títulos já são um spoiler do que você vai sentir.",
+    "anotacao": "li de uma vez só, não consegui parar.",
+    "review": {
+      "impressao": "Curto, tenso, bem construído. Cristian Acevedo sabe criar urgência desde a primeira frase.",
+      "experiencia": "O título avisa. O livro cumpre. É uma leitura intensa que não dá espaço para respirar — e isso é um elogio.\n\nA construção de Matilde como personagem é o que salva o livro de ser só plot: ela importa, e por isso o título pesa.",
+      "pensamentos": "Para um livro tão curto, deixa muito. A relação entre os personagens é complexa sem ser explicada demais — o leitor preenche os espaços.\n\nMuito bem escrito.",
+      "frase_destacada": "\"Algunas historias empiezan con un final.\""
+    }
+  },
+  {
+    "id": "mestre-dos-misterios",
+    "titulo": "Mestre dos mistérios",
+    "autor": "Poe / Doyle / Chesterton",
+    "paginas": 160,
+    "idioma": "pt",
+    "cor": "#3a2a1a",
+    "estrelas": 4,
+    "genero": "contos",
+    "frase": "o mistério é uma forma de respeitar o leitor.",
+    "anotacao": "uma pequena viagem pela história do gênero.",
+    "review": {
+      "impressao": "Uma coletânea que funciona como portal — você entra pelos clássicos do mistério e sai querendo mais de cada um dos autores.",
+      "experiencia": "Poe, Doyle e Chesterton em um volume só é uma aula de como o gênero nasceu e se estabeleceu. Cada um com seu ritmo, sua lógica, seu personagem central.\n\nTem algo de museu aqui, mas o museu é fascinante.",
+      "pensamentos": "O que me surpreendeu foi como os contos envelheceram bem. A lógica dedutiva não cansa — tem algo de elegante no raciocínio que transcende a época.\n\nBom ponto de entrada para quem quer conhecer o gênero.",
+      "frase_destacada": "\"O detalhe que parece insignificante é sempre o mais importante.\""
+    }
+  },
+  {
+    "id": "o-auto-da-maga-josefa",
+    "titulo": "O auto da maga Josefa",
+    "autor": "Paola Siviero",
+    "paginas": 224,
+    "idioma": "pt",
+    "cor": "#4a2a5a",
+    "estrelas": 5,
+    "genero": "ficção",
+    "frase": "magia é só o nome que a gente dá para o que não consegue explicar.",
+    "anotacao": "esse livro cheira a erva e coisa antiga.",
+    "review": {
+      "impressao": "Paola Siviero criou algo único aqui. Um livro que tem cheiro, que tem textura, que parece existir num espaço entre o real e o mítico.",
+      "experiencia": "A linguagem é rica sem ser excessiva. Josefa é um personagem que você sente mais do que entende — e isso é uma escolha deliberada e muito bem executada.\n\nTem raízes no Brasil profundo, no folclore, no que a gente tende a ignorar na literatura contemporânea.",
+      "pensamentos": "Fiquei com vontade de relê-lo imediatamente ao terminar. Isso não acontece com frequência.\n\nUm dos livros mais completos e singulares que li.",
+      "frase_destacada": "\"A maga não invoca o passado. Ela conversa com ele.\""
+    }
+  },
+  {
+    "id": "o-peso-do-passaro-morto",
+    "titulo": "O peso do pássaro morto",
+    "autor": "Aline Bei",
+    "paginas": 166,
+    "idioma": "pt",
+    "cor": "#2a3a4a",
+    "estrelas": 5,
+    "genero": "poesia/prosa",
+    "frase": "algumas dores não têm forma até alguém as escrever.",
+    "anotacao": "li em silêncio absoluto. necessário.",
+    "review": {
+      "impressao": "Aline Bei escreve de um lugar que poucos conseguem alcançar. É poesia que sangra, prosa que respira diferente.",
+      "experiencia": "O livro trata de violência, de corpo, de silêncio e de grito. A forma fragmentada não é estética — é necessidade. O texto não poderia existir de outra forma.\n\nLi com aperto no peito do início ao fim.",
+      "pensamentos": "Tem algo de ritual nessa leitura. Você sai diferente. Não sei explicar de que forma, mas sai.\n\nAline Bei é uma das vozes mais importantes da literatura brasileira atual.",
+      "frase_destacada": "\"O pássaro morto pesa mais do que ele pesava vivo.\""
+    }
+  },
+  {
+    "id": "o-sorriso-do-sol",
+    "titulo": "O sorriso do sol",
+    "autor": "Edu Santiago",
+    "paginas": 9,
+    "idioma": "pt",
+    "cor": "#5a4a2a",
+    "estrelas": 4,
+    "genero": "poesia",
+    "frase": "nove páginas podem ser um universo inteiro.",
+    "anotacao": "o menor livro da minha estante. não o menor em peso.",
+    "review": {
+      "impressao": "Nove páginas. Isso é tudo. E ao mesmo tempo é muito mais do que muitos livros com 400.",
+      "experiencia": "Edu Santiago comprova que tamanho não é documento. Cada palavra nessas nove páginas foi escolhida com um cuidado que se sente.\n\nLi três vezes seguidas na primeira vez.",
+      "pensamentos": "Tem uma alegria específica nesse livro que não é ingênua — é conquistada. O sorriso do título não é gratuito.\n\nUm pequeno presente.",
+      "frase_destacada": "\"O sol sorri porque não tem escolha. Nós sorrimos quando escolhemos.\""
+    }
+  },
+  {
+    "id": "octubre-un-crimen",
+    "titulo": "Octubre, un crimen",
+    "autor": "Norma Huidobro",
+    "paginas": 144,
+    "idioma": "es",
+    "cor": "#3a4a3a",
+    "estrelas": 3,
+    "genero": "thriller",
+    "frase": "outubro tem algo de melancólico mesmo nos crimes.",
+    "anotacao": "cumpriu o que prometeu.",
+    "review": {
+      "impressao": "Um policial argentino com atmosfera densa. Norma Huidobro constrói o outubro do título como personagem — úmido, escuro, cansado.",
+      "experiencia": "É um livro bem construído dentro das convenções do gênero. Não subverte, mas executa com competência.\n\nA ambientação argentina é o ponto mais forte — dá para sentir a cidade.",
+      "pensamentos": "Para o que é, é bom. Não é o tipo de livro que fico pensando semanas depois, mas foi uma leitura satisfatória.\n\nBoa pedida para fãs de policial.",
+      "frase_destacada": "\"Octubre llega con lluvia y con preguntas que nadie quiere responder.\""
+    }
+  },
+  {
+    "id": "olhos-d-agua",
+    "titulo": "Olhos d'Água",
+    "autor": "Conceição Evaristo",
+    "paginas": 128,
+    "idioma": "pt",
+    "cor": "#1a3a4a",
+    "estrelas": 5,
+    "genero": "contos",
+    "frase": "escrevivência: quando a vida vira literatura de resistência.",
+    "anotacao": "cada conto uma vida que poderia ter sido a minha.",
+    "review": {
+      "impressao": "Conceição Evaristo inventou o conceito de 'escrevivência' — escrever a vida, viver a escrita. Esse livro é a materialização mais pura disso.",
+      "experiencia": "Os contos são curtos mas densos. Cada personagem, cada situação, carrega o peso de uma história coletiva que vai além da narrativa individual.\n\nA linguagem da Evaristo tem ritmo, tem corpo, tem voz.",
+      "pensamentos": "Li e fiquei pensando em quem não tem a chance de escrever suas próprias histórias. Em quem depende de que alguém como a Evaristo as escreva.\n\nNecessário, urgente e belo.",
+      "frase_destacada": "\"Nossas histórias existem porque nós existimos, e nós existimos porque as histórias nos mantêm vivos.\""
+    }
+  },
+  {
+    "id": "rafaela",
+    "titulo": "Rafaela",
+    "autor": "Mariana Furiasse",
+    "paginas": 256,
+    "idioma": "es",
+    "cor": "#5a3a4a",
+    "estrelas": 4,
+    "genero": "ficção",
+    "frase": "crescer é perder a Rafaela que você era.",
+    "anotacao": "me lembrou de mim de formas que não esperava.",
+    "review": {
+      "impressao": "Mariana Furiasse escreve adolescência de um jeito que parece tirado de um diário real — caótico, intenso, contraditório.",
+      "experiencia": "Rafaela é um personagem que você ama e questiona ao mesmo tempo. A escrita acompanha isso — não é linear, não é fácil, não é resolvida.\n\nFiquei me lembrando de quem eu era enquanto lia.",
+      "pensamentos": "O livro captura algo muito específico sobre a adolescência feminina que poucos livros conseguem — a intensidade das amizades, a formação de identidade, o quanto tudo parece urgente e permanente quando nada é.\n\nBelo.",
+      "frase_destacada": "\"Rafaela era todo lo que yo quería ser y todo lo que tenía miedo de ser.\""
+    }
+  },
+  {
+    "id": "un-crimen-secundario",
+    "titulo": "Un crimen secundario",
+    "autor": "Marcelo Birmajem",
+    "paginas": 160,
+    "idioma": "es",
+    "cor": "#2a2a3a",
+    "estrelas": 3,
+    "genero": "thriller",
+    "frase": "crimes menores escondem os maiores.",
+    "anotacao": "interessante, mas queria mais.",
+    "review": {
+      "impressao": "Um policial argentino que usa a premissa do 'crime secundário' — o que acontece nas margens da investigação principal — de forma original.",
+      "experiencia": "Birmajem tem uma voz própria. A escrita é seca, precisa, com humor discreto que emerge em momentos inesperados.\n\nO problema é que o livro parece curto demais para o que propõe.",
+      "pensamentos": "Com mais páginas, mais desenvolvimento, poderia ser excelente. Como está, é bom mas incompleto.\n\nVale pela originalidade da abordagem.",
+      "frase_destacada": "\"El crimen secundario es el que nadie investiga. Y el más revelador.\""
+    }
+  },
+  {
+    "id": "una-vida-sin-salud-mental",
+    "titulo": "Una vida sin salud mental",
+    "autor": "Alba Gonzalez",
+    "paginas": 87,
+    "idioma": "es",
+    "cor": "#3a5a4a",
+    "estrelas": 4,
+    "genero": "ensaio",
+    "frase": "normalizar é o primeiro passo. falar é o segundo.",
+    "anotacao": "li sentindo que não estou sozinha.",
+    "review": {
+      "impressao": "Um livro pequeno que faz um trabalho grande — falar sobre saúde mental com honestidade, sem romantizar e sem simplificar.",
+      "experiencia": "Alba Gonzalez escreve a partir da experiência própria, e isso se sente em cada página. Não é um manual, não é autoajuda — é uma conversa.\n\nLi em uma tarde e sublinhei quase tudo.",
+      "pensamentos": "O que mais gostei foi a recusa em oferecer soluções fáceis. O livro não promete curar, não promete que vai melhorar. Só diz: você não está sozinha.\n\nÀs vezes é o suficiente.",
+      "frase_destacada": "\"No es debilidad hablar de lo que duele. Es el acto más valiente que conozco.\""
+    }
+  },
+  {
+    "id": "uno-siempre-cambia",
+    "titulo": "Uno siempre cambia al amor de su vida por otro amor, o por otra vida",
+    "autor": "Amalia Andrade",
+    "paginas": 204,
+    "idioma": "es",
+    "cor": "#5a3a3a",
+    "estrelas": 5,
+    "genero": "ensaio",
+    "frase": "a pessoa que você mais precisa aprender a amar é você.",
+    "anotacao": "li e me abracei depois.",
+    "review": {
+      "impressao": "Amalia Andrade escreve sobre amor com uma honestidade desconfortável e necessária. Esse livro me fez entender coisas sobre mim que eu não sabia que precisava entender.",
+      "experiencia": "A mistura de texto com ilustrações, rabiscos e listas funciona perfeitamente. O livro tem uma estética que combina com o conteúdo — caótico, íntimo, em processo.\n\nLi sublinhando, circulando, anotando nas margens.",
+      "pensamentos": "O título é certeiro: a gente sempre troca o amor da vida. E isso não é fraqueza — é crescimento.\n\nUm dos livros que recomendo para quase todo mundo.",
+      "frase_destacada": "\"Cambiar no es traicionar. Es crecer hacia algo que te sienta mejor.\""
+    }
+  },
+  {
+    "id": "wayward-pines",
+    "titulo": "Wayward Pines: El Paraíso",
+    "autor": "Blake Crouch",
+    "paginas": 400,
+    "idioma": "es",
+    "cor": "#2a3a2a",
+    "estrelas": 4,
+    "genero": "thriller / ficção científica",
+    "frase": "o paraíso que não se pode deixar não é paraíso.",
+    "anotacao": "li no meio de uma fase de thriller intensa.",
+    "review": {
+      "impressao": "Blake Crouch constrói tensão como poucos. Wayward Pines é daqueles livros onde você sabe que tem algo errado desde o início e o autor usa esse desconforto com precisão.",
+      "experiencia": "A cidade de Wayward Pines é um personagem em si — perfeita demais, silenciosa demais, assustadora de um jeito específico que só lugares muito controlados conseguem ser.\n\nRitmo excelente, revelações bem dosadas.",
+      "pensamentos": "O final do primeiro livro é forte. Gera aquela fome imediata pelo próximo volume.\n\nSérie recomendada para quem gosta de thriller com elementos de ficção científica.",
+      "frase_destacada": "\"El paraíso construido sobre mentiras sigue siendo una jaula.\""
+    }
+  },
+  {
+    "id": "yo-antes-de-ti",
+    "titulo": "Yo antes de ti",
+    "autor": "Jojo Moyes",
+    "paginas": 384,
+    "idioma": "es",
+    "cor": "#4a2a3a",
+    "estrelas": 4,
+    "genero": "romance",
+    "frase": "amor que muda você é o único que vale.",
+    "anotacao": "chorei. muito. sem vergonha.",
+    "review": {
+      "impressao": "Entrei esperando romance e saí tendo pensado muito sobre autonomia, sobre dignidade, sobre o que significa amar alguém respeitando quem eles são.",
+      "experiencia": "Jojo Moyes é habilidosa em construir conexões entre personagens que parecem impossíveis. Louisa e Will têm uma química que é real, e por isso tudo o que acontece importa.\n\nA discussão ética do livro é mais profunda do que parece na superfície.",
+      "pensamentos": "Esse livro divide opiniões, e entendo por quê. Mas acho que quem o lê com atenção encontra algo mais complexo do que a história de amor que o marketing vende.\n\nLindo e difícil.",
+      "frase_destacada": "\"Quiero que vivas bien. Que seas feliz. Pero sobre todo, quiero que sigas siendo tú.\""
+    }
+  },
+  {
+    "id": "pequena-coreografia-do-adeus",
+    "titulo": "Pequena coreografia do adeus",
+    "autor": "Aline Bei",
+    "paginas": 236,
+    "idioma": "pt",
+    "cor": "#2a3a5a",
+    "estrelas": 5,
+    "genero": "ficção",
+    "frase": "despedir-se é uma arte que ninguém ensina.",
+    "anotacao": "segundo livro da aline bei que me desfaz.",
+    "review": {
+      "impressao": "Aline Bei aparece duas vezes na minha estante e as duas vezes deixou marca. Essa escritora tem algo que vai direto para o lugar mais vulnerável da leitura.",
+      "experiencia": "A 'pequena coreografia' do título é precisa — despedidas têm ritual, têm passos, têm uma coreografia que a gente aprende sem querer.\n\nO livro acompanha isso com uma delicadeza que contrasta com a dor do conteúdo.",
+      "pensamentos": "Li pensando em todos os adeus que dei e que recebi. Em todos os que ainda vão vir.\n\nAline Bei sabe que certas dores só existem depois de serem nomeadas.",
+      "frase_destacada": "\"O adeus mais difícil não é o que a gente diz. É o que a gente fica repetindo por dentro depois.\""
+    }
+  }
+]
