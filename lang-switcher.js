@@ -112,9 +112,27 @@ document.addEventListener("DOMContentLoaded", function () {
       will-change: opacity, box-shadow, clip-path, transform;
     }
 
-    /* Ativo: opacidade total, relevo intacto */
+    /* Ativo: efeito pressionado fixo */
     .lang-btn.active {
       opacity: 1;
+      clip-path: inset(
+        clamp(1px, 0.0625em, 2px)
+        clamp(1px, 0.0625em, 2px)
+        clamp(1px, 0.0625em, 2px)
+        clamp(1px, 0.0625em, 2px)
+        round 50%
+      );
+      box-shadow:
+        0 0 0 0 rgba(5, 5, 5, 1),
+        0 0 0 0 rgba(5, 5, 5, 0.5),
+        0 0 0 0 rgba(5, 5, 5, 0.25),
+        inset 0.1em 0.15em 0.05em 0 rgba(5, 5, 5, 0.75),
+        inset -0.025em -0.03em 0.05em 0.025em rgba(5, 5, 5, 0.5),
+        inset 0.25em 0.25em 0.2em 0 rgba(5, 5, 5, 0.5),
+        inset 0 0 0.05em 0.5em rgba(255, 255, 255, 0.15),
+        inset 0 0 0 0 rgba(255, 255, 255, 1),
+        inset 0.12em 0.12em 0.12em rgba(255, 255, 255, 0.25),
+        inset -0.075em -0.12em 0.2em 0.1em rgba(5, 5, 5, 0.25);
     }
 
     /* Hover não-ativo: efeito pressionado igual ao social-btn:hover .btn-inner */
