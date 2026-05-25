@@ -1,5 +1,51 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  /* ── Mapeamento PT ↔ ES ──────────────────────────────────────────── */
+  const PAIRS = [
+    ["alma.html",                      "alma-es.html"                     ],
+    ["fragmentos/2025/julio.html",     "fragmentos/2025/julio-es.html"    ],
+    ["fragmentos/2025/agosto.html",    "fragmentos/2025/agosto-es.html"   ],
+    ["fragmentos/2025/setembro.html",  "fragmentos/2025/septiembre-es.html"],
+    ["fragmentos/2025/outubro.html",   "fragmentos/2025/octubre-es.html"  ],
+    ["fragmentos/2025/novembro.html",  "fragmentos/2025/noviembre-es.html"],
+    ["fragmentos/2025/dezembro.html",  "fragmentos/2025/diciembre-es.html"],
+    ["fragmentos/2026/janeiro.html",   "fragmentos/2026/enero-es.html"    ],
+    ["fragmentos/2026/fevereiro.html", "fragmentos/2026/febrero-es.html"  ],
+    ["fragmentos/2026/marco.html",     "fragmentos/2026/marzo-es.html"    ],
+    ["fragmentos/2026/abril.html",     "fragmentos/2026/abril-es.html"    ],
+  ];
+
+  /* Retorna a URL de destino para o idioma pedido, ou null se a página
+     não tiver par registrado. Usa path.endsWith para ser independente
+     do prefixo de deploy (/blog/, /, etc.). */
+  function getTarget(lang) {
+    const path = window.location.pathname;
+    for (const [pt, es] of PAIRS) {
+      if (lang === "es" && path.endsWith(pt))
+        return path.slice(0, -pt.length) + es;
+      if (lang === "pt" && path.endsWith(es))
+        return path.slice(0, -es.length) + pt;
+    }
+    return null;
+  }
+
+  /* Troca o idioma:
+     - Se há par registrado → salva no localStorage e navega para o par.
+     - Se não há par → chama setLang() que salva + recarrega a mesma página.
+     - Se já está no idioma pedido → não faz nada. */
+  function switchLang(lang) {
+    const current = (typeof getLang === "function") ? getLang() : null;
+    if (current === lang) return;
+
+    const target = getTarget(lang);
+    if (target) {
+      localStorage.setItem("luminae-lang", lang);
+      window.location.href = target;
+    } else {
+      if (typeof setLang === "function") setLang(lang);
+    }
+  }
+
   /* ── Estilos ─────────────────────────────────────────────────────── */
   const style = document.createElement("style");
   style.textContent = `
@@ -129,11 +175,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ── Eventos ─────────────────────────────────────────────────────── */
   document.getElementById("lang-btn-pt").addEventListener("click", function () {
-    if (typeof setLang === "function") setLang("pt");
+    switchLang("pt");
   });
 
   document.getElementById("lang-btn-es").addEventListener("click", function () {
-    if (typeof setLang === "function") setLang("es");
+    switchLang("es");
   });
 
 });
