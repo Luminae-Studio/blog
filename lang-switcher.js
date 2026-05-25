@@ -14,31 +14,89 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     .lang-btn {
+      /* Geometria */
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      border: 2px solid #b99fbb;
-      background: transparent;
-      cursor: pointer;
-      font-size: 20px;
-      line-height: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0.5;
-      transition: opacity 200ms ease, background-color 200ms ease;
       padding: 0;
+      border: none;
+      cursor: pointer;
       outline: none;
       -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+      /* Layout */
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      line-height: 1;
+
+      /* Gradiente lilás — idêntico ao btn-inner */
+      background-image: linear-gradient(
+        135deg,
+        rgba(210, 185, 230, 1),
+        rgba(175, 140, 200, 1)
+      );
+
+      /* Clip circular — contém o efeito de relevo */
+      clip-path: inset(0 0 0 0 round 50%);
+
+      /* Sombras externas (btn-outer) + inset glassy (btn-inner) */
+      box-shadow:
+        0 0.05em 0.05em -0.01em rgba(5, 5, 5, 1),
+        0 0.01em 0.01em -0.01em rgba(5, 5, 5, 0.5),
+        0.15em 0.3em 0.1em -0.01em rgba(5, 5, 5, 0.25),
+        inset 0 0 0 0 rgba(5, 5, 5, 0.1),
+        inset -0.05em -0.05em 0.05em 0 rgba(5, 5, 5, 0.25),
+        inset 0 0 0.05em 0.2em rgba(255, 255, 255, 0.25),
+        inset 0.025em 0.05em 0.1em 0 rgba(255, 255, 255, 1),
+        inset 0.12em 0.12em 0.12em rgba(255, 255, 255, 0.25),
+        inset -0.075em -0.25em 0.25em 0.1em rgba(5, 5, 5, 0.25);
+
+      /* Inativo */
+      opacity: 0.5;
+
+      /* Transições */
+      transition:
+        opacity 200ms ease,
+        box-shadow 300ms ease,
+        clip-path 250ms ease,
+        transform 250ms ease;
+      will-change: opacity, box-shadow, clip-path, transform;
     }
 
+    /* Ativo: opacidade total, relevo intacto */
     .lang-btn.active {
-      background-color: #2e1040;
       opacity: 1;
     }
 
+    /* Hover não-ativo: efeito pressionado igual ao social-btn:hover .btn-inner */
     .lang-btn:hover:not(.active) {
       opacity: 0.75;
+      clip-path: inset(
+        clamp(1px, 0.0625em, 2px)
+        clamp(1px, 0.0625em, 2px)
+        clamp(1px, 0.0625em, 2px)
+        clamp(1px, 0.0625em, 2px)
+        round 50%
+      );
+      box-shadow:
+        0 0 0 0 rgba(5, 5, 5, 1),
+        0 0 0 0 rgba(5, 5, 5, 0.5),
+        0 0 0 0 rgba(5, 5, 5, 0.25),
+        inset 0.1em 0.15em 0.05em 0 rgba(5, 5, 5, 0.75),
+        inset -0.025em -0.03em 0.05em 0.025em rgba(5, 5, 5, 0.5),
+        inset 0.25em 0.25em 0.2em 0 rgba(5, 5, 5, 0.5),
+        inset 0 0 0.05em 0.5em rgba(255, 255, 255, 0.15),
+        inset 0 0 0 0 rgba(255, 255, 255, 1),
+        inset 0.12em 0.12em 0.12em rgba(255, 255, 255, 0.25),
+        inset -0.075em -0.12em 0.2em 0.1em rgba(5, 5, 5, 0.25);
+    }
+
+    /* Clique: escala reduzida igual ao social-btn:active .btn-inner */
+    .lang-btn:active {
+      transform: scale(0.975);
     }
 
     @media (max-width: 600px) {
