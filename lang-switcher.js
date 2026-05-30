@@ -1,34 +1,43 @@
-document.addEventListener("DOMContentLoaded", function () {
+/* ── Mapeamento PT ↔ ES (escopo global) ─────────────────────────────── */
+const PAIRS = [
+  ["alma.html",                      "alma-es.html"                     ],
+  ["manchita.html",                  "manchita-es.html"                 ],
+  ["fragmentos/2025/julio.html",     "fragmentos/2025/julio-es.html"    ],
+  ["fragmentos/2025/agosto.html",    "fragmentos/2025/agosto-es.html"   ],
+  ["fragmentos/2025/setembro.html",  "fragmentos/2025/septiembre-es.html"],
+  ["fragmentos/2025/outubro.html",   "fragmentos/2025/octubre-es.html"  ],
+  ["fragmentos/2025/novembro.html",  "fragmentos/2025/noviembre-es.html"],
+  ["fragmentos/2025/dezembro.html",  "fragmentos/2025/diciembre-es.html"],
+  ["fragmentos/2026/janeiro.html",   "fragmentos/2026/enero-es.html"    ],
+  ["fragmentos/2026/fevereiro.html", "fragmentos/2026/febrero-es.html"  ],
+  ["fragmentos/2026/marco.html",     "fragmentos/2026/marzo-es.html"    ],
+  ["fragmentos/2026/abril.html",     "fragmentos/2026/abril-es.html"    ],
+];
 
-  /* ── Mapeamento PT ↔ ES ──────────────────────────────────────────── */
-  const PAIRS = [
-    ["alma.html",                      "alma-es.html"                     ],
-    ["fragmentos/2025/julio.html",     "fragmentos/2025/julio-es.html"    ],
-    ["fragmentos/2025/agosto.html",    "fragmentos/2025/agosto-es.html"   ],
-    ["fragmentos/2025/setembro.html",  "fragmentos/2025/septiembre-es.html"],
-    ["fragmentos/2025/outubro.html",   "fragmentos/2025/octubre-es.html"  ],
-    ["fragmentos/2025/novembro.html",  "fragmentos/2025/noviembre-es.html"],
-    ["fragmentos/2025/dezembro.html",  "fragmentos/2025/diciembre-es.html"],
-    ["fragmentos/2026/janeiro.html",   "fragmentos/2026/enero-es.html"    ],
-    ["fragmentos/2026/fevereiro.html", "fragmentos/2026/febrero-es.html"  ],
-    ["fragmentos/2026/marco.html",     "fragmentos/2026/marzo-es.html"    ],
-    ["fragmentos/2026/abril.html",     "fragmentos/2026/abril-es.html"    ],
-    ["manchita.html",                  "manchita-es.html"                 ],
-  ];
-
-  /* Retorna a URL de destino para o idioma pedido, ou null se a página
-     não tiver par registrado. Usa path.endsWith para ser independente
-     do prefixo de deploy (/blog/, /, etc.). */
-  function getTarget(lang) {
-    const path = window.location.pathname;
-    for (const [pt, es] of PAIRS) {
-      if (lang === "es" && path.endsWith(pt))
-        return path.slice(0, -pt.length) + es;
-      if (lang === "pt" && path.endsWith(es))
-        return path.slice(0, -es.length) + pt;
-    }
-    return null;
+/* Retorna a URL de destino para o idioma pedido, ou null se a página
+   não tiver par registrado. Usa path.endsWith para ser independente
+   do prefixo de deploy (/blog/, /, etc.). */
+function getTarget(lang) {
+  const path = window.location.pathname;
+  for (const [pt, es] of PAIRS) {
+    if (lang === "es" && path.endsWith(pt))
+      return path.slice(0, -pt.length) + es;
+    if (lang === "pt" && path.endsWith(es))
+      return path.slice(0, -es.length) + pt;
   }
+  return null;
+}
+
+/* ── Redirecionamento automático (executa imediatamente) ─────────────── */
+(function () {
+  const lang = localStorage.getItem("luminae-lang");
+  if (lang !== "pt" && lang !== "es") return;
+  const target = getTarget(lang);
+  if (target) window.location.replace(target);
+})();
+
+/* ── Seletor visual (aguarda DOM) ────────────────────────────────────── */
+document.addEventListener("DOMContentLoaded", function () {
 
   /* Troca o idioma:
      - Se há par registrado → salva no localStorage e navega para o par.
