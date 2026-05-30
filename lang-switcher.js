@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ["fragmentos/2026/fevereiro.html", "fragmentos/2026/febrero-es.html"  ],
     ["fragmentos/2026/marco.html",     "fragmentos/2026/marzo-es.html"    ],
     ["fragmentos/2026/abril.html",     "fragmentos/2026/abril-es.html"    ],
+    ["manchita.html",                  "manchita-es.html"                 ],
   ];
 
   /* Retorna a URL de destino para o idioma pedido, ou null se a página
@@ -100,9 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
         inset 0.12em 0.12em 0.12em rgba(255, 255, 255, 0.25),
         inset -0.075em -0.25em 0.25em 0.1em rgba(5, 5, 5, 0.25);
 
-      /* Inativo */
-      opacity: 0.5;
-
       /* Transições */
       transition:
         opacity 200ms ease,
@@ -137,7 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* Hover não-ativo: efeito pressionado igual ao social-btn:hover .btn-inner */
     .lang-btn:hover:not(.active) {
-      opacity: 0.75;
       clip-path: inset(
         clamp(1px, 0.0625em, 2px)
         clamp(1px, 0.0625em, 2px)
