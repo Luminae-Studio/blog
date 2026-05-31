@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Em Disputa — O Som dos Livros</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Magali Ayelen">
+<link rel="shortcut icon" href="/blog/imagens/favicon.PNG">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Georgia', serif;
+    background: url("/blog/imagens/fundo-index.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ===== OVERLAY CLARO ===== */
+  .page-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.55);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ===== HEADER MOBILE — oculto no desktop ===== */
+  .header-mobile {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  /* ===== LOGO STICKY — desktop ===== */
+  .home-logo {
+    position: fixed;
+    top: 18px;
+    left: 50px;
+    z-index: 100;
+    transition: transform 0.35s ease;
+  }
+  .home-logo img {
+    width: 200px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(40,10,70,0.45));
+  }
+  .home-logo:hover { transform: scale(1.05) translateY(-3px); }
+  .home-logo:hover img { filter: drop-shadow(0 8px 20px rgba(80,20,120,0.55)); }
+
+  /* ===== MAIN ===== */
+  main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 20px 48px 20px;
+  }
+
+  /* ===== CARD PAPEL ===== */
+  .papel {
+    position: relative;
+    background-color: #f5f0ea;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 27px,
+        rgba(180,160,200,0.18) 27px,
+        rgba(180,160,200,0.18) 28px
+      );
+    border-radius: 6px;
+    box-shadow:
+      0 2px 6px rgba(60,20,80,0.10),
+      0 8px 30px rgba(60,20,80,0.18),
+      0 20px 60px rgba(40,10,60,0.22),
+      inset 0 0 40px rgba(255,255,255,0.25);
+    width: 100%;
+    max-width: 820px;
+    padding: 48px 52px 52px 56px;
+  }
+
+  .papel::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 8px; height: 100%;
+    background: linear-gradient(to right, rgba(150,100,180,0.25), transparent);
+    border-radius: 6px 0 0 6px;
+  }
+
+  /* ===== TÍTULO ===== */
+  .papel-titulo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2e1040;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+  }
+
+  /* ===== TEXTO DE APRESENTAÇÃO ===== */
+  .apresentacao {
+    font-size: 0.93rem;
+    color: #3d1a50;
+    line-height: 1.75;
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0.9;
+  }
+
+  /* ===== DIVISÓRIA ===== */
+  .secao-divisoria {
+    width: 60%;
+    margin: 0 auto 36px auto;
+    border: none;
+    border-top: 1px solid rgba(150,100,180,0.25);
+  }
+
+  /* ===== GRADE DE SELOS ===== */
+  .selos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .selo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .selo-item img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(1.1);
+    transition: transform 300ms ease, filter 300ms ease;
+  }
+
+  .selo-item:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+
+  /* ===== MOBILE (≤ 600px) ===== */
+  @media (max-width: 600px) {
+    .home-logo { display: none; }
+
+    .header-mobile {
+      display: block;
+      width: 100%;
+    }
+
+    .header-mobile-bar {
+      height: 50px;
+      background-color: #b99fbb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-mobile-bar a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #2e1040;
+      font-family: 'Georgia', serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .header-mobile-bar img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .header-mobile-divider img {
+      width: 100%;
+      display: block;
+      transform: scaleY(-1);
+    }
+
+    main { padding: 20px 14px 32px 14px; }
+    .papel { padding: 32px 22px 36px 26px; }
+
+    .selos-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="page-overlay"></div>
+
+  <!-- HEADER MOBILE -->
+  <header class="header-mobile">
+    <div class="header-mobile-bar">
+      <a href="index.html" title="Voltar para o início">
+        <img src="/blog/imagens/favicon.PNG" alt="Home">
+        Home
+      </a>
+    </div>
+    <div class="header-mobile-divider">
+      <img src="https://64.media.tumblr.com/3f968d458084d2b7077c7934760124b2/f50c2545301372c0-a8/s540x810/3f709c4853b9fb3d04617c83eba46e45b2ff8019.gif" alt="">
+    </div>
+  </header>
+
+  <!-- LOGO STICKY — desktop -->
+  <a href="index.html" class="home-logo" title="Voltar para o início">
+    <img src="https://64.media.tumblr.com/28d9847370da54c4689e3f01c521939a/44e28fec3bca1733-b4/s2048x3072/7860d550ab898931cae29983c6e4a5937a786889.gifv" alt="Início">
+  </a>
+
+  <main>
+    <div class="papel">
+
+      <h1 class="papel-titulo">Em Disputa</h1>
+
+      <!-- Texto PT (padrão) -->
+      <p class="apresentacao" id="texto-pt">
+        Bom dia, boa tarde ou boa noite. Essa seção é para compartilhar com vocês o processo criativo
+        e os escritos que estão em disputa em concursos. Espero que aproveitem e saibam que seus
+        comentários são muito valiosos para mim.
+      </p>
+
+      <!-- Texto ES (oculto por padrão) -->
+      <p class="apresentacao" id="texto-es" style="display: none;">
+        Buen día, buenas tardes y buenas noches. Esta sección es para compartir con ustedes el proceso
+        creativo de los escritos que están en disputa en concursos. Espero que lo disfruten y sepan
+        que sus comentarios son muy valiosos para mí.
+      </p>
+
+      <hr class="secao-divisoria">
+
+      <!-- Grade de selos -->
+      <div class="selos-grid">
+
+        <a href="disputa/mundial-escritura/index.html" class="selo-item">
+          <img src="https://images.squarespace-cdn.com/content/v1/67a8d875c7305b2df937976c/7f9305fb-b9d5-4e7a-ac6f-f84c22a566a6/Mundial+de+Escritura_Color.png"
+               alt="Mundial de Escritura">
+        </a>
+
+      </div>
+
+    </div>
+  </main>
+
+<script src="/blog/footer.js"></script>
+<script src="/blog/i18n.js"></script>
+<script src="/blog/lang-switcher.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const lang = (typeof getLang === "function") ? getLang() : "pt";
+    document.getElementById("texto-pt").style.display = lang === "es" ? "none"  : "block";
+    document.getElementById("texto-es").style.display = lang === "es" ? "block" : "none";
+  });
+</script>
+</body>
+</html>
