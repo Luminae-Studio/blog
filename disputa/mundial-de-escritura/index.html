@@ -179,18 +179,16 @@
 
   .etapa-data {
     font-size: 0.8rem;
-    margin-bottom: 6px;
+    margin-bottom: 0;
   }
 
-  .etapa-link {
-    font-size: 0.8rem;
-    color: #7a4fa0;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+  /* Botões dos textos */
+  .etapa-textos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
   }
-  .etapa-link:hover { text-decoration: underline; }
 
   /* Concluída */
   .etapa.concluida { border-left-color: #d5c5e5; }
@@ -246,19 +244,13 @@
       font-weight: 700;
       letter-spacing: 0.04em;
     }
-    .header-mobile-bar img {
-      width: 28px;
-      height: 28px;
-      object-fit: contain;
-    }
-    .header-mobile-divider img {
-      width: 100%;
-      display: block;
-      transform: scaleY(-1);
-    }
+    .header-mobile-bar img { width: 28px; height: 28px; object-fit: contain; }
+    .header-mobile-divider img { width: 100%; display: block; transform: scaleY(-1); }
 
     main { padding: 20px 14px 32px 14px; }
     .papel { padding: 32px 22px 36px 26px; }
+
+    .etapa-textos { flex-direction: column; }
     .badge-atual { display: block; margin: 6px 0 0 0; width: fit-content; }
   }
 </style>
@@ -328,7 +320,26 @@
           <span class="etapa-icone">✅</span>
           <div class="etapa-nome">Escrita</div>
           <div class="etapa-data">18 a 29 de maio</div>
-          <a href="fases/fase-1/dia1.html" class="etapa-link">→ Ver textos</a>
+          <div class="etapa-textos">
+            <a href="fases/fase-1/embaixo-da-porta.html" class="social-btn">
+              <div class="btn-outer"><div class="btn-inner"><span>Embaixo da Porta</span></div></div>
+            </a>
+            <a href="fases/fase-1/goiabada-pelos-carros.html" class="social-btn">
+              <div class="btn-outer"><div class="btn-inner"><span>Goiabada pelos Carros</span></div></div>
+            </a>
+            <a href="fases/fase-1/sorvete-de-limao.html" class="social-btn">
+              <div class="btn-outer"><div class="btn-inner"><span>Sorvete de Limão</span></div></div>
+            </a>
+            <a href="fases/fase-1/buracos-e-lembrancas.html" class="social-btn">
+              <div class="btn-outer"><div class="btn-inner"><span>Buracos e Lembranças</span></div></div>
+            </a>
+            <a href="fases/fase-1/a-rosa-e-a-flor.html" class="social-btn">
+              <div class="btn-outer"><div class="btn-inner"><span>A Rosa e a Flor</span></div></div>
+            </a>
+            <a href="fases/fase-1/o-shot-preto.html" class="social-btn">
+              <div class="btn-outer"><div class="btn-inner"><span>O Shot Preto</span></div></div>
+            </a>
+          </div>
         </li>
 
         <li class="etapa atual">
