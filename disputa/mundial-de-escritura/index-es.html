@@ -20,190 +20,167 @@
   }
 
   .page-overlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(255, 255, 255, 0.6);
-    z-index: 0;
-    pointer-events: none;
+    position: fixed; inset: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 0; pointer-events: none;
   }
 
-  .header-mobile {
-    display: none;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+  .header-mobile { display: none; position: sticky; top: 0; z-index: 100; }
 
   .home-logo {
-    position: fixed;
-    top: 18px;
-    left: 50px;
-    z-index: 100;
+    position: fixed; top: 18px; left: 50px; z-index: 100;
     transition: transform 0.35s ease;
   }
   .home-logo img {
-    width: 200px;
-    height: auto;
-    display: block;
+    width: 200px; height: auto; display: block;
     filter: drop-shadow(0 4px 12px rgba(40,10,70,0.45));
   }
   .home-logo:hover { transform: scale(1.05) translateY(-3px); }
   .home-logo:hover img { filter: drop-shadow(0 8px 20px rgba(80,20,120,0.55)); }
 
   main {
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 80px 20px 48px 20px;
+    position: relative; z-index: 1; flex: 1;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 80px 20px 60px;
+    gap: 20px;
   }
 
-  .papel {
+  .back-nav { width: 100%; max-width: 700px; }
+
+  .card-apresentacao {
     position: relative;
+    width: 100%; max-width: 700px;
     background-color: #f5f0ea;
-    background-image:
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 27px,
-        rgba(180,160,200,0.18) 27px,
-        rgba(180,160,200,0.18) 28px
-      );
-    border-radius: 6px;
+    background-image: repeating-linear-gradient(
+      0deg, transparent, transparent 27px,
+      rgba(180,160,200,0.18) 27px, rgba(180,160,200,0.18) 28px
+    );
+    border-radius: 10px;
     box-shadow:
       0 2px 6px rgba(60,20,80,0.10),
       0 8px 30px rgba(60,20,80,0.18),
       0 20px 60px rgba(40,10,60,0.22),
       inset 0 0 40px rgba(255,255,255,0.25);
-    width: 100%;
-    max-width: 700px;
-    padding: 48px 52px 52px 56px;
+    padding: 40px 48px 36px 52px;
   }
 
-  .papel::before {
+  .card-apresentacao::before {
     content: '';
-    position: absolute;
-    left: 0; top: 0;
+    position: absolute; left: 0; top: 0;
     width: 8px; height: 100%;
     background: linear-gradient(to right, rgba(150,100,180,0.25), transparent);
-    border-radius: 6px 0 0 6px;
+    border-radius: 10px 0 0 10px;
   }
 
-  .mundial-logo {
-    display: block;
-    max-width: 220px;
-    width: 100%;
-    height: auto;
-    margin: 0 auto 20px auto;
+  .mundial-logo-abs {
+    position: absolute; top: 24px; right: 24px;
+    max-width: 90px; width: 90px; height: auto;
     filter: brightness(1.1);
   }
 
   .mundial-titulo {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #2e1040;
-    text-align: center;
-    margin-bottom: 14px;
+    font-size: 1.35rem; font-weight: 600; color: #2e1040;
+    text-align: center; margin-bottom: 16px;
     letter-spacing: -0.01em;
+    padding-right: 95px;
   }
 
   .mundial-desc {
-    font-size: 0.88rem;
-    color: #5a3070;
-    line-height: 1.7;
-    text-align: center;
-    margin-bottom: 36px;
-    opacity: 0.9;
+    font-size: 0.875rem; color: #3d1a50;
+    line-height: 1.85; text-align: justify;
   }
 
-  .divisoria {
-    width: 50%;
-    margin: 0 auto 32px auto;
-    border: none;
-    border-top: 1px solid rgba(150,100,180,0.25);
-  }
-
-  .timeline-titulo {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #9b8ab0;
-    margin-bottom: 20px;
-  }
-
+  .timeline-section { width: 100%; max-width: 700px; }
   .timeline { list-style: none; padding: 0; margin: 0; }
 
-  .etapa {
-    position: relative;
-    padding: 0 0 24px 40px;
-    border-left: 2px solid #e0d0f0;
+  .etapa { display: flex; gap: 20px; padding-bottom: 8px; }
+
+  .etapa-icone-col {
+    display: flex; flex-direction: column;
+    align-items: center; flex-shrink: 0; width: 36px;
   }
-  .etapa:last-child { border-left-color: transparent; padding-bottom: 0; }
 
   .etapa-icone {
-    position: absolute;
-    left: -14px; top: 1px;
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    background: #f5f0ea;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    line-height: 1;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #f5f0ea; border: 2px solid #b99fbb;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; line-height: 1; flex-shrink: 0;
+    box-shadow: 0 1px 4px rgba(60,20,80,0.12); z-index: 1;
   }
 
-  .etapa-nome { font-size: 0.95rem; font-weight: 600; line-height: 1.3; margin-bottom: 3px; }
-  .etapa-data { font-size: 0.8rem; margin-bottom: 0; }
-
-  .etapa-textos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 12px;
+  .etapa-barra {
+    flex: 1; width: 2px;
+    background: #b99fbb;
+    margin: 4px 0; min-height: 28px;
   }
 
-  .etapa.concluida { border-left-color: #d5c5e5; }
-  .etapa.concluida .etapa-nome { color: #a090b8; }
-  .etapa.concluida .etapa-data { color: #baaece; }
+  .etapa:last-child .etapa-barra { display: none; }
 
-  .etapa.atual { border-left-color: #7a4fa0; }
+  .etapa-conteudo { flex: 1; padding-bottom: 28px; }
+  .etapa:last-child .etapa-conteudo { padding-bottom: 0; }
+
+  .etapa-nome { font-size: 0.97rem; font-weight: 600; color: #2e1040; line-height: 1.3; margin-bottom: 2px; }
+  .etapa-data { font-size: 0.77rem; font-style: italic; color: #7a4fa0; margin-bottom: 5px; }
+  .etapa-desc { font-size: 0.83rem; color: #5a3070; line-height: 1.65; }
+
+  .etapa.concluida .etapa-icone  { opacity: 0.7; }
+  .etapa.concluida .etapa-conteudo { opacity: 0.6; }
+
+  .etapa.atual .etapa-icone {
+    border-color: #7a4fa0; background: #f0e8f8;
+    box-shadow: 0 0 0 3px rgba(122,79,160,0.15);
+  }
+  .etapa.atual .etapa-conteudo {
+    background: rgba(122,79,160,0.05);
+    border: 1px solid rgba(122,79,160,0.22);
+    border-radius: 10px; padding: 14px 18px;
+    box-shadow: 0 3px 14px rgba(122,79,160,0.13);
+    margin-bottom: 20px;
+  }
   .etapa.atual .etapa-nome { color: #2e1040; font-weight: 700; }
-  .etapa.atual .etapa-data { color: #5a3070; }
+  .etapa.atual .etapa-data  { color: #5a2090; }
+  .etapa.atual .etapa-desc  { color: #3d1a50; }
 
   .badge-atual {
-    display: inline-block;
-    background: #7a4fa0;
-    color: #fff;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    padding: 2px 9px;
-    border-radius: 50px;
-    margin-left: 8px;
-    vertical-align: middle;
+    display: inline-block; background: #7a4fa0; color: #fff;
+    font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 2px 9px; border-radius: 50px;
+    margin-left: 8px; vertical-align: middle;
     box-shadow: 0 2px 6px rgba(80,30,120,0.3);
+    position: relative; top: -1px;
   }
 
-  .etapa.pendente { border-left-color: #ebebeb; }
-  .etapa.pendente .etapa-nome { color: #c0b8cc; }
-  .etapa.pendente .etapa-data { color: #d0ccd8; }
-  .etapa.pendente .etapa-icone { opacity: 0.6; }
+  .etapa.pendente .etapa-icone  { opacity: 0.5; border-color: #ccc; }
+  .etapa.pendente .etapa-nome   { color: #888; font-weight: 500; }
+  .etapa.pendente .etapa-data   { color: #aaa; }
+  .etapa.pendente .etapa-desc   { color: #aaa; opacity: 0.7; }
+  .etapa.pendente .etapa-barra  { background: #ddd; }
+
+  .textos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem; margin-top: 14px;
+  }
+
+  .texto-card {
+    display: block; background: #fff;
+    border: 0.5px solid #b99fbb; border-radius: 12px; padding: 1rem;
+    text-decoration: none; text-align: center;
+    transition: transform 300ms ease, box-shadow 300ms ease; cursor: pointer;
+  }
+  .texto-card:hover { transform: scale(1.03); box-shadow: 0 4px 16px rgba(122,79,160,0.18); }
+
+  .texto-card-titulo {
+    font-family: 'Georgia', serif; font-size: 0.85rem;
+    color: #2e1040; line-height: 1.45; font-weight: 600;
+  }
 
   @media (max-width: 600px) {
     .home-logo { display: none; }
     .header-mobile { display: block; width: 100%; }
-
     .header-mobile-bar {
-      height: 50px;
-      background-color: #b99fbb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 50px; background-color: #b99fbb;
+      display: flex; align-items: center; justify-content: center;
     }
     .header-mobile-bar a {
       display: flex; align-items: center; gap: 8px;
@@ -214,10 +191,13 @@
     .header-mobile-bar img { width: 28px; height: 28px; object-fit: contain; }
     .header-mobile-divider img { width: 100%; display: block; transform: scaleY(-1); }
 
-    main { padding: 20px 14px 32px 14px; }
-    .papel { padding: 32px 22px 36px 26px; }
-    .etapa-textos { flex-direction: column; }
-    .badge-atual { display: block; margin: 6px 0 0 0; width: fit-content; }
+    main { padding: 20px 14px 40px; }
+    .card-apresentacao { padding: 28px 20px 24px 24px; }
+    .mundial-logo-abs { max-width: 60px; width: 60px; top: 16px; right: 16px; }
+    .mundial-titulo { font-size: 1.1rem; padding-right: 68px; }
+    .mundial-desc { font-size: 0.82rem; }
+    .textos-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+    .badge-atual { display: block; margin: 6px 0 0 0; }
   }
 </style>
 </head>
@@ -242,102 +222,153 @@
   </a>
 
   <main>
-    <div class="papel">
 
-      <div class="back-nav" style="margin-bottom: 24px;">
-        <a href="../../em-disputa.html" class="social-btn">
-          <div class="btn-outer"><div class="btn-inner">
-            <span>← En Disputa</span>
-          </div></div>
-        </a>
-      </div>
+    <div class="back-nav">
+      <a href="../../em-disputa.html" class="social-btn">
+        <div class="btn-outer"><div class="btn-inner">
+          <span>← En Disputa</span>
+        </div></div>
+      </a>
+    </div>
 
-      <img class="mundial-logo"
+    <div class="card-apresentacao">
+      <img class="mundial-logo-abs"
            src="https://images.squarespace-cdn.com/content/v1/67a8d875c7305b2df937976c/7f9305fb-b9d5-4e7a-ac6f-f84c22a566a6/Mundial+de+Escritura_Color.png"
            alt="Mundial de Escritura">
 
       <h1 class="mundial-titulo">XII Mundial de Escritura</h1>
 
       <p class="mundial-desc">
-        El Mundial de Escritura es un juego abierto y gratuito que incentiva la escritura creativa y
-        colaborativa. Miles de escritores de distintos países participan en cada edición.
-        La participación es gratuita y abierta a todas las edades.
+        El Mundial de Escritura es un juego con el objetivo de incentivar la escritura creativa y colaborativa.
+        Miles de escritores de distintos países participan en cada edición. Esta edición cuenta con 6 etapas:
+        inscripción, formación de equipos, escritura — dos semanas escribiendo tres veces por semana —,
+        edición y postulación — donde hay que editar y postular uno de los textos escritos en esas dos semanas,
+        con hasta 4.500 caracteres —, votación — donde los miembros del equipo eligen qué texto los representará —,
+        edición del texto del equipo — una última revisión colaborativa antes del envío final — y por último
+        el anuncio de finalistas y ganadores, donde los jueces designados eligen el texto ganador.
       </p>
+    </div>
 
-      <hr class="divisoria">
-
-      <p class="timeline-titulo">Etapas</p>
-
+    <div class="timeline-section">
       <ul class="timeline">
 
+        <!-- 1. Inscripción ✅ -->
         <li class="etapa concluida">
-          <span class="etapa-icone">✅</span>
-          <div class="etapa-nome">Inscripción</div>
-          <div class="etapa-data">10 de abril al 3 de mayo</div>
-        </li>
-
-        <li class="etapa concluida">
-          <span class="etapa-icone">✅</span>
-          <div class="etapa-nome">Formación de equipos</div>
-          <div class="etapa-data">11 al 17 de mayo</div>
-        </li>
-
-        <li class="etapa concluida">
-          <span class="etapa-icone">✅</span>
-          <div class="etapa-nome">Escritura</div>
-          <div class="etapa-data">18 al 29 de mayo</div>
-          <div class="etapa-textos">
-            <a href="fases/fase-1-es/abajo-de-la-puerta.html" class="social-btn">
-              <div class="btn-outer"><div class="btn-inner"><span>Abajo de la Puerta</span></div></div>
-            </a>
-            <a href="fases/fase-1-es/membrillos-por-autos.html" class="social-btn">
-              <div class="btn-outer"><div class="btn-inner"><span>Membrillos por Autos</span></div></div>
-            </a>
-            <a href="fases/fase-1-es/helado-de-limon.html" class="social-btn">
-              <div class="btn-outer"><div class="btn-inner"><span>Helado de Limón</span></div></div>
-            </a>
-            <a href="fases/fase-1-es/huecos-y-recuerdos.html" class="social-btn">
-              <div class="btn-outer"><div class="btn-inner"><span>Huecos y Recuerdos</span></div></div>
-            </a>
-            <a href="fases/fase-1-es/la-rosa-y-la-flor.html" class="social-btn">
-              <div class="btn-outer"><div class="btn-inner"><span>La Rosa y la Flor</span></div></div>
-            </a>
-            <a href="fases/fase-1-es/el-short-negro.html" class="social-btn">
-              <div class="btn-outer"><div class="btn-inner"><span>El Short Negro</span></div></div>
-            </a>
+          <div class="etapa-icone-col">
+            <div class="etapa-icone">✅</div>
+            <div class="etapa-barra"></div>
+          </div>
+          <div class="etapa-conteudo">
+            <div class="etapa-nome">Inscripción</div>
+            <div class="etapa-data">10 de abril al 3 de mayo</div>
+            <p class="etapa-desc">Período de inscripción en la edición.</p>
           </div>
         </li>
 
+        <!-- 2. Formación de equipos ✅ -->
+        <li class="etapa concluida">
+          <div class="etapa-icone-col">
+            <div class="etapa-icone">✅</div>
+            <div class="etapa-barra"></div>
+          </div>
+          <div class="etapa-conteudo">
+            <div class="etapa-nome">Formación de equipos</div>
+            <div class="etapa-data">11 al 17 de mayo</div>
+            <p class="etapa-desc">Asignación y formación de los equipos.</p>
+          </div>
+        </li>
+
+        <!-- 3. Escritura ✅ -->
+        <li class="etapa concluida">
+          <div class="etapa-icone-col">
+            <div class="etapa-icone">✅</div>
+            <div class="etapa-barra"></div>
+          </div>
+          <div class="etapa-conteudo">
+            <div class="etapa-nome">Escritura</div>
+            <div class="etapa-data">18 al 29 de mayo</div>
+            <p class="etapa-desc">6 días de escritura: lunes, miércoles y viernes durante 2 semanas. Cada texto con mínimo de 3.000 caracteres.</p>
+            <div class="textos-grid">
+              <a href="fases/fase-1-es/abajo-de-la-puerta.html" class="texto-card">
+                <span class="texto-card-titulo">Abajo de la Puerta</span>
+              </a>
+              <a href="fases/fase-1-es/membrillos-por-autos.html" class="texto-card">
+                <span class="texto-card-titulo">Membrillos por Autos</span>
+              </a>
+              <a href="fases/fase-1-es/helado-de-limon.html" class="texto-card">
+                <span class="texto-card-titulo">Helado de Limón</span>
+              </a>
+              <a href="fases/fase-1-es/huecos-y-recuerdos.html" class="texto-card">
+                <span class="texto-card-titulo">Huecos y Recuerdos</span>
+              </a>
+              <a href="fases/fase-1-es/la-rosa-y-la-flor.html" class="texto-card">
+                <span class="texto-card-titulo">La Rosa y la Flor</span>
+              </a>
+              <a href="fases/fase-1-es/el-short-negro.html" class="texto-card">
+                <span class="texto-card-titulo">El Short Negro</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <!-- 4. Edición y postulación 🟡 ACTUAL -->
         <li class="etapa atual">
-          <span class="etapa-icone">🟡</span>
-          <div class="etapa-nome">
-            Edición y postulación
-            <span class="badge-atual">En curso</span>
+          <div class="etapa-icone-col">
+            <div class="etapa-icone">🟡</div>
+            <div class="etapa-barra"></div>
           </div>
-          <div class="etapa-data">30 de mayo al 3 de junio</div>
+          <div class="etapa-conteudo">
+            <div class="etapa-nome">
+              Edición y postulación
+              <span class="badge-atual">En curso</span>
+            </div>
+            <div class="etapa-data">30 de mayo al 3 de junio</div>
+            <p class="etapa-desc">Es momento de elegir uno de los textos escritos, editarlo y postularlo al equipo. Máximo de 4.500 caracteres.</p>
+          </div>
         </li>
 
+        <!-- 5. Votación ⏳ -->
         <li class="etapa pendente">
-          <span class="etapa-icone">⏳</span>
-          <div class="etapa-nome">Votación</div>
-          <div class="etapa-data">4 al 7 de junio</div>
+          <div class="etapa-icone-col">
+            <div class="etapa-icone">⏳</div>
+            <div class="etapa-barra"></div>
+          </div>
+          <div class="etapa-conteudo">
+            <div class="etapa-nome">Votación</div>
+            <div class="etapa-data">4 al 7 de junio</div>
+            <p class="etapa-desc">Los miembros del equipo votan para elegir qué texto los representará.</p>
+          </div>
         </li>
 
+        <!-- 6. Edición del texto del equipo ⏳ -->
         <li class="etapa pendente">
-          <span class="etapa-icone">⏳</span>
-          <div class="etapa-nome">Edición del texto del equipo</div>
-          <div class="etapa-data">8 al 10 de junio</div>
+          <div class="etapa-icone-col">
+            <div class="etapa-icone">⏳</div>
+            <div class="etapa-barra"></div>
+          </div>
+          <div class="etapa-conteudo">
+            <div class="etapa-nome">Edición del texto del equipo</div>
+            <div class="etapa-data">8 al 10 de junio</div>
+            <p class="etapa-desc">Una última revisión colaborativa del texto elegido antes del envío final.</p>
+          </div>
         </li>
 
+        <!-- 7. Anuncio ⏳ -->
         <li class="etapa pendente">
-          <span class="etapa-icone">⏳</span>
-          <div class="etapa-nome">Anuncio de finalistas y ganadores</div>
-          <div class="etapa-data">Agosto 2026</div>
+          <div class="etapa-icone-col">
+            <div class="etapa-icone">⏳</div>
+            <div class="etapa-barra"></div>
+          </div>
+          <div class="etapa-conteudo">
+            <div class="etapa-nome">Anuncio de finalistas y ganadores</div>
+            <div class="etapa-data">Agosto 2026</div>
+            <p class="etapa-desc">Los jueces designados eligen el texto ganador entre todos los finalistas.</p>
+          </div>
         </li>
 
       </ul>
-
     </div>
+
   </main>
 
 <script src="/blog/footer.js"></script>
