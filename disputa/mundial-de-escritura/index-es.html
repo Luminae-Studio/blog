@@ -21,7 +21,7 @@
 
   .page-overlay {
     position: fixed; inset: 0;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.75);
     z-index: 0; pointer-events: none;
   }
 
@@ -156,23 +156,11 @@
   .etapa.pendente .etapa-desc   { color: #aaa; opacity: 0.7; }
   .etapa.pendente .etapa-barra  { background: #ddd; }
 
-  .textos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem; margin-top: 14px;
-  }
-
-  .texto-card {
-    display: block; background: #fff;
-    border: 0.5px solid #b99fbb; border-radius: 12px; padding: 1rem;
-    text-decoration: none; text-align: center;
-    transition: transform 300ms ease, box-shadow 300ms ease; cursor: pointer;
-  }
-  .texto-card:hover { transform: scale(1.03); box-shadow: 0 4px 16px rgba(122,79,160,0.18); }
-
-  .texto-card-titulo {
-    font-family: 'Georgia', serif; font-size: 0.85rem;
-    color: #2e1040; line-height: 1.45; font-weight: 600;
+  .etapa-textos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
   }
 
   @media (max-width: 600px) {
@@ -288,24 +276,24 @@
             <div class="etapa-nome">Escritura</div>
             <div class="etapa-data">18 al 29 de mayo</div>
             <p class="etapa-desc">6 días de escritura: lunes, miércoles y viernes durante 2 semanas. Cada texto con mínimo de 3.000 caracteres.</p>
-            <div class="textos-grid">
-              <a href="fases/fase-1-es/abajo-de-la-puerta.html" class="texto-card">
-                <span class="texto-card-titulo">Abajo de la Puerta</span>
+            <div class="etapa-textos">
+              <a href="fases/fase-1-es/abajo-de-la-puerta.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>Abajo de la Puerta</span></div></div>
               </a>
-              <a href="fases/fase-1-es/membrillos-por-autos.html" class="texto-card">
-                <span class="texto-card-titulo">Membrillos por Autos</span>
+              <a href="fases/fase-1-es/membrillos-por-autos.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>Membrillos por Autos</span></div></div>
               </a>
-              <a href="fases/fase-1-es/helado-de-limon.html" class="texto-card">
-                <span class="texto-card-titulo">Helado de Limón</span>
+              <a href="fases/fase-1-es/helado-de-limon.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>Helado de Limón</span></div></div>
               </a>
-              <a href="fases/fase-1-es/huecos-y-recuerdos.html" class="texto-card">
-                <span class="texto-card-titulo">Huecos y Recuerdos</span>
+              <a href="fases/fase-1-es/huecos-y-recuerdos.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>Huecos y Recuerdos</span></div></div>
               </a>
-              <a href="fases/fase-1-es/la-rosa-y-la-flor.html" class="texto-card">
-                <span class="texto-card-titulo">La Rosa y la Flor</span>
+              <a href="fases/fase-1-es/la-rosa-y-la-flor.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>La Rosa y la Flor</span></div></div>
               </a>
-              <a href="fases/fase-1-es/el-short-negro.html" class="texto-card">
-                <span class="texto-card-titulo">El Short Negro</span>
+              <a href="fases/fase-1-es/el-short-negro.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>El Short Negro</span></div></div>
               </a>
             </div>
           </div>

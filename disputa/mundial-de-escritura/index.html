@@ -21,7 +21,7 @@
 
   .page-overlay {
     position: fixed; inset: 0;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.75);
     z-index: 0; pointer-events: none;
   }
 
@@ -200,37 +200,12 @@
   .etapa.pendente .etapa-desc   { color: #aaa; opacity: 0.7; }
   .etapa.pendente .etapa-barra  { background: #ddd; }
 
-  /* ===== CARDS DOS TEXTOS ===== */
-  .textos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    margin-top: 14px;
-  }
-
-  .texto-card {
-    display: block;
-    background: #fff;
-    border: 0.5px solid #b99fbb;
-    border-radius: 12px;
-    padding: 1rem;
-    text-decoration: none;
-    text-align: center;
-    transition: transform 300ms ease, box-shadow 300ms ease;
-    cursor: pointer;
-  }
-
-  .texto-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 16px rgba(122,79,160,0.18);
-  }
-
-  .texto-card-titulo {
-    font-family: 'Georgia', serif;
-    font-size: 0.85rem;
-    color: #2e1040;
-    line-height: 1.45;
-    font-weight: 600;
+  /* ===== BOTÕES DOS TEXTOS ===== */
+  .etapa-textos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
   }
 
   /* ===== MOBILE ===== */
@@ -355,24 +330,24 @@
             <div class="etapa-nome">Escrita</div>
             <div class="etapa-data">18 a 29 de maio</div>
             <p class="etapa-desc">6 dias de escrita: segundas, quartas e sextas por 2 semanas. Cada texto com mínimo de 3.000 caracteres.</p>
-            <div class="textos-grid">
-              <a href="fases/fase-1/embaixo-da-porta.html" class="texto-card">
-                <span class="texto-card-titulo">Embaixo da Porta</span>
+            <div class="etapa-textos">
+              <a href="fases/fase-1/embaixo-da-porta.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>Embaixo da Porta</span></div></div>
               </a>
-              <a href="fases/fase-1/goiabada-pelos-carros.html" class="texto-card">
-                <span class="texto-card-titulo">Goiabada pelos Carros</span>
+              <a href="fases/fase-1/goiabada-pelos-carros.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>Goiabada pelos Carros</span></div></div>
               </a>
-              <a href="fases/fase-1/sorvete-de-limao.html" class="texto-card">
-                <span class="texto-card-titulo">Sorvete de Limão</span>
+              <a href="fases/fase-1/sorvete-de-limao.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>Sorvete de Limão</span></div></div>
               </a>
-              <a href="fases/fase-1/buracos-e-lembrancas.html" class="texto-card">
-                <span class="texto-card-titulo">Buracos e Lembranças</span>
+              <a href="fases/fase-1/buracos-e-lembrancas.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>Buracos e Lembranças</span></div></div>
               </a>
-              <a href="fases/fase-1/a-rosa-e-a-flor.html" class="texto-card">
-                <span class="texto-card-titulo">A Rosa e a Flor</span>
+              <a href="fases/fase-1/a-rosa-e-a-flor.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>A Rosa e a Flor</span></div></div>
               </a>
-              <a href="fases/fase-1/o-shot-preto.html" class="texto-card">
-                <span class="texto-card-titulo">O Shot Preto</span>
+              <a href="fases/fase-1/o-shot-preto.html" class="social-btn">
+                <div class="btn-outer"><div class="btn-inner"><span>O Shot Preto</span></div></div>
               </a>
             </div>
           </div>
