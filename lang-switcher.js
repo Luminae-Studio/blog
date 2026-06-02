@@ -11,7 +11,9 @@ const PAIRS = [
   ["fragmentos/2026/janeiro.html",   "fragmentos/2026/enero-es.html"    ],
   ["fragmentos/2026/fevereiro.html", "fragmentos/2026/febrero-es.html"  ],
   ["fragmentos/2026/marco.html",     "fragmentos/2026/marzo-es.html"    ],
-  ["fragmentos/2026/abril.html",     "fragmentos/2026/abril-es.html"    ],
+  ["fragmentos/2026/abril.html",                        "fragmentos/2026/abril-es.html"                       ],
+  ["em-disputa.html",                                   "em-disputa-es.html"                                  ],
+  ["disputa/mundial-de-escritura/index.html",           "disputa/mundial-de-escritura/index-es.html"          ],
 ];
 
 /* Retorna a URL de destino para o idioma pedido, ou null se a página

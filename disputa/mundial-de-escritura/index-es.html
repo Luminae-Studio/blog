@@ -19,11 +19,6 @@
     flex-direction: column;
   }
 
-  .page-overlay {
-    position: fixed; inset: 0;
-    background-color: rgba(255, 255, 255, 0.75);
-    z-index: 0; pointer-events: none;
-  }
 
   .header-mobile { display: none; position: sticky; top: 0; z-index: 100; }
 
@@ -50,7 +45,7 @@
   .card-apresentacao {
     position: relative;
     width: 100%; max-width: 700px;
-    background-color: #f5f0ea;
+    background-color: rgba(255, 255, 255, 0.85);
     background-image: repeating-linear-gradient(
       0deg, transparent, transparent 27px,
       rgba(180,160,200,0.18) 27px, rgba(180,160,200,0.18) 28px
@@ -90,7 +85,12 @@
     line-height: 1.85; text-align: justify;
   }
 
-  .timeline-section { width: 100%; max-width: 700px; }
+  .timeline-section {
+    width: 100%; max-width: 700px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 28px 32px;
+  }
   .timeline { list-style: none; padding: 0; margin: 0; }
 
   .etapa { display: flex; gap: 20px; padding-bottom: 8px; }
@@ -190,8 +190,6 @@
 </style>
 </head>
 <body>
-
-  <div class="page-overlay"></div>
 
   <header class="header-mobile">
     <div class="header-mobile-bar">
