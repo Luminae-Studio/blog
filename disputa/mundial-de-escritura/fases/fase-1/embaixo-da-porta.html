@@ -1,93 +1,124 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Embaixo da Porta</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="Magali Ayelen">
-<link rel="shortcut icon" href="/blog/imagens/favicon.PNG">
-<link rel="stylesheet" href="/blog/style.css">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    min-height: 100vh; font-family: 'Georgia', serif;
-    background: url("/blog/imagens/fundo-index.jpg") no-repeat center center fixed;
-    background-size: cover; display: flex; flex-direction: column;
-  }
-  .page-overlay {
-    position: fixed; inset: 0; background-color: rgba(255,255,255,0.6);
-    z-index: 0; pointer-events: none;
-  }
-  .header-mobile { display: none; position: sticky; top: 0; z-index: 100; }
-  .home-logo { position: fixed; top: 18px; left: 50px; z-index: 100; transition: transform 0.35s ease; }
-  .home-logo img { width: 200px; height: auto; display: block; }
-  .home-logo:hover { transform: scale(1.05) translateY(-3px); }
-  main {
-    position: relative; z-index: 1; flex: 1;
-    display: flex; align-items: flex-start; justify-content: center;
-    padding: 80px 20px 48px 20px;
-  }
-  .papel {
-    position: relative; background-color: #f5f0ea;
-    background-image: repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(180,160,200,0.18) 27px, rgba(180,160,200,0.18) 28px);
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(60,20,80,0.10), 0 8px 30px rgba(60,20,80,0.18),
-                0 20px 60px rgba(40,10,60,0.22), inset 0 0 40px rgba(255,255,255,0.25);
-    width: 100%; max-width: 620px; padding: 48px 52px 52px 56px;
-  }
-  .papel::before {
-    content: ''; position: absolute; left: 0; top: 0; width: 8px; height: 100%;
-    background: linear-gradient(to right, rgba(150,100,180,0.25), transparent);
-    border-radius: 6px 0 0 6px;
-  }
-  .page-title { font-size: 1.3rem; font-weight: 600; color: #2e1040; text-align: center; margin-bottom: 24px; }
-  .placeholder-text { font-size: 0.93rem; color: #9b8ab0; text-align: center; font-style: italic; }
-  @media (max-width: 600px) {
-    .home-logo { display: none; }
-    .header-mobile { display: block; width: 100%; }
-    .header-mobile-bar {
-      height: 50px; background-color: #b99fbb;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .header-mobile-bar a {
-      display: flex; align-items: center; gap: 8px; text-decoration: none; color: #2e1040;
-      font-family: 'Georgia', serif; font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
-    }
-    .header-mobile-bar img { width: 28px; height: 28px; object-fit: contain; }
-    .header-mobile-divider img { width: 100%; display: block; transform: scaleY(-1); }
-    main { padding: 20px 14px 32px 14px; }
-    .papel { padding: 32px 22px 36px 26px; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Embaixo da Porta — O Som dos Livros</title>
+  <meta name="author" content="Magali Ayelen">
+  <link rel="shortcut icon" href="/blog/imagens/favicon.PNG">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../../style.css">
 </head>
-<body>
-  <div class="page-overlay"></div>
-  <header class="header-mobile">
-    <div class="header-mobile-bar">
-      <a href="../../../../index.html" title="Home">
-        <img src="/blog/imagens/favicon.PNG" alt="Home"> Home
-      </a>
-    </div>
-    <div class="header-mobile-divider">
-      <img src="https://64.media.tumblr.com/3f968d458084d2b7077c7934760124b2/f50c2545301372c0-a8/s540x810/3f709c4853b9fb3d04617c83eba46e45b2ff8019.gif" alt="">
-    </div>
+<body class="escritura">
+
+<div class="wrapper">
+
+  <!-- NAVEGAÇÃO -->
+  <nav class="nav-top">
+    <a href="/blog/index.html">home</a>
+    <span class="nav-sep">/</span>
+    <a href="/blog/em-disputa.html">em disputa</a>
+    <span class="nav-sep">/</span>
+    <a href="/blog/disputa/mundial-de-escritura/index.html">mundial de escritura</a>
+    <span class="nav-sep">/</span>
+    <span>embaixo da porta</span>
+  </nav>
+
+  <!-- CABEÇALHO -->
+  <header class="page-header">
+    <span class="page-tag">conto · ficção</span>
+    <h1 class="page-title">Embaixo da Porta</h1>
+    <p class="page-meta">mai. 2026</p>
   </header>
-  <a href="../../../../index.html" class="home-logo" title="Home">
-    <img src="https://64.media.tumblr.com/28d9847370da54c4689e3f01c521939a/44e28fec3bca1733-b4/s2048x3072/7860d550ab898931cae29983c6e4a5937a786889.gifv" alt="Inicio">
-  </a>
-  <main>
-    <div class="papel">
-      <div class="back-nav" style="margin-bottom: 24px;">
-        <a href="../../index.html" class="social-btn">
-          <div class="btn-outer"><div class="btn-inner">
-            <span>← Mundial de Escritura</span>
-          </div></div>
-        </a>
+
+  <!-- CORPO -->
+  <div class="page-body">
+
+    <!-- TEXTO PRINCIPAL -->
+    <main class="main-text">
+
+      <!-- WIDGET: enviado a concurso -->
+      <div class="concurso-widget">
+        <span class="cw-titulo">✦ enviado a concurso</span>
+        <span class="cw-nome">XII Mundial de Escritura · 2026</span>
+        <div class="cw-linha">
+          <span>fase 1 · escrita</span>
+          <span class="cw-badge badge-enviado">enviado</span>
+        </div>
       </div>
-      <h1 class="page-title">Embaixo da Porta</h1>
-      <p class="placeholder-text">Conteúdo em breve.</p>
+
+      <p>Conteúdo em breve — a autora substituirá este texto.</p>
+
+      <div class="destaque">
+        "Texto em breve."
+      </div>
+
+      <p>Conteúdo em breve — a autora substituirá este texto.</p>
+
+      <div class="gif-widget">
+        <img src="https://64.media.tumblr.com/3f968d458084d2b7077c7934760124b2/f50c2545301372c0-a8/s540x810/3f709c4853b9fb3d04617c83eba46e45b2ff8019.gif" alt="" />
+      </div>
+
+      <div class="separador">★ ★ ★</div>
+
+      <p>Conteúdo em breve — a autora substituirá este texto.</p>
+
+    </main>
+
+    <!-- MARGEM -->
+    <aside class="margin-col" aria-label="notas da autora">
+
+      <div class="margin-note mn-ref">
+        <span class="mn-label">referência</span>
+        —
+      </div>
+
+      <div class="margin-note mn-pensamento">
+        <span class="mn-label">pensamento</span>
+        —
+      </div>
+
+      <div class="margin-note mn-rascunho">
+        <span class="mn-label">rascunho anterior</span>
+        —
+      </div>
+
+    </aside>
+
+  </div><!-- /page-body -->
+
+  <!-- ANTECÂMARA -->
+  <section class="antecamara">
+    <p class="antecamara-label">✦ antes de escrever</p>
+    <div class="antecamara-grid">
+      <div class="ante-card">
+        <span class="ante-tipo">li</span>
+        <span class="ante-conteudo">—</span>
+      </div>
+      <div class="ante-card">
+        <span class="ante-tipo">vi</span>
+        <span class="ante-conteudo">—</span>
+      </div>
+      <div class="ante-card">
+        <span class="ante-tipo">senti</span>
+        <span class="ante-conteudo">—</span>
+      </div>
     </div>
-  </main>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="page-footer">
+    <div class="footer-links">
+      
+      <a href="/blog/disputa/mundial-de-escritura/index.html">todos os textos</a>
+    </div>
+    <span class="footer-nav">Goiabada pelos Carros →</span>
+  </footer>
+
+</div><!-- /wrapper -->
+
 <script src="/blog/footer.js"></script>
 <script src="/blog/i18n.js"></script>
 <script src="/blog/lang-switcher.js"></script>

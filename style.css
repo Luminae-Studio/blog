@@ -401,3 +401,371 @@ footer {
     gap: 8px;
   }
 }
+
+/* ============================================================
+   12. PÁGINAS DE ESCRITA — estilo manuscrito
+   Usado por disputa/mundial-de-escritura/fases/
+   ============================================================ */
+
+:root {
+  --paper: #faf6ed;
+  --ink: #1a1208;
+  --ink-soft: #2a1e0d;
+  --ink-muted: #6b5020;
+  --accent: #9c6b1a;
+  --accent-light: #d4a55a;
+  --border: rgba(120, 80, 20, 0.22);
+  --border-dashed: rgba(120, 80, 20, 0.18);
+  --yellow-bg: #fdf3dc;
+  --yellow-border: #e2c07a;
+  --lilac-bg: #fdf5fc;
+  --lilac-accent: #c084b4;
+  --lilac-text: #7a3a6e;
+  --green-bg: #f5fdf2;
+  --green-accent: #6b8f5a;
+  --green-text: #3d6030;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Fundo e tipografia das páginas de escrita */
+body.escritura {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: 'Lora', Georgia, serif;
+  line-height: 1.85;
+  min-height: 100vh;
+}
+
+/* Textura sutil */
+body.escritura::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── LAYOUT ── */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  animation: fadeIn 0.6s ease both;
+}
+
+/* ── NAVEGAÇÃO TOPO ── */
+.nav-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2.5rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.nav-top a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.nav-top a:hover { text-decoration: underline; }
+.nav-sep { opacity: 0.4; }
+
+/* ── CABEÇALHO ── */
+.page-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.page-tag {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--yellow-bg);
+  border: 0.5px solid var(--yellow-border);
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin-bottom: 12px;
+}
+
+.page-title {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-size: clamp(26px, 5vw, 38px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 8px;
+  text-shadow: none;
+  letter-spacing: 0;
+}
+
+.page-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+/* ── CORPO PRINCIPAL ── */
+.page-body {
+  display: grid;
+  grid-template-columns: 1fr 210px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 640px) {
+  .page-body { grid-template-columns: 1fr; }
+  .margin-col { order: -1; }
+}
+
+/* ── TEXTO PRINCIPAL ── */
+.main-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.main-text p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}
+
+.main-text p em {
+  font-style: italic;
+  color: #5a3a10;
+}
+
+.destaque {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.55;
+  color: #7a4e10;
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--accent-light);
+  background: linear-gradient(to right, rgba(253,243,220,0.6), transparent);
+  margin: 0.25rem 0;
+}
+
+.separador {
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--accent-light);
+  letter-spacing: 0.35em;
+  margin: 0.5rem 0;
+}
+
+/* ── GIF WIDGET ── */
+.gif-widget {
+  width: 100%;
+  max-width: 280px;
+  margin: 0.25rem 0;
+  border: 0.5px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gif-widget img {
+  width: 100%;
+  display: block;
+}
+
+.gif-placeholder {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 4/3;
+  background: var(--yellow-bg);
+  border: 0.5px dashed var(--yellow-border);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* ── WIDGET DE CONCURSO ── */
+.concurso-widget {
+  border: 0.5px solid var(--yellow-border);
+  border-radius: 4px;
+  background: var(--yellow-bg);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-muted);
+}
+
+.concurso-widget .cw-titulo {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.concurso-widget .cw-nome {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-family: 'Lora', serif;
+  font-style: italic;
+}
+
+.cw-linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cw-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.badge-inscrito { background: #e8f5e2; color: #3d6030; border: 0.5px solid #6b8f5a; }
+.badge-enviado  { background: #fdf5fc; color: #7a3a6e; border: 0.5px solid #c084b4; }
+.badge-rascunho { background: #f5f5f5; color: #555;    border: 0.5px solid #bbb; }
+
+/* ── COLUNA MARGEM ── */
+.margin-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: sticky;
+  top: 2rem;
+}
+
+.margin-note {
+  padding: 9px 11px;
+  border-left: 2px solid transparent;
+  border-radius: 0 3px 3px 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 10.5px;
+  line-height: 1.65;
+}
+
+.margin-note .mn-label {
+  font-size: 8.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.mn-ref       { background: var(--yellow-bg);  border-color: var(--accent);       color: var(--ink-muted); }
+.mn-pensamento { background: var(--lilac-bg);   border-color: var(--lilac-accent); color: var(--lilac-text); }
+.mn-rascunho  { background: var(--green-bg);   border-color: var(--green-accent); color: var(--green-text); }
+
+/* ── ANTECÂMARA ── */
+.antecamara {
+  margin-top: 3rem;
+  padding-top: 1.75rem;
+  border-top: 0.5px dashed var(--border-dashed);
+}
+
+.antecamara-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.antecamara-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+@media (max-width: 480px) {
+  .antecamara-grid { grid-template-columns: 1fr; }
+}
+
+.ante-card {
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  padding: 10px 12px;
+  background: rgba(255,253,248,0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ante-tipo {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.ante-conteudo {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #3a2810;
+  font-style: italic;
+}
+
+/* ── RODAPÉ DA PÁGINA ── */
+.page-footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 0.5px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+}
+.footer-links a:hover { text-decoration: underline; }
+
+.footer-nav {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--accent-light);
+}
+
+/* ── FADE IN ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
