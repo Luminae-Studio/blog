@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title> Fragmentos de Mim </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Magali Ayelen">
+<link rel="shortcut icon" href="/blog/imagens/favicon.PNG">
+<link rel="stylesheet" href="/style.css">
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Georgia', serif;
+    background: url("/blog/imagens/fundo-index.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-mobile {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .home-logo {
+    position: fixed;
+    top: 18px;
+    left: 50px;
+    z-index: 100;
+    transition: transform 0.35s ease;
+  }
+  .home-logo img {
+    width: 200px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(40,10,70,0.45));
+  }
+  .home-logo:hover { transform: scale(1.05) translateY(-3px); }
+  .home-logo:hover img { filter: drop-shadow(0 8px 20px rgba(80,20,120,0.55)); }
+
+  main {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 60px 20px 48px 20px;
+  }
+
+  .papel {
+    position: relative;
+    background-color: #ede0f5;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 27px,
+        rgba(140,100,180,0.13) 27px,
+        rgba(140,100,180,0.13) 28px
+      );
+    border-radius: 6px;
+    box-shadow:
+      0 2px 6px rgba(60,20,80,0.10),
+      0 8px 30px rgba(60,20,80,0.18),
+      0 20px 60px rgba(40,10,60,0.22),
+      inset 0 0 40px rgba(255,255,255,0.20);
+    width: 100%;
+    max-width: 680px;
+    padding: 48px 52px 52px 56px;
+  }
+
+  .papel::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 8px; height: 100%;
+    background: linear-gradient(to right, rgba(130,80,180,0.28), transparent);
+    border-radius: 6px 0 0 6px;
+  }
+
+  .post-cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .post-data-box {
+    background-color: #7a4fa0;
+    color: #fff;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    padding: 5px 16px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(80,30,120,0.28);
+    text-align: center;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+  .post-data-box .mes-ano {
+    font-size: 0.82rem;
+    opacity: 0.95;
+  }
+
+  .post-titulo {
+    font-weight: 600;
+    color: #2e1040;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+
+  .post-corpo {
+    color: #2e1040;
+    font-size: 0.97rem;
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+
+  .post-corpo p { margin-bottom: 1.2em; }
+
+  .post-corpo ul {
+    list-style: none;
+    margin: 0 0 1.2em 0;
+    padding: 0;
+  }
+  .post-corpo ul li {
+    padding-left: 1.4em;
+    position: relative;
+    margin-bottom: 0.4em;
+  }
+  .post-corpo ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #9b6bc0;
+  }
+
+  .post-corpo ol {
+    padding-left: 1.6em;
+    margin-bottom: 1.2em;
+  }
+  .post-corpo ol li { margin-bottom: 0.4em; }
+
+  .post-corpo blockquote {
+    border-left: 3px solid #9b6bc0;
+    margin: 1.4em 0;
+    padding: 10px 20px;
+    background-color: rgba(155,107,192,0.08);
+    border-radius: 0 6px 6px 0;
+    color: #4a2060;
+    font-style: italic;
+  }
+
+  .post-divisoria {
+    width: 100%;
+    margin: 8px 0 28px 0;
+    overflow: hidden;
+    opacity: 0.75;
+  }
+  .post-divisoria img {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .post-rodape {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .post-rodape-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .post-label {
+    flex-shrink: 0;
+    background-color: #7a4fa0;
+    color: #fff;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    box-shadow: 0 2px 6px rgba(80,30,120,0.25);
+    white-space: nowrap;
+    font-style: normal;
+  }
+
+  .post-rodape-item span.conteudo {
+    color: #3d1a50;
+    font-size: 0.9rem;
+    font-style: normal;
+  }
+
+  @media (max-width: 600px) {
+    .home-logo { display: none; }
+    .header-mobile { display: block; }
+
+    .header-mobile-bar {
+      height: 50px;
+      background-color: #b99fbb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-mobile-bar a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #2e1040;
+      font-family: 'Georgia', serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .header-mobile-bar img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .header-mobile-divider img {
+      width: 100%;
+      display: block;
+      transform: scaleY(-1);
+    }
+
+    main { padding: 20px 14px 32px 14px; }
+    .papel { padding: 32px 22px 36px 26px; }
+    .post-data-box { align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="header-mobile">
+    <div class="header-mobile-bar">
+      <a href="../../index.html" title="Home">
+        <img src="/blog/imagens/favicon.PNG" alt="Home">
+        Home
+      </a>
+    </div>
+    <div class="header-mobile-divider">
+      <img src="https://64.media.tumblr.com/3f968d458084d2b7077c7934760124b2/f50c2545301372c0-a8/s540x810/3f709c4853b9fb3d04617c83eba46e45b2ff8019.gif" alt="">
+    </div>
+  </header>
+
+  <a href="../../index.html" class="home-logo" title="Home">
+    <img src="https://64.media.tumblr.com/28d9847370da54c4689e3f01c521939a/44e28fec3bca1733-b4/s2048x3072/7860d550ab898931cae29983c6e4a5937a786889.gifv" alt="Início">
+  </a>
+
+  <main>
+    <div class="papel">
+
+      <div class="back-nav" style="margin-bottom: 20px;">
+        <a href="../../alma.html" class="social-btn">
+          <div class="btn-outer"><div class="btn-inner">
+            <span>← Alma</span>
+          </div></div>
+        </a>
+      </div>
+      <div class="post-cabecalho">
+        <div class="post-data-box">
+          <span class="mes-ano"> Ago 2026 </span>
+        </div>
+        <h1 class="post-titulo" style="font-size: 1.7rem;"> Fragmentos de Mim </h1>
+      </div>
+
+      <div class="post-corpo">/
+        <p> Agosto ainda não terminou, mas preciso escrever antes que esses fragmentos desapareçam novamente. <em>Hoje e 18/08 e  normalmente eu posto no final do mês</em></p>
+        <p> Não estou lendo. Não tenho tempo, nem vontade. Mas estou escrevendo. E talvez isso já seja alguma coisa.<p>
+        
+         <blockquote>
+         O roxo voltou. Voltou para as minhas unhas, para os meus anéis, para os meus brincos. Voltou para pequenos detalhes. Voltou um pedacinho de mim, que faz o espelho não ser tão asustador
+         </blockquote>
+        
+        <p> Ainda não voltei ao psicólogo e, fora as crises de ansiedade horríveis dos últimos tempos, a viagem para São Paulo foi genial.</p>
+        <p> Descobri uma cidade onde consigo me imaginar morando. Consigo visualizar minha cafeteria. E talvez seja estranho encontrar um lugar para sonhar no meio de tanta coisa, mas encontrei. </p>
+        
+        <p>O clonazepam tem sido um aliado. </p>
+        <p>Além da comprensão dos olhos castanhos. Ás vezes, basta saber que, quando eu sair do chuveiro quente, vou encontrar alguém que pegue minha mão e diga </p>
+
+         <blockquote>
+         Vai estar tudo bem
+        </blockquote>
+
+        <p>AMas, entre as unhas roxas, as páginas que ainda não li, as palavras que voltei a escrever e uma cidade onde consigo imaginar uma vida, existem alguns fragmentos meus que estou começando a encontrar novamente.</p>
+
+        <blockquote>
+         E, por enquanto, acho que isso basta.
+        </blockquote>
+
+      
+      </div>
+
+      <div class="post-divisoria">
+        <img src="https://64.media.tumblr.com/3f968d458084d2b7077c7934760124b2/f50c2545301372c0-a8/s540x810/3f709c4853b9fb3d04617c83eba46e45b2ff8019.gif" alt="">
+      </div>
+
+      <div class="post-rodape">
+        <div class="post-rodape-item">
+          <span class="post-label">Tags</span>
+          <span class="conteudo"> · Holambra · Frio · +Escritura  </span>
+        </div>
+        <div class="post-rodape-item">
+          <span class="post-label">Mood</span>
+          <span class="conteudo"> Esperansoza </span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+<script src="/blog/footer.js"></script>
+<script src="/blog/i18n.js"></script>
+<script src="/blog/lang-switcher.js"></script>
+</body>
+</html>
