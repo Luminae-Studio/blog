@@ -1,5 +1,10 @@
 // FOLHA A FOLHA - script.js
 
+// --vh fix for iOS Safari (100dvh fallback)
+function setVh() { document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px'); }
+setVh();
+window.addEventListener('resize', setVh);
+
 function calcularPorFileira() { return window.innerWidth < 600 ? 4 : 20; }
 
 var livros = [];
@@ -105,6 +110,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var fr = document.createElement('div'); fr.className='livro-frase-hover'; fr.textContent=livro.frase||'';
     w.appendChild(fr);
+
+    // touch: tap once shows tooltip, tap again opens book
+    var tapped = false;
+    w.addEventListener('touchstart', function(e) {
+      if (!tapped) { e.preventDefault(); tapped = true; w.classList.add('toque-ativo'); }
+    }, { passive: false });
+    document.addEventListener('touchstart', function(e) {
+      if (!w.contains(e.target)) { tapped = false; w.classList.remove('toque-ativo'); }
+    });
 
     (function(l){ w.addEventListener('click', function(){ abrirLivro(l); }); })(livro);
     return w;
