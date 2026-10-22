@@ -1,19 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--
-    TEMPLATE DE REVIEW — folha a folha
-    Cada <div class="pagina"> é uma folha do livro.
-    O JS lê esses blocos e mostra um por vez com animação de virar página.
-    Você decide onde cada página termina — por assunto, tamanho, clima.
-    Dentro de cada .pagina você tem liberdade total: texto, imagens, frases, etc.
-  -->
+  <title>Flores para Algernon</title>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Special+Elite&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       background: #f0e8d5;
       font-family: 'EB Garamond', Georgia, serif;
@@ -21,18 +13,11 @@
       font-size: 0.9rem;
       line-height: 1.82;
     }
-
-    /* cada pagina e um bloco — o JS controla qual aparece */
     .pagina {
       padding: 1.8rem 1.6rem 2.5rem;
       min-height: 100%;
-      display: none; /* JS mostra a pagina correta */
+      position: relative;
     }
-    .pagina.ativa {
-      display: block;
-    }
-
-    /* data do review */
     .data {
       font-family: 'Special Elite', monospace;
       font-size: 0.58rem;
@@ -41,8 +26,6 @@
       margin-bottom: 1.5rem;
       display: block;
     }
-
-    /* label de secao */
     .label {
       font-family: 'Special Elite', monospace;
       font-size: 0.58rem;
@@ -54,11 +37,7 @@
       padding-bottom: 0.3rem;
       display: block;
     }
-
-    /* paragrafo padrao */
     .pagina p { margin-bottom: 0.9rem; }
-
-    /* frase destacada */
     .frase {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 1rem;
@@ -70,8 +49,6 @@
       margin: 1.4rem 0;
       line-height: 1.6;
     }
-
-    /* anotacao lateral */
     .margem {
       border-left: 2px solid rgba(200,185,154,0.5);
       padding-left: 0.8rem;
@@ -79,8 +56,6 @@
       color: #7a6a5a;
       margin: 0.8rem 0;
     }
-
-    /* imagem */
     .pagina img {
       width: 100%;
       max-height: 200px;
@@ -89,62 +64,66 @@
       border-radius: 1px;
       opacity: 0.9;
     }
-
-    /* texto riscado */
+    .img-cheia {
+      width: 100%;
+      max-height: none;
+      height: 70%;
+      object-fit: cover;
+      margin: 1rem 0;
+      border-radius: 1px;
+      opacity: 0.88;
+    }
+    .cw {
+      font-family: 'Special Elite', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      color: #a08878;
+      margin-bottom: 1rem;
+      display: block;
+    }
     .riscado { text-decoration: line-through; opacity: 0.5; }
-
-    /* numero de pagina */
-    .num-pagina {
+    .num {
       position: absolute;
       bottom: 0.8rem;
       width: 100%;
       left: 0;
       text-align: center;
-      font-family: 'EB Garamond', serif;
       font-style: italic;
       font-size: 0.68rem;
       color: #c8b99a;
       letter-spacing: 0.2em;
     }
+
   </style>
 </head>
 <body>
 
-  <!-- PAGINA 1 -->
-  <div class="pagina ativa">
-    <span class="data">dd.mm.aaaa</span>
-    <span class="label">impressao inicial</span>
-    <p>Escreva aqui sua primeira impressao do livro.</p>
-    <p>Pode ter mais de um paragrafo.</p>
-    <span class="num-pagina">1</span>
+  <div class="pagina">
+    <span class="data">4 dias</span>
+    <span class="label">impressão inicial</span>
+    <p>Cheguei atrasada nesse clássico. Ler sem spoiler nenhum foi um presente que não sabia que estava recebendo.</p>
+    <p>Acompanhar Charlie Gordon pela escrita é uma experiência única — os erros gramaticais do início, a evolução, a deterioração.</p>
+    <span class="num">1</span>
   </div>
 
-  <!-- PAGINA 2 -->
   <div class="pagina">
     <span class="label">lendo</span>
-    <p>Como foi a experiencia de leitura?</p>
-    <p class="margem">Uma anotacao lateral aqui.</p>
-    <p>Mais texto aqui.</p>
-    <span class="num-pagina">2</span>
+    <p>O cérebro de Charlie cresce e as emoções crescem com ele — mas conhecimento não ensina a lidar com sentimento.</p>
+    <p>Há uma solidão específica em ser mais inteligente do que o mundo ao seu redor que o livro captura com precisão dolorosa.</p><p class="margem">tem uma dor que vai crescendo conforme você lê e não tem como se preparar.</p>
+    <span class="num">2</span>
   </div>
 
-  <!-- PAGINA 3 -->
   <div class="pagina">
     <span class="label">pensamentos</span>
-    <p>Reflexoes livres sobre o livro.</p>
-    <p class="frase">"Uma frase do livro que ficou."</p>
-    <span class="num-pagina">3</span>
+    <p>O livro levanta questões sobre o que fazemos com inteligência, sobre o que perdemos quando 'evoluímos', sobre o que o mundo faz com quem não se encaixa — seja por ser menos, seja por ser demais.</p>
+    <span class="num">3</span>
   </div>
 
-  <!--
-    ADICIONE MAIS PAGINAS CONFORME PRECISAR:
-
-    <div class="pagina">
-      <img src="https://..." alt="">
-      <p>Legenda ou texto.</p>
-      <span class="num-pagina">4</span>
-    </div>
-  -->
+  <div class="pagina">
+    <span class="label">o que fica</span>
+    <p class="frase">o fruto proibido do saber transforma — e depois cobra o preço.</p><p>Fiquei pensando em Algernon por semanas. Não esperava sentir tanto por um rato.</p>
+    <span class="num">4</span>
+  </div>
 
 <script src="/blog/footer.js"></script>
 <script src="/blog/i18n.js"></script>

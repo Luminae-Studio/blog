@@ -130,10 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
     fichaImg.onload = function() {
       fichaCapaMini.style.cssText = 'width:72px;height:104px;border-radius:2px;box-shadow:3px 4px 12px rgba(0,0,0,0.35);margin-bottom:1rem;float:left;margin-right:1rem;background-image:url(' + fichaImg.src + ');background-size:cover;background-position:center;';
     };
-    fichaImg.src = 'https://o-som-dos-livros.neocities.org/Folha%20a%20folha/capas/' + livro.id + '.webp';
+    fichaImg.src = 'capas/' + livro.id + '.webp';
     fichaTitulo.textContent  = livro.titulo||'';
     fichaAutor.textContent   = livro.autor||'';
     fichaPaginas.textContent = livro.paginas ? livro.paginas+' paginas' : '';
+    var fichaTempoEl = document.getElementById('ficha-tempo');
+    if (fichaTempoEl) fichaTempoEl.textContent = livro.tempo_leitura ? livro.tempo_leitura : '';
     fichaIdioma.textContent  = livro.idioma==='pt' ? 'lido em portugues' : 'leido en espanol';
     var e = livro.estrelas||0;
     fichaEstrelas.textContent = '\u2605'.repeat(e)+'\u2606'.repeat(5-e);
@@ -198,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
       capaAutorAnim.style.display  = 'block';
       iniciarAnimacao();
     };
-    capaAnimImg.src = 'https://o-som-dos-livros.neocities.org/Folha%20a%20folha/capas/' + livro.id + '.webp';
+    capaAnimImg.src = 'capas/' + livro.id + '.webp';
 
     overlay.onclick = fecharLivro;
   }
@@ -234,6 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!doc) return;
 
     paginasReview = Array.prototype.slice.call(doc.querySelectorAll('.pagina'));
+    if (paginasReview.length === 0) { fallbackReview(livroAtual); return; }
     totalAberturas = Math.ceil(paginasReview.length / 2) + 1; // +1 for ficha opening
     aberturaAtual = 0;
 
